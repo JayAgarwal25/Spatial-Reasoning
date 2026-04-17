@@ -1,0 +1,41 @@
+# Default configuration for the Quant-EpiGNN pipeline
+
+# Step 1: Scene Graph Extraction
+step1:
+  detector_backend: owlvit          # owlvit | florence2 | groundingdino | detr | contour | annotation
+  depth_backend: dpt                # dpt | pseudo | none
+  relation_backend: blip2           # blip2 | llava | heuristic
+  use_vlm_relations: true
+  device: cpu
+  min_confidence: 0.12
+  edge_threshold: 0.48
+  max_pairs: 24
+  max_objects: 20
+
+# Step 2: Epistemic GNN
+step2:
+  sem_dim: 384                      # all-MiniLM-L6-v2 output dim
+  hidden_dim: 256
+  num_pred_classes: 14              # matches Step 1 VALID_RELATIONS vocab
+
+# Training
+training:
+  dataset: mock                     # mock | step1
+  data_root: data/scene_graphs/
+  epochs: 50
+  lr: 0.001
+  batch_size: 16
+  lambda_metric: 1.0
+  huber_delta: 1.0
+  checkpoint_dir: checkpoints/
+
+# Step 3: Visual Grounding
+step3:
+  residual_threshold: 0.3           # calibrate per dataset on val set
+  max_iters: 3
+
+# Evaluation
+evaluation:
+  datasets:
+    - spatialqa
+    - nuscenes
