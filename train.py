@@ -82,14 +82,30 @@ def get_dataset(args) -> tuple[list, list]:
         return train, val
 
     if args.dataset == "step1":
-        # Load Step 1 JSON scene graphs produced by step1_scene_graph/run_pipeline.py
+        # Load Step 1 JSON scene graphs produced by step1_scene_graph/run_pipeline.py.
+        # Accepts either:
+        #   (a) a flat directory of JSONs → auto-split 80/20 into train/val
+        #   (b) a directory with train/ and val/ subdirs → use them directly
         embed_model = load_embed_model()
         train_dir = os.path.join(args.data_root, "train")
         val_dir   = os.path.join(args.data_root, "val")
-        train = load_scene_graph_dataset(train_dir, embed_model=embed_model)
-        val   = load_scene_graph_dataset(val_dir,   embed_model=embed_model)
+
+        if os.path.isdir(train_dir) and os.path.isdir(val_dir):
+            train = load_scene_graph_dataset(train_dir, embed_model=embed_model)
+            val   = load_scene_graph_dataset(val_dir,   embed_model=embed_model)
+        else:
+            all_graphs = load_scene_graph_dataset(args.data_root, embed_model=embed_model)
+            if not all_graphs:
+                raise RuntimeError(f"No JSON files found in {args.data_root}")
+            split = max(1, int(len(all_graphs) * (1 - args.val_split)))
+            train, val = all_graphs[:split], all_graphs[split:]
+            if not val:
+                val = all_graphs[-1:]
+            print(f"Auto-split: {len(train)} train / {len(val)} val "
+                  f"({args.val_split:.0%} val)")
+
         if not train:
-            raise RuntimeError(f"No JSON files found in {train_dir}")
+            raise RuntimeError(f"No training graphs found in {args.data_root}")
         return train, val
 
     raise NotImplementedError(
@@ -174,7 +190,9 @@ def parse_args():
     g.add_argument("--dataset",         type=str, default="mock",
                    help="'mock' or 'step1' (real Step 1 JSON outputs)")
     g.add_argument("--data_root",       type=str, default="data/scene_graphs/",
-                   help="root dir for step1 dataset (expects train/ and val/ subdirs)")
+                   help="flat dir of JSONs, or dir with train/ and val/ subdirs")
+    g.add_argument("--val_split",       type=float, default=0.2,
+                   help="val fraction when using a flat data_root (default 0.2)")
     g.add_argument("--mock_train_size", type=int, default=200)
     g.add_argument("--mock_val_size",   type=int, default=50)
     g.add_argument("--mock_N",          type=int, default=12, help="nodes per mock graph")
@@ -202,6 +220,8 @@ def parse_args():
     g.add_argument("--checkpoint_dir", type=str, default="checkpoints")
     g.add_argument("--resume",         type=str, default=None,
                    help="path to checkpoint to resume training from")
+    g.add_argument("--device",         type=str, default=None,
+                   help="device override e.g. cuda:0, cuda:1, cpu (default: auto)")
 
     return p.parse_args()
 
@@ -212,7 +232,10 @@ def parse_args():
 
 def main():
     args   = parse_args()
-    device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
+    if args.device:
+        device = torch.device(args.device)
+    else:
+        device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 
     print(f"Device : {device}")
     print(f"Dataset: {args.dataset}")
