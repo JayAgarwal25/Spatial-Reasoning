@@ -126,11 +126,36 @@ Standard epistemic uncertainty (MC dropout, per-node variance) measures *local* 
 
 **Objective:** Validate the model quantitatively and establish rigorous comparison against VLM baselines.
 
+### Benchmark Datasets
+
+**Primary (use these for deadline):**
+
+**Spatial457** (CVPR 2025) — 457 synthetic scenes with exact 3D object coordinates. Ground-truth distances are computed analytically from known positions — no sensor noise. This is the cleanest controlled test: any triangle-inequality residual spike is unambiguously a VLM inconsistency, not depth noise.
+- Download: `huggingface.co/datasets/RyanWW/Spatial457`
+- Eval metric: MAE on predicted vs. ground-truth metric distances
+
+**3DSRBench** (ICCV 2025) — 2,772 QA pairs on real RGB-D images. Ground-truth distances from depth sensor. Tests the system under realistic conditions including the depth noise that Spatial457 avoids.
+- Download: `huggingface.co/datasets/ccvl/3DSRBench` (CC BY 4.0)
+- Eval metric: Accuracy (CircularEval, FlipEval protocols) + MAE on distance tasks
+
+**Secondary (future work / stronger paper):**
+
+**SpatialBench** (CVPR 2026, arXiv 2511.21471) — 1,347 QA pairs from 50 egocentric videos with synchronized RGB + LiDAR. LiDAR provides precise metric ground truth. Most realistic real-world test. Requires video frame extraction before use.
+- Download: `huggingface.co/datasets/XPR2004/SpatialBench` (Apache 2.0, ~5.56 GB, Git LFS required)
+- Eval metric: MRA (mean relative accuracy) on numerical tasks; add MAE computation on top
+
+**Not recommended:**
+
+- **SpatiaLQA** (2026): 9,605 QA pairs but no metric distances — focused on logical/categorical spatial reasoning. Cannot verify triangle inequality violations.
+- **NuScenes-SpatialQA** (2025): Strong LiDAR GT but HuggingFace repo currently empty; base nuScenes dataset is 700 GB. Not viable on a short timeline.
+
+---
+
 **Key Responsibilities:**
 
-1. **SpatiaLQA Evaluation:** Multi-step logical dependency tests across 9,605 indoor-scene QA pairs; evaluate dependency-aware precondition inference.
+1. **Spatial457 Evaluation:** For each scene, query a baseline VLM for pairwise distances across all object pairs. Feed outputs through Step 2 to compute consistency residuals. Measure MAE of the GNN's refined distance predictions against 3D ground truth. Compare residual magnitudes on correct vs. incorrect VLM distance claims.
 
-2. **NuScenes-SpatialQA Evaluation:** Calculate Mean Absolute Error (MAE) for numerical distance predictions against ground-truth sensor data, comparing our approach against VLM baselines.
+2. **3DSRBench Evaluation:** Same pipeline on real RGB-D data. Key question: do residuals spike more on VLM hallucinations than on noisy depth estimates? This directly tests the source-ambiguity limitation.
 
 3. **Ablation Studies (mandatory per eval scheme):**
 

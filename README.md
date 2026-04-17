@@ -206,8 +206,34 @@ python step4_evaluation/ablation.py --model checkpoints/best.pt
 
 ## Benchmarks
 
-- **SpatiaLQA** — 9,605 QA pairs, multi-step indoor spatial reasoning
-- **NuScenes-SpatialQA** — autonomous driving, quantitative distance prediction evaluated via MAE
+### Primary Evaluation Datasets
+
+| Dataset | Year | Size | Metric GT | Domain | Access |
+|---------|------|------|-----------|--------|--------|
+| **Spatial457** | CVPR 2025 | 457 synthetic scenes | Exact 3D coords per object | Indoor/outdoor synthetic | HuggingFace (`RyanWW/Spatial457`) |
+| **3DSRBench** | ICCV 2025 | 2,772 QA pairs | RGB-D depth (real sensor) | Indoor real + synthetic | HuggingFace (`ccvl/3DSRBench`, CC BY 4.0) |
+
+These two are the primary benchmarks. Both provide ground-truth metric distances necessary to verify triangle inequality violations — the core claim of this system.
+
+**Spatial457** uses synthetic scenes with perfect 3D object coordinates, making it ideal for controlled evaluation: given exact positions A, B, C we can compute the ground-truth d(A,C) and check whether the VLM's claim violates `|d(A,C) − (d(A,B) + d(B,C))| > ε`. No measurement noise; any residual spike is unambiguously attributable to the VLM.
+
+**3DSRBench** uses real RGB-D images with depth-sensor ground truth. This tests the system under realistic depth noise — directly relevant to the source-ambiguity limitation described below.
+
+### Secondary / Future Benchmarks
+
+| Dataset | Year | Size | Notes |
+|---------|------|------|-------|
+| **SpatialBench** | CVPR 2026 | 1,347 QA / 50 videos | LiDAR GT distances; real egocentric video; strongest real-world test but requires frame extraction |
+| **NuScenes-SpatialQA** | 2025 | 3.5M QA pairs | LiDAR GT; autonomous driving; HuggingFace repo currently empty, base dataset 700 GB |
+| **SpatiaLQA** | 2026 | 9,605 QA pairs | No metric distances (logical/categorical only); not suited for triangle-inequality evaluation |
+
+### Evaluation Metrics
+
+| Dataset | Primary Metric | Notes |
+|---------|---------------|-------|
+| Spatial457 | MAE on predicted distances | Exact GT → direct MAE computation |
+| 3DSRBench | Accuracy + MAE | CircularEval and FlipEval protocols |
+| SpatialBench | MRA (mean relative accuracy) | Numerical tolerance thresholds; MAE computed on top |
 
 ---
 
@@ -220,7 +246,7 @@ The residual measures internal disagreement among the VLM and depth stack output
 On a dataset with ground-truth hallucination labels, measure whether the consistency residual correlates specifically with hallucination rate versus depth noise rate. If residuals spike equally on noisy depth estimates as on VLM hallucinations, the source-bias problem weakens the claim. This experiment is the gating condition for a strong paper claim about hallucination detection.
 
 **ε threshold generalization.**
-The re-grounding threshold ε is calibrated per dataset. Its transferability across scene types (indoor SpatiaLQA vs. outdoor NuScenes) is untested and should be treated as a hyperparameter requiring per-domain tuning.
+The re-grounding threshold ε is calibrated per dataset. Its transferability across scene types (indoor Spatial457 vs. real-world 3DSRBench vs. egocentric SpatialBench) is untested and should be treated as a hyperparameter requiring per-domain tuning.
 
 ---
 
