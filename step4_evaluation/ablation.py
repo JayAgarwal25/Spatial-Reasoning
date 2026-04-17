@@ -116,7 +116,7 @@ def _run_on_spatial457(
     Re-uses the loader from spatialqa_eval but inlines inference to allow
     custom forward-pass variants per ablation.
     """
-    from spatialqa_eval import load_spatial457, build_pyg_data, aggregate_results
+    from step4_evaluation.spatialqa_eval import load_spatial457, build_pyg_data, aggregate_results
 
     scenes = load_spatial457(dataset_path)
     if max_scenes:
@@ -199,7 +199,7 @@ def ablation_a1(
 
     Returns (result_full, result_posthoc).
     """
-    from spatialqa_eval import load_spatial457, build_pyg_data
+    from step4_evaluation.spatialqa_eval import load_spatial457, build_pyg_data
     from itertools import combinations
     import torch
 
@@ -321,7 +321,7 @@ def ablation_a2(
         sys.path.insert(0, str(Path(__file__).parent.parent))
         from step3_visual_agent.feedback_loop import FeedbackLoop
 
-        from spatialqa_eval import load_spatial457, build_pyg_data, aggregate_results
+        from step4_evaluation.spatialqa_eval import load_spatial457, build_pyg_data, aggregate_results
         from itertools import combinations
 
         scenes = load_spatial457(dataset_path)
@@ -576,7 +576,7 @@ def main():
         print_result(r_std)
         all_results["A3_EpiGNN"]     = r_epi
         all_results["A3_std_GNN"]    = r_std
-        delta_mae  = r_std.mae - r_epi.mae if not (r_std.mae != r_std.mae) else float("nan")
+        delta_mae  = r_std.mae - r_epi.mae if np.isfinite(r_std.mae) and np.isfinite(r_epi.mae) else float("nan")
         output_data["A3"] = {
             "A3_EpiGNN":  r_epi.to_dict(),
             "A3_std_GNN": r_std.to_dict(),

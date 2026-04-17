@@ -97,10 +97,14 @@ def get_dataset(args) -> tuple[list, list]:
             all_graphs = load_scene_graph_dataset(args.data_root, embed_model=embed_model)
             if not all_graphs:
                 raise RuntimeError(f"No JSON files found in {args.data_root}")
+            if len(all_graphs) < 2:
+                raise RuntimeError(
+                    f"Need at least 2 scene graphs for train/val split, "
+                    f"found {len(all_graphs)} in {args.data_root}"
+                )
             split = max(1, int(len(all_graphs) * (1 - args.val_split)))
+            split = min(split, len(all_graphs) - 1)  # guarantee at least 1 val graph
             train, val = all_graphs[:split], all_graphs[split:]
-            if not val:
-                val = all_graphs[-1:]
             print(f"Auto-split: {len(train)} train / {len(val)} val "
                   f"({args.val_split:.0%} val)")
 
@@ -267,6 +271,9 @@ def main():
         )
         start_epoch += 1
         print(f"Resumed from {args.resume}  (starting at epoch {start_epoch})\n")
+        if start_epoch > args.epochs:
+            print(f"Checkpoint epoch {start_epoch - 1} >= --epochs {args.epochs}. Nothing to train.")
+            return
 
     os.makedirs(args.checkpoint_dir, exist_ok=True)
     best_ckpt = os.path.join(args.checkpoint_dir, "best.pt")

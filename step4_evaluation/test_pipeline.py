@@ -6,7 +6,7 @@ from pathlib import Path
 # Importing the modules from your project structure
 from step4_evaluation.metrics import compute_residuals_from_distances, triangle_violation_rate
 from step4_evaluation.baseline import build_baseline
-from spatialqa_eval import build_pyg_data
+from step4_evaluation.spatialqa_eval import build_pyg_data
 
 class TestSpatialEvaluation(unittest.TestCase):
     

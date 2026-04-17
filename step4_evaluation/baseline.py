@@ -197,7 +197,7 @@ class GeminiBaseline(VLMBaseline):
     tag = "gemini15pro"
 
     def __init__(self, api_key: Optional[str] = None,
-                 model: str = "gemini-1.5-pro-latest"):
+                 model: str = "gemini-1.5-pro-002"):
         try:
             import google.generativeai as genai
         except ImportError:

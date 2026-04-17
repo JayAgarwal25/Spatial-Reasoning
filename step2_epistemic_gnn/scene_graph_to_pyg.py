@@ -148,6 +148,10 @@ def scene_graph_json_to_pyg(
     for e in deduped:
         feats = e.get("features", {})
 
+        if e["subject_id"] not in id_to_idx or e["object_id"] not in id_to_idx:
+            print(f"Warning: skipping edge ({e['subject_id']}→{e['object_id']}) — node ID not in graph")
+            continue
+
         src_list.append(id_to_idx[e["subject_id"]])
         dst_list.append(id_to_idx[e["object_id"]])
 
