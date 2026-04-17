@@ -1,5 +1,7 @@
 # Detecting Quantitative Spatial Hallucinations in Vision-Language Models via Geometric Consistency Verification and Selective Visual Grounding
 
+> **Status:** Active development — Step 1 (zero-shot scene graph extraction) and Step 2 (epistemic GNN + geometric consistency residuals) complete. Step 3 (visual grounding feedback loop) and Step 4 (evaluation) in progress.
+
 ---
 
 ## Motivation
