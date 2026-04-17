@@ -41,6 +41,9 @@ PRED_TO_IDX = {p: i for i, p in enumerate(PREDICATE_VOCAB)}
 # Embedding dimension produced by all-MiniLM-L6-v2
 SEM_DIM = 384
 
+# Feature key written by prepare_spatial457.py — used as target_dist when present
+GT_DIST_KEY = 'gt_metric_dist_m'
+
 
 # ---------------------------------------------------------------------------
 # Embedding model loader
@@ -155,9 +158,13 @@ def scene_graph_json_to_pyg(
         src_list.append(id_to_idx[e["subject_id"]])
         dst_list.append(id_to_idx[e["object_id"]])
 
-        # Metric distance proxy: normalize pixel center_distance by image diagonal
-        center_dist = feats.get("center_distance", 0.0)
-        dist_list.append(center_dist / image_diag if image_diag > 0 else 0.0)
+        # Prefer GT metric distance (metres) when available; fall back to
+        # normalised pixel distance proxy.
+        if GT_DIST_KEY in feats:
+            dist_list.append(float(feats[GT_DIST_KEY]))
+        else:
+            center_dist = feats.get("center_distance", 0.0)
+            dist_list.append(center_dist / image_diag if image_diag > 0 else 0.0)
 
         conf_list.append(float(e["confidence"]))
 
@@ -189,7 +196,8 @@ def scene_graph_json_to_pyg(
 
     if add_labels:
         data.target_classes = torch.tensor(cls_list, dtype=torch.long)
-        # target_dist placeholder: use normalized center_distance until GT is available
+        # Use GT metric distances (from prepare_spatial457.py) when available;
+        # they are already stored in edge_dist when GT_DIST_KEY is present.
         data.target_dist = edge_dist.clone()
 
     return data

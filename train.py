@@ -28,6 +28,7 @@ import torch.optim as optim
 from torch_geometric.loader import DataLoader
 
 from step2_epistemic_gnn.epistemic_gnn import QuantEpiGNN, DualStreamLoss, build_scene_graph_data
+from step2_epistemic_gnn.ablation_gnn import AblationGNN
 from step2_epistemic_gnn.scene_graph_to_pyg import (
     load_scene_graph_dataset, load_embed_model, NUM_PRED_CLASSES, SEM_DIM,
 )
@@ -208,6 +209,10 @@ def parse_args():
     g.add_argument("--hidden_dim",       type=int, default=256)
     g.add_argument("--num_pred_classes", type=int, default=NUM_PRED_CLASSES,
                    help="number of predicate classes (14, matches Step 1 vocab)")
+    g.add_argument("--no_geom_constraint", action="store_true",
+                   help="ablation: disable triangle-inequality residual weighting")
+    g.add_argument("--no_epistemic",       action="store_true",
+                   help="ablation: disable epistemic sigma uncertainty")
 
     g = p.add_argument_group("loss")
     g.add_argument("--lambda_metric", type=float, default=1.0,
@@ -241,8 +246,14 @@ def main():
     else:
         device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 
+    use_geom = not args.no_geom_constraint
+    use_epi  = not args.no_epistemic
+    variant  = ("full" if (use_geom and use_epi)
+                else f"{'no_geom' if not use_geom else ''}{'_' if not use_geom and not use_epi else ''}{'no_epi' if not use_epi else ''}")
+
     print(f"Device : {device}")
     print(f"Dataset: {args.dataset}")
+    print(f"Variant: {variant}  (geom_constraint={use_geom}  epistemic={use_epi})")
     print(f"Model  : hidden_dim={args.hidden_dim}, sem_dim={args.sem_dim}, "
           f"num_pred_classes={args.num_pred_classes}")
     print(f"Loss   : lambda_metric={args.lambda_metric}, huber_delta={args.huber_delta}")
@@ -253,10 +264,12 @@ def main():
     val_loader   = DataLoader(val_data,   batch_size=args.batch_size, shuffle=False)
     print(f"Train graphs: {len(train_data)}  |  Val graphs: {len(val_data)}\n")
 
-    model = QuantEpiGNN(
-        sem_dim          = args.sem_dim,
-        hidden_dim       = args.hidden_dim,
-        num_pred_classes = args.num_pred_classes,
+    model = AblationGNN(
+        sem_dim              = args.sem_dim,
+        hidden_dim           = args.hidden_dim,
+        num_pred_classes     = args.num_pred_classes,
+        use_geom_constraint  = use_geom,
+        use_epistemic        = use_epi,
     ).to(device)
 
     loss_fn   = DualStreamLoss(lambda_metric=args.lambda_metric,
@@ -276,7 +289,7 @@ def main():
             return
 
     os.makedirs(args.checkpoint_dir, exist_ok=True)
-    best_ckpt = os.path.join(args.checkpoint_dir, "best.pt")
+    best_ckpt = os.path.join(args.checkpoint_dir, f"best_{variant}.pt")
 
     for epoch in range(start_epoch, args.epochs + 1):
         tr = train_epoch(model, train_loader, loss_fn, optimizer, device)

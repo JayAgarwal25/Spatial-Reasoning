@@ -460,22 +460,24 @@ def main():
         distance_items = distance_items[:args.max_items]
         qa_items       = qa_items[:args.max_items]
 
-    epignn, device = (None, "cpu") if args.no_gnn else None, "cpu"
+    epignn, device = None, "cpu"
     if not args.no_gnn:
         try:
             import sys
             sys.path.insert(0, str(Path(__file__).parent.parent))
-            from step2_epistemic_gnn.epistemic_gnn import EpistemicGNN
+            from step2_epistemic_gnn.ablation_gnn import AblationGNN
             import torch
             device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
             ckpt = torch.load(args.model, map_location=device)
-            cfg  = ckpt.get("config", {})
-            epignn = EpistemicGNN(
-                sem_dim=cfg.get("sem_dim", 384),
-                hidden_dim=cfg.get("hidden_dim", 256),
-                num_classes=cfg.get("num_classes", 10),
+            cfg  = ckpt.get("args", ckpt.get("config", {}))
+            epignn = AblationGNN(
+                sem_dim             = cfg.get("sem_dim",          384),
+                hidden_dim          = cfg.get("hidden_dim",       256),
+                num_pred_classes    = cfg.get("num_pred_classes", 14),
+                use_geom_constraint = not cfg.get("no_geom_constraint", False),
+                use_epistemic       = not cfg.get("no_epistemic",       False),
             )
-            epignn.load_state_dict(ckpt["model_state_dict"])
+            epignn.load_state_dict(ckpt.get("model", ckpt.get("model_state_dict")))
             epignn.to(device).eval()
             logger.info(f"Loaded EpiGNN from {args.model}")
         except Exception as e:

@@ -70,35 +70,22 @@ def load_spatial457(dataset_path: str) -> List[Dict]:
     """
     Load Spatial457 scenes.
 
-    Expected directory layout (after HF download):
-        <dataset_path>/
-            data/
-                scene_0001/
-                    image.jpg
-                    metadata.json      ← object positions (x,y,z in metres)
-                scene_0002/
-                    ...
+    Supports two on-disk formats:
 
-    metadata.json schema:
-    {
-        "objects": [
-            {"id": "chair",   "position": [x, y, z]},
-            {"id": "table",   "position": [x, y, z]},
-            ...
-        ],
-        "hallucination_labels": {          # optional — only if GT labels exist
-            "chair__table": 0,             # 0 = correct VLM claim, 1 = hallucinated
-            ...
-        }
-    }
+    Format A — per-scene directory layout (hand-curated or converted):
+        <dataset_path>/data/scene_0001/image.jpg
+                                      /metadata.json   ← {objects, hallucination_labels}
+        metadata.json objects schema: [{"id": str, "position": [x, y, z]}, ...]
+
+    Format B — superCLEVR bulk download (RyanWW/Spatial457 HF snapshot):
+        <dataset_path>/spatial457_scenes_21k.json   ← all scenes + 3d_coords
+        <dataset_path>/images/superCLEVR_new_*.png  ← RGB images
 
     Returns list of scene dicts with keys:
         scene_id, image_path, objects, gt_distances, hallucination_labels
     """
     dataset_path = Path(dataset_path)
-    scenes = []
 
-    # Try HuggingFace datasets library first
     if not dataset_path.exists():
         try:
             from datasets import load_dataset
@@ -111,10 +98,17 @@ def load_spatial457(dataset_path: str) -> List[Dict]:
                 f"failed: {e}"
             )
 
+    # Format B: superCLEVR bulk JSON
+    bulk_json = dataset_path / "spatial457_scenes_21k.json"
+    if bulk_json.exists():
+        return _load_super_clevr_format(dataset_path, bulk_json)
+
+    # Format A: per-scene subdirectories
     data_dir = dataset_path / "data"
     if not data_dir.exists():
-        data_dir = dataset_path          # flat layout fallback
+        data_dir = dataset_path
 
+    scenes = []
     for scene_dir in sorted(data_dir.iterdir()):
         if not scene_dir.is_dir():
             continue
@@ -130,14 +124,13 @@ def load_spatial457(dataset_path: str) -> List[Dict]:
         if len(objects) < 2:
             continue
 
-        # Compute ground-truth pairwise distances from 3D coordinates
         gt_distances: Dict[str, float] = {}
         for obj_a, obj_b in combinations(objects, 2):
             pos_a = np.array(obj_a["position"], dtype=float)
             pos_b = np.array(obj_b["position"], dtype=float)
             dist_m = float(np.linalg.norm(pos_a - pos_b))
             key = f"{obj_a['id']}__{obj_b['id']}"
-            gt_distances[key] = dist_m * 100.0   # convert to cm
+            gt_distances[key] = dist_m * 100.0
 
         scenes.append({
             "scene_id":             scene_dir.name,
@@ -148,6 +141,69 @@ def load_spatial457(dataset_path: str) -> List[Dict]:
         })
 
     logger.info(f"Loaded {len(scenes)} scenes from Spatial457.")
+    return scenes
+
+
+def _load_super_clevr_format(dataset_path: Path, bulk_json: Path) -> List[Dict]:
+    """
+    Parse the RyanWW/Spatial457 HuggingFace snapshot layout.
+
+    Each scene entry in spatial457_scenes_21k.json has:
+        image_filename  — PNG basename, e.g. "superCLEVR_new_020000.png"
+        objects         — list of dicts with keys:
+                            3d_coords [x, y, z]  (Blender world units ≈ metres)
+                            size, color, shape
+
+    Object IDs are constructed as "{size}_{color}_{shape}" with a numeric
+    suffix appended when two objects in the same scene share the same label.
+    """
+    import os
+    img_dir = dataset_path / "images"
+    available_imgs = set(os.listdir(img_dir)) if img_dir.exists() else set()
+
+    with open(bulk_json) as f:
+        raw = json.load(f)
+
+    scenes = []
+    for entry in raw.get("scenes", []):
+        img_fname = entry.get("image_filename", "")
+        if img_fname not in available_imgs:
+            continue
+
+        raw_objects = entry.get("objects", [])
+        if len(raw_objects) < 2:
+            continue
+
+        # Build unique string IDs
+        label_counts: Dict[str, int] = {}
+        objects = []
+        for obj in raw_objects:
+            base_id = f"{obj.get('size','?')}_{obj.get('color','?')}_{obj.get('shape','?')}"
+            count = label_counts.get(base_id, 0)
+            label_counts[base_id] = count + 1
+            obj_id = base_id if count == 0 else f"{base_id}_{count}"
+            coords = obj.get("3d_coords", [0.0, 0.0, 0.0])
+            objects.append({"id": obj_id, "position": coords})
+
+        gt_distances: Dict[str, float] = {}
+        for obj_a, obj_b in combinations(objects, 2):
+            pos_a = np.array(obj_a["position"], dtype=float)
+            pos_b = np.array(obj_b["position"], dtype=float)
+            dist_m = float(np.linalg.norm(pos_a - pos_b))
+            key = f"{obj_a['id']}__{obj_b['id']}"
+            gt_distances[key] = dist_m * 100.0   # convert to cm
+
+        scene_id = img_fname.replace(".png", "").replace(".jpg", "")
+        img_path = str(img_dir / img_fname)
+        scenes.append({
+            "scene_id":             scene_id,
+            "image_path":           img_path,
+            "objects":              objects,
+            "gt_distances":         gt_distances,
+            "hallucination_labels": {},
+        })
+
+    logger.info(f"Loaded {len(scenes)} scenes from superCLEVR/Spatial457 format.")
     return scenes
 
 
@@ -188,18 +244,19 @@ def load_epignn(checkpoint_path: str):
     import sys
     sys.path.insert(0, str(Path(__file__).parent.parent))
 
-    from step2_epistemic_gnn.epistemic_gnn import EpistemicGNN
+    from step2_epistemic_gnn.epistemic_gnn import QuantEpiGNN
 
     device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
     ckpt   = torch.load(checkpoint_path, map_location=device)
-    cfg    = ckpt.get("config", {})
+    # train.py saves args under "args" key; fall back to "config" for compat
+    cfg    = ckpt.get("args", ckpt.get("config", {}))
 
-    model  = EpistemicGNN(
-        sem_dim    = cfg.get("sem_dim",    384),
-        hidden_dim = cfg.get("hidden_dim", 256),
-        num_classes= cfg.get("num_classes", 10),
+    model  = QuantEpiGNN(
+        sem_dim          = cfg.get("sem_dim",          384),
+        hidden_dim       = cfg.get("hidden_dim",       256),
+        num_pred_classes = cfg.get("num_pred_classes", 14),
     )
-    model.load_state_dict(ckpt["model_state_dict"])
+    model.load_state_dict(ckpt.get("model", ckpt.get("model_state_dict")))
     model.to(device).eval()
     logger.info(f"Loaded EpiGNN from {checkpoint_path} (device={device}).")
     return model, device
