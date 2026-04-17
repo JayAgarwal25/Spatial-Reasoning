@@ -44,7 +44,7 @@ from typing import Dict, List, Optional, Tuple
 
 import numpy as np
 
-from metrics import (
+from step4_evaluation.metrics import (
     EvalResult,
     compute_mae,
     compute_mra,
@@ -54,7 +54,7 @@ from metrics import (
     trigger_precision_recall_f1,
     print_result,
 )
-from baseline import build_baseline
+from step4_evaluation.baseline import build_baseline
 
 logger = logging.getLogger(__name__)
 logging.basicConfig(level=logging.INFO,

@@ -45,7 +45,7 @@ from typing import Dict, List, Optional, Tuple
 
 import numpy as np
 
-from metrics import (
+from step4_evaluation.metrics import (
     EvalResult,
     compute_mae,
     circular_eval,
@@ -57,7 +57,7 @@ from metrics import (
     calibrate_threshold,
     print_result,
 )
-from baseline import build_baseline, VLMBaseline
+from step4_evaluation.baseline import build_baseline, VLMBaseline
 
 logger = logging.getLogger(__name__)
 logging.basicConfig(level=logging.INFO,
