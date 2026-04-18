@@ -21,17 +21,147 @@ Key hyperparameters (see --help for full list):
 """
 
 import argparse
+import json
+import math
 import os
+from glob import glob
+from itertools import combinations
+from pathlib import Path
 
 import torch
 import torch.optim as optim
+from torch_geometric.data import Data
 from torch_geometric.loader import DataLoader
 
 from step2_epistemic_gnn.epistemic_gnn import QuantEpiGNN, DualStreamLoss, build_scene_graph_data
 from step2_epistemic_gnn.ablation_gnn import AblationGNN
 from step2_epistemic_gnn.scene_graph_to_pyg import (
     load_scene_graph_dataset, load_embed_model, NUM_PRED_CLASSES, SEM_DIM,
+    PRED_TO_IDX,
 )
+
+
+# ---------------------------------------------------------------------------
+# Spatial457-20k loader (no images required — uses 3d_coords only)
+# ---------------------------------------------------------------------------
+
+def _scene_json_to_pyg(scene: dict, embed_cache: dict, embed_fn) -> Data | None:
+    """Convert one superCLEVR per-scene JSON dict to a PyG Data object."""
+    objects  = scene.get("objects", [])
+    mask_box = scene.get("obj_mask_box", {})
+    N = len(objects)
+    if N < 2:
+        return None
+
+    W, H = 640, 480  # superCLEVR canonical resolution
+    img_diag = math.sqrt(W ** 2 + H ** 2)
+
+    node_sem, node_bbox, node_depth = [], [], []
+    for i, obj in enumerate(objects):
+        mb = mask_box.get(str(i), {}).get("obj", None)
+        if mb is None or not mb:
+            return None
+        x, y, w, h = mb[0]
+        if w <= 0 or h <= 0:
+            return None
+        x1, y1, x2, y2 = float(x), float(y), float(x + w), float(y + h)
+
+        pcoords = obj.get("pixel_coords", None)
+        camera_z = float(pcoords[0][2]) if pcoords else (y1 + y2) / 2.0
+
+        label = f"{obj.get('size','?')}_{obj.get('color','?')}_{obj.get('shape','?')}"
+        if label not in embed_cache:
+            embed_cache[label] = embed_fn([label])[0]
+        node_sem.append(embed_cache[label])
+        node_bbox.append([x1 / W, y1 / H, x2 / W, y2 / H])
+        node_depth.append([camera_z])
+
+    coords_3d = [o["3d_coords"] for o in objects]
+
+    src_list, dst_list = [], []
+    dist_list, conf_list, angle_list, ddiff_list = [], [], [], []
+    cls_list, target_list = [], []
+
+    for i, j in combinations(range(N), 2):
+        for (s, t) in [(i, j), (j, i)]:
+            dx = coords_3d[s][0] - coords_3d[t][0]
+            dy = coords_3d[s][1] - coords_3d[t][1]
+            dz = coords_3d[s][2] - coords_3d[t][2]
+            dist_m = math.sqrt(dx * dx + dy * dy + dz * dz)
+
+            cx_s = (node_bbox[s][0] + node_bbox[s][2]) / 2.0
+            cy_s = (node_bbox[s][1] + node_bbox[s][3]) / 2.0
+            cx_t = (node_bbox[t][0] + node_bbox[t][2]) / 2.0
+            cy_t = (node_bbox[t][1] + node_bbox[t][3]) / 2.0
+            angle = math.atan2(cy_t - cy_s, cx_t - cx_s)
+            depth_diff = node_depth[s][0] - node_depth[t][0]
+
+            src_list.append(s); dst_list.append(t)
+            dist_list.append(dist_m)
+            conf_list.append(1.0)
+            angle_list.append(angle)
+            ddiff_list.append(depth_diff)
+            cls_list.append(PRED_TO_IDX.get("near" if dist_m < 2.0 else "far", 0))
+            target_list.append(dist_m)
+
+    if not src_list:
+        return None
+
+    data = Data(
+        node_sem        = torch.tensor(node_sem, dtype=torch.float32),
+        node_bbox       = torch.tensor(node_bbox, dtype=torch.float32),
+        node_depth      = torch.tensor(node_depth, dtype=torch.float32),
+        edge_index      = torch.tensor([src_list, dst_list], dtype=torch.long),
+        edge_dist       = torch.tensor(dist_list, dtype=torch.float32).unsqueeze(1),
+        edge_conf       = torch.tensor(conf_list, dtype=torch.float32).unsqueeze(1),
+        edge_angle      = torch.tensor(angle_list, dtype=torch.float32).unsqueeze(1),
+        edge_depth_diff = torch.tensor(ddiff_list, dtype=torch.float32).unsqueeze(1),
+        target_classes  = torch.tensor(cls_list, dtype=torch.long),
+        target_dist     = torch.tensor(target_list, dtype=torch.float32).unsqueeze(1),
+    )
+    return data
+
+
+def load_spatial457_20k(scenes_dir: str, val_split: float = 0.05) -> tuple[list, list]:
+    """
+    Load up to 24k individual per-scene JSONs from scenes_dir.
+    Returns (train_graphs, val_graphs) as PyG Data lists.
+    No images required — uses 3d_coords for GT distances.
+    """
+    import numpy as np
+
+    print(f"Loading Spatial457-20k from {scenes_dir} ...")
+    scene_files = sorted(glob(os.path.join(scenes_dir, "*.json")))
+    if not scene_files:
+        raise RuntimeError(f"No JSON files found in {scenes_dir}")
+    print(f"  Found {len(scene_files)} scene JSON files")
+
+    embed_model = load_embed_model()
+
+    def embed_fn(texts):
+        return embed_model.encode(texts, convert_to_numpy=True).tolist()
+
+    embed_cache: dict = {}
+    graphs, skipped = [], 0
+    for i, fpath in enumerate(scene_files):
+        if (i + 1) % 2000 == 0:
+            print(f"  Processed {i+1}/{len(scene_files)}  "
+                  f"({len(graphs)} ok, {skipped} skipped)")
+        with open(fpath) as f:
+            scene = json.load(f)
+        g = _scene_json_to_pyg(scene, embed_cache, embed_fn)
+        if g is None:
+            skipped += 1
+        else:
+            graphs.append(g)
+
+    print(f"  Done: {len(graphs)} graphs ({skipped} skipped)")
+    rng = np.random.default_rng(42)
+    idx = rng.permutation(len(graphs))
+    n_val = max(1, int(len(graphs) * val_split))
+    val_idx   = idx[:n_val]
+    train_idx = idx[n_val:]
+    return [graphs[i] for i in train_idx], [graphs[i] for i in val_idx]
 
 
 # ---------------------------------------------------------------------------
@@ -113,8 +243,11 @@ def get_dataset(args) -> tuple[list, list]:
             raise RuntimeError(f"No training graphs found in {args.data_root}")
         return train, val
 
+    if args.dataset == "spatial457_20k":
+        return load_spatial457_20k(args.data_root, val_split=args.val_split)
+
     raise NotImplementedError(
-        f"Dataset '{args.dataset}' not implemented. Use --dataset mock or step1."
+        f"Dataset '{args.dataset}' not implemented. Use --dataset mock, step1, or spatial457_20k."
     )
 
 
@@ -122,11 +255,32 @@ def get_dataset(args) -> tuple[list, list]:
 # Train / eval loops
 # ---------------------------------------------------------------------------
 
-def train_epoch(model, loader, loss_fn, optimizer, device):
+def _apply_vlm_noise(data, sigma: float):
+    """
+    Corrupt edge_dist with log-normal multiplicative noise to simulate VLM errors.
+
+    Uses a mixture: 80% moderate noise (sigma) + 20% severe noise (2*sigma),
+    which covers both good VLMs (InternVL2 ≈ factor 2 errors) and bad ones
+    (LLaVA ≈ factor 10 errors) in the same training distribution.
+    """
+    import torch
+    E = data.edge_dist.shape[0]
+    severe_mask = torch.rand(E, 1, device=data.edge_dist.device) < 0.20
+    noise_sigma = torch.where(severe_mask,
+                              torch.full_like(data.edge_dist, 2.0 * sigma),
+                              torch.full_like(data.edge_dist, sigma))
+    log_noise = torch.randn_like(data.edge_dist) * noise_sigma
+    data.edge_dist = (data.edge_dist * torch.exp(log_noise)).clamp(min=0.01)
+    return data
+
+
+def train_epoch(model, loader, loss_fn, optimizer, device, vlm_noise_sigma: float = 0.0):
     model.train()
     totals = {"loss": 0.0, "ce": 0.0, "huber": 0.0}
     for data in loader:
         data = data.to(device)
+        if vlm_noise_sigma > 0:
+            data = _apply_vlm_noise(data, vlm_noise_sigma)
         optimizer.zero_grad()
         out = model(data)
         loss, L_CE, L_Huber = loss_fn(
@@ -221,9 +375,12 @@ def parse_args():
                    help="Huber transition point (metres)")
 
     g = p.add_argument_group("training")
-    g.add_argument("--epochs",     type=int,   default=50)
-    g.add_argument("--lr",         type=float, default=1e-3)
-    g.add_argument("--batch_size", type=int,   default=16)
+    g.add_argument("--epochs",          type=int,   default=50)
+    g.add_argument("--lr",              type=float, default=1e-3)
+    g.add_argument("--batch_size",      type=int,   default=16)
+    g.add_argument("--vlm_noise_sigma", type=float, default=0.8,
+                   help="Log-normal σ for VLM dist noise augmentation. "
+                        "0=disabled, 0.8=default (covers factor-2 to factor-10 VLM errors)")
 
     g = p.add_argument_group("io")
     g.add_argument("--checkpoint_dir", type=str, default="checkpoints")
@@ -292,7 +449,8 @@ def main():
     best_ckpt = os.path.join(args.checkpoint_dir, f"best_{variant}.pt")
 
     for epoch in range(start_epoch, args.epochs + 1):
-        tr = train_epoch(model, train_loader, loss_fn, optimizer, device)
+        tr = train_epoch(model, train_loader, loss_fn, optimizer, device,
+                         vlm_noise_sigma=args.vlm_noise_sigma)
         va = eval_epoch(model,  val_loader,   loss_fn,            device)
 
         print(

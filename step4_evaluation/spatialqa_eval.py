@@ -130,7 +130,7 @@ def load_spatial457(dataset_path: str) -> List[Dict]:
             pos_b = np.array(obj_b["position"], dtype=float)
             dist_m = float(np.linalg.norm(pos_a - pos_b))
             key = f"{obj_a['id']}__{obj_b['id']}"
-            gt_distances[key] = dist_m * 100.0
+            gt_distances[key] = dist_m   # metres
 
         scenes.append({
             "scene_id":             scene_dir.name,
@@ -177,13 +177,21 @@ def _load_super_clevr_format(dataset_path: Path, bulk_json: Path) -> List[Dict]:
         # Build unique string IDs
         label_counts: Dict[str, int] = {}
         objects = []
-        for obj in raw_objects:
+        mask_boxes = entry.get("obj_mask_box", {})
+        for obj_idx, obj in enumerate(raw_objects):
             base_id = f"{obj.get('size','?')}_{obj.get('color','?')}_{obj.get('shape','?')}"
             count = label_counts.get(base_id, 0)
             label_counts[base_id] = count + 1
             obj_id = base_id if count == 0 else f"{base_id}_{count}"
             coords = obj.get("3d_coords", [0.0, 0.0, 0.0])
-            objects.append({"id": obj_id, "position": coords})
+            pixel_c = obj.get("pixel_coords", [[0.0, 0.0, 0.0], [640, 480]])
+            cx, cy = float(pixel_c[0][0]), float(pixel_c[0][1])
+            obj_mask = mask_boxes.get(str(obj_idx), {})
+            bbox = list(obj_mask.get("obj", [[0, 0, 1, 1]])[0])
+            objects.append({
+                "id": obj_id, "position": coords,
+                "pixel_center": [cx, cy], "bbox": bbox,
+            })
 
         gt_distances: Dict[str, float] = {}
         for obj_a, obj_b in combinations(objects, 2):
@@ -191,7 +199,7 @@ def _load_super_clevr_format(dataset_path: Path, bulk_json: Path) -> List[Dict]:
             pos_b = np.array(obj_b["position"], dtype=float)
             dist_m = float(np.linalg.norm(pos_a - pos_b))
             key = f"{obj_a['id']}__{obj_b['id']}"
-            gt_distances[key] = dist_m * 100.0   # convert to cm
+            gt_distances[key] = dist_m   # metres — matches GNN training units
 
         scene_id = img_fname.replace(".png", "").replace(".jpg", "")
         img_path = str(img_dir / img_fname)
@@ -217,7 +225,7 @@ def _convert_hf_spatial457(hf_ds) -> List[Dict]:
             pos_a = np.array(obj_a["position"], dtype=float)
             pos_b = np.array(obj_b["position"], dtype=float)
             key   = f"{obj_a['id']}__{obj_b['id']}"
-            gt_dists[key] = float(np.linalg.norm(pos_a - pos_b)) * 100.0
+            gt_dists[key] = float(np.linalg.norm(pos_a - pos_b))   # metres
 
         scenes.append({
             "scene_id":             row.get("scene_id", "unknown"),
@@ -297,7 +305,7 @@ def build_pyg_data(scene: Dict, baseline_preds: Dict[str, float], sem_dim: int =
         i, j = id_to_idx[obj_a["id"]], id_to_idx[obj_b["id"]]
         dist = baseline_preds[key]
         if not np.isfinite(dist):
-            dist = 100.0     # fallback to 1 m when VLM refused
+            dist = 2.0     # fallback: 2 m when VLM refused
 
         # Directed edge i→j
         src_list.append(i); tgt_list.append(j)
@@ -323,6 +331,113 @@ def build_pyg_data(scene: Dict, baseline_preds: Dict[str, float], sem_dim: int =
 
 
 # ---------------------------------------------------------------------------
+# Step 3: visual grounding feedback loop
+# ---------------------------------------------------------------------------
+
+def run_step3_feedback(
+    scene: Dict,
+    pyg_data,
+    gnn_out: Dict,
+    baseline: "VLMBaseline",
+    model,
+    device,
+    epsilon: float,
+    max_iters: int = 2,
+) -> List[float]:
+    """
+    Run the visual grounding feedback loop for one scene.
+    For each high-residual edge: annotate image → re-query VLM → update distances → re-run GNN.
+    Returns updated per-edge predicted distances (same length as edges list).
+    """
+    import torch
+    import cv2
+    import tempfile
+
+    from step1_scene_graph.schemas import ObjectNode, RelationEdge
+    from step3_visual_agent.actions import draw_bbox, draw_line
+
+    objects = scene["objects"]
+    N = len(objects)
+    edges = list(combinations(range(N), 2))
+
+    img_path = scene.get("image_path")
+    if not img_path or not os.path.exists(img_path):
+        return gnn_out["pred_dist"].squeeze(1).cpu().tolist()
+
+    current_dists = gnn_out["pred_dist"].squeeze(1).cpu().tolist()
+
+    for _iter in range(max_iters):
+        residuals = gnn_out["residuals"].squeeze(1).cpu()
+        flagged = (residuals > epsilon).nonzero(as_tuple=True)[0].tolist()
+        if not flagged:
+            break
+
+        img = cv2.imread(img_path)
+        if img is None:
+            break
+
+        annotated = img.copy()
+        for edge_idx in flagged:
+            i, j = edges[edge_idx]
+            oi, oj = objects[i], objects[j]
+
+            bbox_i = oi.get("bbox", [0, 0, 10, 10])
+            cx_i, cy_i = oi.get("pixel_center", [0.0, 0.0])
+            node_i = ObjectNode(
+                id=i, label=oi["id"], bbox=bbox_i, confidence=1.0,
+                center=[cx_i, cy_i], width=float(bbox_i[2]), height=float(bbox_i[3]),
+                area=float(bbox_i[2]) * float(bbox_i[3]),
+            )
+            bbox_j = oj.get("bbox", [0, 0, 10, 10])
+            cx_j, cy_j = oj.get("pixel_center", [0.0, 0.0])
+            node_j = ObjectNode(
+                id=j, label=oj["id"], bbox=bbox_j, confidence=1.0,
+                center=[cx_j, cy_j], width=float(bbox_j[2]), height=float(bbox_j[3]),
+                area=float(bbox_j[2]) * float(bbox_j[3]),
+            )
+            rel_edge = RelationEdge(subject_id=i, object_id=j, predicate="near", confidence=0.5)
+
+            r1 = draw_bbox(annotated, node_i, edge_idx, float(residuals[edge_idx]))
+            r2 = draw_bbox(r1.image, node_j, edge_idx, float(residuals[edge_idx]))
+            r3 = draw_line(
+                r2.image, node_i, node_j, rel_edge, edge_idx,
+                float(residuals[edge_idx]), float(current_dists[edge_idx]),
+            )
+            annotated = r3.image
+
+        ann_path = None
+        try:
+            with tempfile.NamedTemporaryFile(suffix=".jpg", delete=False) as tmp:
+                cv2.imwrite(tmp.name, annotated)
+                ann_path = tmp.name
+
+            flagged_pairs = [
+                (objects[edges[idx][0]]["id"], objects[edges[idx][1]]["id"])
+                for idx in flagged
+            ]
+            new_dists = baseline.predict_distances(ann_path, flagged_pairs)
+            for k, edge_idx in enumerate(flagged):
+                if k < len(new_dists) and np.isfinite(new_dists[k]) and new_dists[k] > 0:
+                    current_dists[edge_idx] = new_dists[k]
+        except Exception as exc:
+            logger.warning("Step 3 VLM re-query failed at iter %d: %s", _iter, exc)
+            break
+        finally:
+            if ann_path and os.path.exists(ann_path):
+                os.unlink(ann_path)
+
+        new_edge_dist = torch.tensor(current_dists, dtype=torch.float).unsqueeze(1)
+        updated_data = pyg_data.clone()
+        updated_data.edge_dist = new_edge_dist
+        with torch.no_grad():
+            gnn_out = model(updated_data.to(device))
+        current_dists = gnn_out["pred_dist"].squeeze(1).cpu().tolist()
+        pyg_data = updated_data.cpu()
+
+    return current_dists
+
+
+# ---------------------------------------------------------------------------
 # Core evaluation
 # ---------------------------------------------------------------------------
 
@@ -332,6 +447,7 @@ def evaluate_scene(
     epignn,
     device,
     epsilon: float,
+    run_feedback: bool = False,
 ) -> Dict:
     """
     Run one scene through the baseline VLM + EpiGNN and return per-scene stats.
@@ -347,7 +463,7 @@ def evaluate_scene(
 
     # --- Baseline VLM predictions ---
     if image_pil is not None:
-        import tempfile, os
+        import tempfile
         from PIL import Image as PILImage
         tmp = tempfile.NamedTemporaryFile(suffix=".jpg", delete=False)
         image_pil.save(tmp.name)
@@ -371,8 +487,22 @@ def evaluate_scene(
     if pyg_data is not None and epignn is not None:
         with torch.no_grad():
             gnn_out = epignn(pyg_data.to(device))
+        # pyg_data.to(device) mutates in-place in PyG 2.x — move back to CPU
+        pyg_data = pyg_data.cpu()
+
+    # --- Step 3: visual grounding feedback ---
+    feedback_dists: Optional[List[float]] = None
+    if run_feedback and gnn_out is not None and epignn is not None:
+        try:
+            feedback_dists = run_step3_feedback(
+                scene, pyg_data, gnn_out, baseline, epignn, device, epsilon
+            )
+        except Exception as exc:
+            logger.warning("Step 3 feedback failed for scene %s: %s",
+                           scene["scene_id"], exc)
 
     edges = list(combinations(range(len(objects)), 2))
+    pred_vals_gnn_feedback = []
     for edge_idx, (i, j) in enumerate(edges):
         key = f"{objects[i]['id']}__{objects[j]['id']}"
         if key not in gt_dists:
@@ -392,6 +522,11 @@ def evaluate_scene(
 
         pred_vals_gnn.append(gnn_dist)
         residuals_list.append(res)
+
+        fb_dist = (feedback_dists[edge_idx]
+                   if feedback_dists is not None and edge_idx < len(feedback_dists)
+                   else gnn_dist)
+        pred_vals_gnn_feedback.append(fb_dist)
 
         hl = scene["hallucination_labels"].get(key, None)
         hallucination_labels.append(hl)
@@ -420,6 +555,7 @@ def evaluate_scene(
         "gt":                     gt_vals,
         "pred_baseline":          pred_vals_baseline,
         "pred_gnn":               pred_vals_gnn,
+        "pred_gnn_feedback":      pred_vals_gnn_feedback,
         "residuals":              residuals_list,
         "standalone_residuals":   standalone_residuals.tolist(),
         "hallucination_labels":   hallucination_labels,
@@ -434,17 +570,19 @@ def aggregate_results(
     epsilon: float,
 ) -> EvalResult:
     """Aggregate per-scene dicts into a single EvalResult."""
-    all_gt   = []
-    all_base = []
-    all_gnn  = []
-    all_res  = []
-    all_hl   = []
-    tv_rates = []
+    all_gt       = []
+    all_base     = []
+    all_gnn      = []
+    all_feedback = []
+    all_res      = []
+    all_hl       = []
+    tv_rates     = []
 
     for s in scene_results:
         all_gt.extend(s["gt"])
         all_base.extend(s["pred_baseline"])
         all_gnn.extend(s["pred_gnn"])
+        all_feedback.extend(s.get("pred_gnn_feedback", s["pred_gnn"]))
         all_res.extend(s["residuals"])
         all_hl.extend(s["hallucination_labels"])
         if np.isfinite(s["triangle_violation_rate"]):
@@ -475,8 +613,10 @@ def aggregate_results(
         result.trigger_f1        = trigger["f1"]
 
     # Baseline MAE as extra
-    result.extras["baseline_mae"] = compute_mae(all_base, all_gt)
-    result.extras["gnn_mae"]      = result.mae
+    result.extras["baseline_mae"]  = compute_mae(all_base, all_gt)
+    result.extras["gnn_mae"]       = result.mae
+    all_feedback = np.array(all_feedback, dtype=float)
+    result.extras["feedback_mae"]  = compute_mae(all_feedback, all_gt)
 
     return result
 
@@ -502,6 +642,8 @@ def main():
                         help="Evaluate on first N scenes only (debug)")
     parser.add_argument("--no_gnn",   action="store_true",
                         help="Skip EpiGNN; evaluate VLM baselines only")
+    parser.add_argument("--feedback", action="store_true",
+                        help="Run Step 3 visual grounding feedback loop after GNN")
     args = parser.parse_args()
 
     # ------------------------------------------------------------------
@@ -524,7 +666,8 @@ def main():
         for idx, scene in enumerate(scenes):
             logger.info(f"  Scene {idx+1}/{len(scenes)}: {scene['scene_id']}")
             try:
-                sr = evaluate_scene(scene, baseline, epignn, device, args.epsilon)
+                sr = evaluate_scene(scene, baseline, epignn, device, args.epsilon,
+                                    run_feedback=args.feedback)
                 scene_results.append(sr)
             except Exception as e:
                 logger.warning(f"  Scene {scene['scene_id']} failed: {e}")

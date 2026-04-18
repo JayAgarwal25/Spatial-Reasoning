@@ -39,5 +39,12 @@ viz/
 *.log
 wandb/
 
+# Experiment outputs (large; not tracked)
+results/
+results_20k/
+logs/
+logs_20k/
+checkpoints_20k/
+
 # HuggingFace cache
 .cache/
