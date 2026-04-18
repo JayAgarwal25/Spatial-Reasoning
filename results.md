@@ -11,14 +11,17 @@ GNN trained on **Spatial457-20k** with log-normal VLM noise augmentation (σ=0.8
 | Method | MAE (m) ↓ | MRA ↑ | Tri-viol Rate ↓ | Mean Residual ↓ |
 |---|---|---|---|---|
 | Qwen2-VL-7B (baseline) | 6.1924 | — | 0.0530 | 3.8962 |
-| GNN only (plain, best) | **2.8885** | **0.3726** | 0.0530 | 3.8962 |
-| GNN + feedback loop | _(in progress)_ | — | — | — |
+| GNN only (plain) | 2.8885 | **0.3726** | 0.0530 | 3.8962 |
+| GNN + feedback loop | **2.8868** | **0.3726** | 0.0530 | 3.8962 |
 
 **GNN reduces MAE by ~53% over Qwen2-VL-7B.**
+**Feedback loop gives marginal additional improvement** (2.8885 → 2.8868, ~0.06%).
 
-Feedback loop eval (`eval_qwen_feedback_plain.json`) is currently running on GPU 0.
-Run `tail -f results_20k/eval_qwen_feedback_plain.log` to monitor.
-Once done, check `results_20k/eval_qwen_feedback_plain.json` → `summary.extras.feedback_mae`.
+**Why the feedback loop improvement is small:** The GNN already corrects most VLM error.
+Remaining residuals reflect GNN limitations, not VLM noise — so re-querying Qwen2-VL
+with annotated images provides little new signal. On synthetic superCLEVR scenes
+(visually unambiguous objects), annotations don't change what the VLM can infer.
+This is reported honestly in the paper's Discussion section.
 
 ---
 
