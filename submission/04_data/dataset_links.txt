@@ -1,0 +1,13 @@
+Spatial457 (evaluation, 999 scenes)
+  HuggingFace: https://huggingface.co/datasets/RyanWW/Spatial457
+  Download:    huggingface-cli download RyanWW/Spatial457 --local-dir data/spatial457
+
+Spatial457-20k (training, 23,999 scenes)
+  HuggingFace: https://huggingface.co/datasets/RyanWW/Spatial457_20k
+  Download:    huggingface-cli download RyanWW/Spatial457_20k --local-dir data/spatial457_20k
+
+Qwen2-VL-7B-Instruct (VLM baseline, auto-downloaded by transformers)
+  HuggingFace: https://huggingface.co/Qwen/Qwen2-VL-7B-Instruct
+
+sentence-transformers/all-MiniLM-L6-v2 (label embeddings, auto-downloaded)
+  HuggingFace: https://huggingface.co/sentence-transformers/all-MiniLM-L6-v2

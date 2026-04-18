@@ -1,0 +1,5 @@
+variant,geom_constraint,epistemic_uncertainty,best_epoch,val_loss,mae_m,mra,triangle_violation_rate,baseline_mae_m
+QuantEpiGNN (full),yes,yes,60,0.0384,3.4048,0.3336,0.0530,6.1924
+No geom constraint,no,yes,77,0.0386,3.2050,0.3197,0.0530,6.1924
+No epistemic sigma,yes,no,68,0.0385,2.8885,0.3726,0.0530,6.1924
+Plain GNN,no,no,68,0.0382,2.8885,0.3726,0.0530,6.1924

@@ -1,0 +1,23 @@
+Contribution Statement — Quant-EpiGNN
+CS F425 Deep Learning, BITS Pilani
+
+[FILL: Convert this to PDF before submission]
+
+Jay Aggarwal
+  - [FILL: e.g. Led overall system design and integration]
+  - [FILL: Implemented Step 2 (Epistemic GNN) and training pipeline]
+  - [FILL: Ran all training and evaluation experiments]
+  - [FILL: Wrote Methodology and Results sections of report]
+
+Gorang Mehrishi
+  - [FILL]
+
+Mayukh Khaitan
+  - [FILL: e.g. Led Step 4 evaluation pipeline]
+  - [FILL]
+
+Harsimar Singh Saluja
+  - [FILL]
+
+Note: contribution_statement.txt must be converted to PDF (contribution_statement.pdf)
+before final submission.

@@ -1,0 +1,27 @@
+Team ID        : 7
+Project Title  : Quant-EpiGNN: Detecting and Correcting Quantitative Spatial
+                 Inconsistencies in Vision-Language Outputs
+Topic Number   : 4
+Topic Name     : Spatial Reasoning in 3D Vision: Neural Networks that Understand Space
+
+Members
+-------
+Name  : Jay Agarwal
+ID    : 2022B5A71305P
+Email : f20221305@pilani.bits-pilani.ac.in
+
+Name  : Mayukh Khetan
+ID    : 2022B5A71326P
+Email : f20221326@pilani.bits-pilani.ac.in
+
+Name  : Gorang Mehrishi
+ID    : 2022B4A70807P
+Email : f20220807@pilani.bits-pilani.ac.in
+
+Name  : Harsimar Singh Saluja
+ID    : 2022A7PS1187P
+Email : f20221187@pilani.bits-pilani.ac.in
+
+Faculty/TA Mentor : Ghufran
+Institution       : Birla Institute of Technology and Science, Pilani
+Course            : CS F425 Deep Learning

@@ -1,0 +1,4 @@
+method,mae_m,mra,triangle_violation_rate,mean_residual,notes
+Qwen2-VL-7B (baseline),6.1924,,0.0530,3.8962,Raw VLM predictions no GNN
+GNN only (Plain GNN),2.8885,0.3726,0.0530,3.8962,best_no_geom_no_epi.pt epoch 68
+GNN + feedback loop,2.8868,0.3726,0.0530,3.8962,Plain GNN + Step 3 visual feedback epsilon=0.3 max_iters=2
