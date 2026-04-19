@@ -63,6 +63,8 @@ python scripts/infer.py \
 python scripts/print_results.py --results_dir ../05_results/
 ```
 
+(Pre-computed results are included — no re-evaluation needed.)
+
 This prints the 3-row comparison table:
 
 | Method           | MAE (m) | Reduction |
