@@ -73,21 +73,6 @@ This prints the 3-row comparison table:
 
 ---
 
-## Talking Points
-
-- **Why we retrained on 20k scenes:** The original setup trains on GT distances but
-  evaluates on VLM predictions (10× scale mismatch). We fix this with log-normal VLM
-  noise augmentation during training.
-- **Why plain GNN beats the full epistemic model:** Noise augmentation already handles
-  uncertainty implicitly; explicit epistemic layers add gradient noise on this benchmark.
-- **Why the feedback loop improvement is small:** The GNN corrects most error already;
-  on synthetic scenes with unambiguous objects, re-annotating gives the VLM little new
-  information.
-- **Honest limitation:** Hallucination detection metrics (AUROC, Trigger F1) could not
-  be computed — the Spatial457 test set has no hallucination labels.
-
----
-
 ## Backup
 
 If live inference fails, show the pre-generated outputs in `06_demo/demo_out/`
