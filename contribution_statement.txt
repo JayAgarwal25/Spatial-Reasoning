@@ -1,0 +1,38 @@
+Contribution Statement — Quant-EpiGNN
+CS F425 Deep Learning, BITS Pilani
+Team 7
+
+All members read Spatial457 (Wang et al., CVPR 2025), PRISM-0 (Elskhawy et al., 2025),
+VILASR (Wu et al., 2025), the Epistemic GNN paper (Ergün & Bhatt, ICLR 2025), and
+"What's Up with Vision-Language Models?" (Kamath et al., EMNLP 2023) as shared
+background. Step-specific papers were divided as noted below.
+
+Jay Agarwal (2022B5A71305P)
+Additionally read the Neural Message Passing paper (Gilmer et al., ICML 2017) as
+background for the GNN design. Responsible for overall system integration and took
+ownership of the training pipeline. Implemented the Quant-EpiGNN (Step 2) including
+the epistemic node states, geometric consistency residuals, and residual-derived edge
+weights for message passing. Ran all training and ablation experiments on
+Spatial457-20k. Wrote the methodology and results sections of the report, and
+prepared the live demo.
+
+Gorang Mehrishi (2022B4A70807P)
+Additionally read Grounding DINO (Liu et al., 2023) as background for open-vocabulary
+object detection in Step 1. Implemented the full scene graph extraction pipeline —
+object detection, depth estimation, geometric pair pruning, and relation extraction.
+Helped with dataset preparation and contributed to the related work section of the
+report.
+
+Mayukh Khetan (2022B5A71326P)
+Additionally read Qwen2-VL (Wang et al., 2024) in depth as the baseline model used
+for spatial distance prediction. Implemented the evaluation pipeline (Step 4)
+including the dataset loader, metrics (MAE, MRA, triangle-inequality violation rate),
+and the Qwen2-VL-7B baseline integration. Wrote the evaluation and baselines sections
+of the report.
+
+Harsimar Singh Saluja (2022A7PS1187P)
+Additionally read ReAct (Yao et al., 2022) as the basis for the iterative
+reasoning-action loop design in Step 3. Implemented the residual-based trigger, image
+annotation actions (draw_bbox, draw_line, depth crop), and the iterative visual
+grounding loop. Wrote tests for the Step 3 pipeline and contributed to the
+introduction and related work sections of the report.
