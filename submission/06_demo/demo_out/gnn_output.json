@@ -1,0 +1,146 @@
+[
+  {
+    "edge_idx": 0,
+    "subject_id": 7,
+    "object_id": 8,
+    "pred_class": "above",
+    "pred_dist_m": 3.614542681694037e-23,
+    "residual": 0.430086612701416,
+    "gt_predicate": "overlapping"
+  },
+  {
+    "edge_idx": 1,
+    "subject_id": 8,
+    "object_id": 7,
+    "pred_class": "above",
+    "pred_dist_m": 3.392151196256927e-26,
+    "residual": 0.430086612701416,
+    "gt_predicate": "overlapping"
+  },
+  {
+    "edge_idx": 2,
+    "subject_id": 5,
+    "object_id": 6,
+    "pred_class": "above",
+    "pred_dist_m": 18.46019744873047,
+    "residual": 0.0,
+    "gt_predicate": "in_front_of"
+  },
+  {
+    "edge_idx": 3,
+    "subject_id": 6,
+    "object_id": 5,
+    "pred_class": "above",
+    "pred_dist_m": 8.994150266516954e-05,
+    "residual": 0.0,
+    "gt_predicate": "behind"
+  },
+  {
+    "edge_idx": 4,
+    "subject_id": 2,
+    "object_id": 9,
+    "pred_class": "above",
+    "pred_dist_m": 95.03228759765625,
+    "residual": 0.0,
+    "gt_predicate": "in_front_of"
+  },
+  {
+    "edge_idx": 5,
+    "subject_id": 9,
+    "object_id": 2,
+    "pred_class": "above",
+    "pred_dist_m": 113.31751251220703,
+    "residual": 0.0,
+    "gt_predicate": "behind"
+  },
+  {
+    "edge_idx": 6,
+    "subject_id": 3,
+    "object_id": 11,
+    "pred_class": "above",
+    "pred_dist_m": 246.2537384033203,
+    "residual": 0.0,
+    "gt_predicate": "in_front_of"
+  },
+  {
+    "edge_idx": 7,
+    "subject_id": 11,
+    "object_id": 3,
+    "pred_class": "above",
+    "pred_dist_m": 260.3323059082031,
+    "residual": 0.0,
+    "gt_predicate": "behind"
+  },
+  {
+    "edge_idx": 8,
+    "subject_id": 5,
+    "object_id": 10,
+    "pred_class": "above",
+    "pred_dist_m": 39.448081970214844,
+    "residual": 0.0,
+    "gt_predicate": "in_front_of"
+  },
+  {
+    "edge_idx": 9,
+    "subject_id": 10,
+    "object_id": 5,
+    "pred_class": "above",
+    "pred_dist_m": 14.186777114868164,
+    "residual": 0.0,
+    "gt_predicate": "behind"
+  },
+  {
+    "edge_idx": 10,
+    "subject_id": 0,
+    "object_id": 10,
+    "pred_class": "above",
+    "pred_dist_m": 132.02992248535156,
+    "residual": 0.0,
+    "gt_predicate": "behind"
+  },
+  {
+    "edge_idx": 11,
+    "subject_id": 10,
+    "object_id": 0,
+    "pred_class": "above",
+    "pred_dist_m": 115.9450454711914,
+    "residual": 0.0,
+    "gt_predicate": "in_front_of"
+  },
+  {
+    "edge_idx": 12,
+    "subject_id": 5,
+    "object_id": 8,
+    "pred_class": "above",
+    "pred_dist_m": 261.41400146484375,
+    "residual": 0.0002203136682510376,
+    "gt_predicate": "in_front_of"
+  },
+  {
+    "edge_idx": 13,
+    "subject_id": 8,
+    "object_id": 5,
+    "pred_class": "above",
+    "pred_dist_m": 227.90309143066406,
+    "residual": 0.0002203136682510376,
+    "gt_predicate": "behind"
+  },
+  {
+    "edge_idx": 14,
+    "subject_id": 5,
+    "object_id": 7,
+    "pred_class": "above",
+    "pred_dist_m": 263.1649475097656,
+    "residual": 0.021066412329673767,
+    "gt_predicate": "in_front_of"
+  },
+  {
+    "edge_idx": 15,
+    "subject_id": 7,
+    "object_id": 5,
+    "pred_class": "above",
+    "pred_dist_m": 230.0568389892578,
+    "residual": 0.021066412329673767,
+    "gt_predicate": "behind"
+  }
+]

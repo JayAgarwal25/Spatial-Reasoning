@@ -1,0 +1,715 @@
+{
+  "image_path": "/tmp/tmpuyrv4ifl.png",
+  "image_width": 640,
+  "image_height": 480,
+  "nodes": [
+    {
+      "id": 0,
+      "label": "object",
+      "bbox": [
+        496,
+        283,
+        557,
+        336
+      ],
+      "confidence": 0.5,
+      "center": [
+        526.5,
+        309.5
+      ],
+      "width": 61,
+      "height": 53,
+      "area": 3233,
+      "depth": 309.5,
+      "backend": "contour"
+    },
+    {
+      "id": 1,
+      "label": "object",
+      "bbox": [
+        140,
+        452,
+        370,
+        467
+      ],
+      "confidence": 0.5,
+      "center": [
+        255.0,
+        459.5
+      ],
+      "width": 230,
+      "height": 15,
+      "area": 3450,
+      "depth": 459.5,
+      "backend": "contour"
+    },
+    {
+      "id": 2,
+      "label": "object",
+      "bbox": [
+        137,
+        125,
+        485,
+        303
+      ],
+      "confidence": 0.5,
+      "center": [
+        311.0,
+        214.0
+      ],
+      "width": 348,
+      "height": 178,
+      "area": 61944,
+      "depth": 214.0,
+      "backend": "contour"
+    },
+    {
+      "id": 3,
+      "label": "object",
+      "bbox": [
+        5,
+        328,
+        84,
+        384
+      ],
+      "confidence": 0.5,
+      "center": [
+        44.5,
+        356.0
+      ],
+      "width": 79,
+      "height": 56,
+      "area": 4424,
+      "depth": 356.0,
+      "backend": "contour"
+    },
+    {
+      "id": 4,
+      "label": "object",
+      "bbox": [
+        290,
+        311,
+        368,
+        384
+      ],
+      "confidence": 0.5,
+      "center": [
+        329.0,
+        347.5
+      ],
+      "width": 78,
+      "height": 73,
+      "area": 5694,
+      "depth": 347.5,
+      "backend": "contour"
+    },
+    {
+      "id": 5,
+      "label": "object",
+      "bbox": [
+        450,
+        254,
+        517,
+        318
+      ],
+      "confidence": 0.5,
+      "center": [
+        483.5,
+        286.0
+      ],
+      "width": 67,
+      "height": 64,
+      "area": 4288,
+      "depth": 286.0,
+      "backend": "contour"
+    },
+    {
+      "id": 6,
+      "label": "object",
+      "bbox": [
+        307,
+        178,
+        483,
+        211
+      ],
+      "confidence": 0.5,
+      "center": [
+        395.0,
+        194.5
+      ],
+      "width": 176,
+      "height": 33,
+      "area": 5808,
+      "depth": 194.5,
+      "backend": "contour"
+    },
+    {
+      "id": 7,
+      "label": "object",
+      "bbox": [
+        279,
+        100,
+        375,
+        144
+      ],
+      "confidence": 0.5,
+      "center": [
+        327.0,
+        122.0
+      ],
+      "width": 96,
+      "height": 44,
+      "area": 4224,
+      "depth": 122.0,
+      "backend": "contour"
+    },
+    {
+      "id": 8,
+      "label": "object",
+      "bbox": [
+        103,
+        438,
+        624,
+        480
+      ],
+      "confidence": 0.5,
+      "center": [
+        363.5,
+        459.0
+      ],
+      "width": 521,
+      "height": 42,
+      "area": 21882,
+      "depth": 459.0,
+      "backend": "contour"
+    },
+    {
+      "id": 9,
+      "label": "object",
+      "bbox": [
+        0,
+        443,
+        116,
+        480
+      ],
+      "confidence": 0.5,
+      "center": [
+        58.0,
+        461.5
+      ],
+      "width": 116,
+      "height": 37,
+      "area": 4292,
+      "depth": 461.5,
+      "backend": "contour"
+    },
+    {
+      "id": 10,
+      "label": "object",
+      "bbox": [
+        10,
+        35,
+        640,
+        85
+      ],
+      "confidence": 0.5,
+      "center": [
+        325.0,
+        60.0
+      ],
+      "width": 630,
+      "height": 50,
+      "area": 31500,
+      "depth": 60.0,
+      "backend": "contour"
+    }
+  ],
+  "edges": [
+    {
+      "subject_id": 1,
+      "object_id": 8,
+      "predicate": "inside",
+      "confidence": 0.6874999999999999,
+      "features": {
+        "iou": 0.15766383328763367,
+        "center_distance": 108.50115206761632,
+        "distance_norm": 0.1356264400845204,
+        "contains": true,
+        "depth_close": true,
+        "semantic_prior": 0.2,
+        "size_ratio": 0.15766383328763367,
+        "pair_score": 1.9325759384738426,
+        "predicate": "inside",
+        "geometry_confidence": 0.95,
+        "dx": 108.5,
+        "dy": -0.5,
+        "depth_diff": -0.5,
+        "angle_rad": -0.0046082623101204555,
+        "model_confidence": 0.0
+      },
+      "backend": "geometry",
+      "raw_relation_text": null
+    },
+    {
+      "subject_id": 8,
+      "object_id": 1,
+      "predicate": "contains",
+      "confidence": 0.6874999999999999,
+      "features": {
+        "iou": 0.15766383328763367,
+        "center_distance": 108.50115206761632,
+        "distance_norm": 0.1356264400845204,
+        "contains": true,
+        "depth_close": true,
+        "semantic_prior": 0.2,
+        "size_ratio": 0.15766383328763367,
+        "pair_score": 1.9325759384738426,
+        "predicate": "contains",
+        "geometry_confidence": 0.95,
+        "dx": -108.5,
+        "dy": 0.5,
+        "depth_diff": 0.5,
+        "angle_rad": 3.1369843912796727,
+        "model_confidence": 0.0
+      },
+      "backend": "geometry",
+      "raw_relation_text": null
+    },
+    {
+      "subject_id": 2,
+      "object_id": 6,
+      "predicate": "contains",
+      "confidence": 0.6874999999999999,
+      "features": {
+        "iou": 0.09376210771018985,
+        "center_distance": 86.23369411082886,
+        "distance_norm": 0.10779211763853608,
+        "contains": true,
+        "depth_close": true,
+        "semantic_prior": 0.2,
+        "size_ratio": 0.09376210771018985,
+        "pair_score": 1.8381736742541364,
+        "predicate": "contains",
+        "geometry_confidence": 0.95,
+        "dx": 84.0,
+        "dy": -19.5,
+        "depth_diff": -19.5,
+        "angle_rad": -0.22810262827994277,
+        "model_confidence": 0.0
+      },
+      "backend": "geometry",
+      "raw_relation_text": null
+    },
+    {
+      "subject_id": 6,
+      "object_id": 2,
+      "predicate": "inside",
+      "confidence": 0.6874999999999999,
+      "features": {
+        "iou": 0.09376210771018985,
+        "center_distance": 86.23369411082886,
+        "distance_norm": 0.10779211763853608,
+        "contains": true,
+        "depth_close": true,
+        "semantic_prior": 0.2,
+        "size_ratio": 0.09376210771018985,
+        "pair_score": 1.8381736742541364,
+        "predicate": "inside",
+        "geometry_confidence": 0.95,
+        "dx": -84.0,
+        "dy": 19.5,
+        "depth_diff": 19.5,
+        "angle_rad": 2.9134900253098506,
+        "model_confidence": 0.0
+      },
+      "backend": "geometry",
+      "raw_relation_text": null
+    },
+    {
+      "subject_id": 3,
+      "object_id": 9,
+      "predicate": "in_front_of",
+      "confidence": 0.49250000000000005,
+      "features": {
+        "iou": 0.0,
+        "center_distance": 106.36023693091323,
+        "distance_norm": 0.13295029616364154,
+        "contains": false,
+        "depth_close": false,
+        "semantic_prior": 0.2,
+        "size_ratio": 0.9701627486437613,
+        "pair_score": 1.7055410189255107,
+        "predicate": "in_front_of",
+        "geometry_confidence": 0.65,
+        "dx": 13.5,
+        "dy": 105.5,
+        "depth_diff": 105.5,
+        "angle_rad": 1.4435258886133602,
+        "model_confidence": 0.0
+      },
+      "backend": "geometry",
+      "raw_relation_text": null
+    },
+    {
+      "subject_id": 9,
+      "object_id": 3,
+      "predicate": "behind",
+      "confidence": 0.49250000000000005,
+      "features": {
+        "iou": 0.0,
+        "center_distance": 106.36023693091323,
+        "distance_norm": 0.13295029616364154,
+        "contains": false,
+        "depth_close": false,
+        "semantic_prior": 0.2,
+        "size_ratio": 0.9701627486437613,
+        "pair_score": 1.7055410189255107,
+        "predicate": "behind",
+        "geometry_confidence": 0.65,
+        "dx": -13.5,
+        "dy": -105.5,
+        "depth_diff": -105.5,
+        "angle_rad": -1.6980667649764332,
+        "model_confidence": 0.0
+      },
+      "backend": "geometry",
+      "raw_relation_text": null
+    },
+    {
+      "subject_id": 4,
+      "object_id": 6,
+      "predicate": "behind",
+      "confidence": 0.49250000000000005,
+      "features": {
+        "iou": 0.0,
+        "center_distance": 166.6283289239858,
+        "distance_norm": 0.20828541115498225,
+        "contains": false,
+        "depth_close": false,
+        "semantic_prior": 0.2,
+        "size_ratio": 0.9803719008264463,
+        "pair_score": 1.6202434570272444,
+        "predicate": "behind",
+        "geometry_confidence": 0.65,
+        "dx": 66.0,
+        "dy": -153.0,
+        "depth_diff": -153.0,
+        "angle_rad": -1.1635404787200498,
+        "model_confidence": 0.0
+      },
+      "backend": "geometry",
+      "raw_relation_text": null
+    },
+    {
+      "subject_id": 6,
+      "object_id": 4,
+      "predicate": "in_front_of",
+      "confidence": 0.49250000000000005,
+      "features": {
+        "iou": 0.0,
+        "center_distance": 166.6283289239858,
+        "distance_norm": 0.20828541115498225,
+        "contains": false,
+        "depth_close": false,
+        "semantic_prior": 0.2,
+        "size_ratio": 0.9803719008264463,
+        "pair_score": 1.6202434570272444,
+        "predicate": "in_front_of",
+        "geometry_confidence": 0.65,
+        "dx": -66.0,
+        "dy": 153.0,
+        "depth_diff": 153.0,
+        "angle_rad": 1.9780521748697435,
+        "model_confidence": 0.0
+      },
+      "backend": "geometry",
+      "raw_relation_text": null
+    },
+    {
+      "subject_id": 6,
+      "object_id": 7,
+      "predicate": "behind",
+      "confidence": 0.49250000000000005,
+      "features": {
+        "iou": 0.0,
+        "center_distance": 99.39944667854041,
+        "distance_norm": 0.12424930834817552,
+        "contains": false,
+        "depth_close": false,
+        "semantic_prior": 0.2,
+        "size_ratio": 0.7272727272727273,
+        "pair_score": 1.594537193618553,
+        "predicate": "behind",
+        "geometry_confidence": 0.65,
+        "dx": -68.0,
+        "dy": -72.5,
+        "depth_diff": -72.5,
+        "angle_rad": -2.3241769655512345,
+        "model_confidence": 0.0
+      },
+      "backend": "geometry",
+      "raw_relation_text": null
+    },
+    {
+      "subject_id": 7,
+      "object_id": 6,
+      "predicate": "in_front_of",
+      "confidence": 0.49250000000000005,
+      "features": {
+        "iou": 0.0,
+        "center_distance": 99.39944667854041,
+        "distance_norm": 0.12424930834817552,
+        "contains": false,
+        "depth_close": false,
+        "semantic_prior": 0.2,
+        "size_ratio": 0.7272727272727273,
+        "pair_score": 1.594537193618553,
+        "predicate": "in_front_of",
+        "geometry_confidence": 0.65,
+        "dx": 68.0,
+        "dy": 72.5,
+        "depth_diff": 72.5,
+        "angle_rad": 0.8174156880385589,
+        "model_confidence": 0.0
+      },
+      "backend": "geometry",
+      "raw_relation_text": null
+    },
+    {
+      "subject_id": 5,
+      "object_id": 6,
+      "predicate": "behind",
+      "confidence": 0.49250000000000005,
+      "features": {
+        "iou": 0.0,
+        "center_distance": 127.29689705566275,
+        "distance_norm": 0.15912112131957845,
+        "contains": false,
+        "depth_close": false,
+        "semantic_prior": 0.2,
+        "size_ratio": 0.7382920110192838,
+        "pair_score": 1.5582006599261475,
+        "predicate": "behind",
+        "geometry_confidence": 0.65,
+        "dx": -88.5,
+        "dy": -91.5,
+        "depth_diff": -91.5,
+        "angle_rad": -2.3395293664784043,
+        "model_confidence": 0.0
+      },
+      "backend": "geometry",
+      "raw_relation_text": null
+    },
+    {
+      "subject_id": 6,
+      "object_id": 5,
+      "predicate": "in_front_of",
+      "confidence": 0.49250000000000005,
+      "features": {
+        "iou": 0.0,
+        "center_distance": 127.29689705566275,
+        "distance_norm": 0.15912112131957845,
+        "contains": false,
+        "depth_close": false,
+        "semantic_prior": 0.2,
+        "size_ratio": 0.7382920110192838,
+        "pair_score": 1.5582006599261475,
+        "predicate": "in_front_of",
+        "geometry_confidence": 0.65,
+        "dx": 88.5,
+        "dy": 91.5,
+        "depth_diff": 91.5,
+        "angle_rad": 0.8020632871113891,
+        "model_confidence": 0.0
+      },
+      "backend": "geometry",
+      "raw_relation_text": null
+    },
+    {
+      "subject_id": 4,
+      "object_id": 5,
+      "predicate": "behind",
+      "confidence": 0.49250000000000005,
+      "features": {
+        "iou": 0.0,
+        "center_distance": 166.29040862298703,
+        "distance_norm": 0.2078630107787338,
+        "contains": false,
+        "depth_close": true,
+        "semantic_prior": 0.2,
+        "size_ratio": 0.7530734106076572,
+        "pair_score": 1.507101092369348,
+        "predicate": "behind",
+        "geometry_confidence": 0.65,
+        "dx": 154.5,
+        "dy": -61.5,
+        "depth_diff": -61.5,
+        "angle_rad": -0.3788313368029068,
+        "model_confidence": 0.0
+      },
+      "backend": "geometry",
+      "raw_relation_text": null
+    },
+    {
+      "subject_id": 5,
+      "object_id": 4,
+      "predicate": "in_front_of",
+      "confidence": 0.49250000000000005,
+      "features": {
+        "iou": 0.0,
+        "center_distance": 166.29040862298703,
+        "distance_norm": 0.2078630107787338,
+        "contains": false,
+        "depth_close": true,
+        "semantic_prior": 0.2,
+        "size_ratio": 0.7530734106076572,
+        "pair_score": 1.507101092369348,
+        "predicate": "in_front_of",
+        "geometry_confidence": 0.65,
+        "dx": -154.5,
+        "dy": 61.5,
+        "depth_diff": 61.5,
+        "angle_rad": 2.7627613167868863,
+        "model_confidence": 0.0
+      },
+      "backend": "geometry",
+      "raw_relation_text": null
+    },
+    {
+      "subject_id": 1,
+      "object_id": 4,
+      "predicate": "behind",
+      "confidence": 0.49250000000000005,
+      "features": {
+        "iou": 0.0,
+        "center_distance": 134.23859355639868,
+        "distance_norm": 0.16779824194549836,
+        "contains": false,
+        "depth_close": false,
+        "semantic_prior": 0.2,
+        "size_ratio": 0.6059009483667018,
+        "pair_score": 1.4815925838487527,
+        "predicate": "behind",
+        "geometry_confidence": 0.65,
+        "dx": 74.0,
+        "dy": -112.0,
+        "depth_diff": -112.0,
+        "angle_rad": -0.9869259311327816,
+        "model_confidence": 0.0
+      },
+      "backend": "geometry",
+      "raw_relation_text": null
+    },
+    {
+      "subject_id": 4,
+      "object_id": 1,
+      "predicate": "in_front_of",
+      "confidence": 0.49250000000000005,
+      "features": {
+        "iou": 0.0,
+        "center_distance": 134.23859355639868,
+        "distance_norm": 0.16779824194549836,
+        "contains": false,
+        "depth_close": false,
+        "semantic_prior": 0.2,
+        "size_ratio": 0.6059009483667018,
+        "pair_score": 1.4815925838487527,
+        "predicate": "in_front_of",
+        "geometry_confidence": 0.65,
+        "dx": -74.0,
+        "dy": 112.0,
+        "depth_diff": 112.0,
+        "angle_rad": 2.1546667224570117,
+        "model_confidence": 0.0
+      },
+      "backend": "geometry",
+      "raw_relation_text": null
+    },
+    {
+      "subject_id": 2,
+      "object_id": 10,
+      "predicate": "behind",
+      "confidence": 0.49250000000000005,
+      "features": {
+        "iou": 0.0,
+        "center_distance": 154.63505424062166,
+        "distance_norm": 0.19329381780077706,
+        "contains": false,
+        "depth_close": false,
+        "semantic_prior": 0.2,
+        "size_ratio": 0.5085238279736536,
+        "pair_score": 1.4023093326258942,
+        "predicate": "behind",
+        "geometry_confidence": 0.65,
+        "dx": 14.0,
+        "dy": -154.0,
+        "depth_diff": -154.0,
+        "angle_rad": -1.4801364395941514,
+        "model_confidence": 0.0
+      },
+      "backend": "geometry",
+      "raw_relation_text": null
+    },
+    {
+      "subject_id": 10,
+      "object_id": 2,
+      "predicate": "in_front_of",
+      "confidence": 0.49250000000000005,
+      "features": {
+        "iou": 0.0,
+        "center_distance": 154.63505424062166,
+        "distance_norm": 0.19329381780077706,
+        "contains": false,
+        "depth_close": false,
+        "semantic_prior": 0.2,
+        "size_ratio": 0.5085238279736536,
+        "pair_score": 1.4023093326258942,
+        "predicate": "in_front_of",
+        "geometry_confidence": 0.65,
+        "dx": -14.0,
+        "dy": 154.0,
+        "depth_diff": 154.0,
+        "angle_rad": 1.6614562139956417,
+        "model_confidence": 0.0
+      },
+      "backend": "geometry",
+      "raw_relation_text": null
+    },
+    {
+      "subject_id": 0,
+      "object_id": 6,
+      "predicate": "behind",
+      "confidence": 0.49250000000000005,
+      "features": {
+        "iou": 0.0,
+        "center_distance": 174.6918715910961,
+        "distance_norm": 0.21836483948887012,
+        "contains": false,
+        "depth_close": false,
+        "semantic_prior": 0.2,
+        "size_ratio": 0.5566460055096418,
+        "pair_score": 1.3962851953681767,
+        "predicate": "behind",
+        "geometry_confidence": 0.65,
+        "dx": -131.5,
+        "dy": -115.0,
+        "depth_diff": -115.0,
+        "angle_rad": -2.4230319054425453,
+        "model_confidence": 0.0
+      },
+      "backend": "geometry",
+      "raw_relation_text": null
+    }
+  ],
+  "stats": {
+    "num_nodes": 11,
+    "num_pruned_pairs": 24,
+    "num_edges": 19,
+    "detector_backend": "contour",
+    "depth_backend": "pseudo",
+    "relation_backend": "heuristic",
+    "use_vlm_relations": false,
+    "edge_threshold": 0.48,
+    "max_pairs": 24
+  }
+}

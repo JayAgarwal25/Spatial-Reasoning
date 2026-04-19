@@ -1,0 +1,15 @@
+{
+  "image": "../06_demo/demo_inputs/sample_image.png",
+  "checkpoint": "/home/jay_agarwal_2022/Spatial-Reasoning/checkpoints_20k/best_no_geom_no_epi.pt",
+  "epsilon": 0.3,
+  "initial_num_nodes": 13,
+  "initial_num_edges": 16,
+  "initial_residual_max": 0.430086612701416,
+  "initial_residual_mean": 0.0564216673374176,
+  "converged": true,
+  "iterations_run": 2,
+  "final_residual_max": 0.2570272982120514,
+  "final_residual_mean": 0.060554686933755875,
+  "final_num_nodes": 11,
+  "final_num_edges": 19
+}
