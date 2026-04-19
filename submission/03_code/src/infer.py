@@ -413,11 +413,14 @@ def main():
     logger.info(f"  GNN output saved → {gnn_json_path}")
 
     residuals = gnn_output["residuals"].flatten()
-    logger.info(
-        f"  Residuals: max={residuals.max().item():.4f}  "
-        f"mean={residuals.mean().item():.4f}  "
-        f"flagged (>{args.epsilon}): {(residuals > args.epsilon).sum().item()}"
-    )
+    if residuals.numel() > 0:
+        logger.info(
+            f"  Residuals: max={residuals.max().item():.4f}  "
+            f"mean={residuals.mean().item():.4f}  "
+            f"flagged (>{args.epsilon}): {(residuals > args.epsilon).sum().item()}"
+        )
+    else:
+        logger.info("  No edges — skipping residual stats.")
 
     if args.skip_step3:
         logger.info("Step 3 skipped (--skip_step3).")

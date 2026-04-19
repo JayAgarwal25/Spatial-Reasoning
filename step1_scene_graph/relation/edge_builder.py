@@ -27,7 +27,10 @@ def build_sparse_edges(image_rgb, pruned_pairs, relation_model, edge_threshold: 
             elif geom['geometry_confidence'] < 0.6:
                 final_pred = 'none'
         sem = meta['semantic_prior']
-        conf = 0.35 * geom['geometry_confidence'] + 0.45 * model_conf + 0.20 * sem
+        if use_vlm_relations:
+            conf = 0.35 * geom['geometry_confidence'] + 0.45 * model_conf + 0.20 * sem
+        else:
+            conf = 0.65 * geom['geometry_confidence'] + 0.35 * sem
         if final_pred != 'none' and conf >= edge_threshold:
             edges.append(RelationEdge(
                 subject_id=a.id,
