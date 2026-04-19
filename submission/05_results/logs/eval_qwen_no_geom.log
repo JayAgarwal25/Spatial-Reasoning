@@ -1,0 +1,1549 @@
+2026-04-18 17:45:02,054  INFO      Loaded 999 scenes from superCLEVR/Spatial457 format.
+2026-04-18 17:45:02,598  INFO      Evaluating on 999 scenes.
+2026-04-18 17:45:06,198  INFO      Loaded EpiGNN from checkpoints_20k/best_no_geom.pt (device=cuda).
+2026-04-18 17:45:06,198  INFO      
+────────────────────────────────────────────────────────────
+Baseline: qwen2-vl-7b
+────────────────────────────────────────────────────────────
+2026-04-18 17:45:06,769  INFO      Loading Qwen2-VL from Qwen/Qwen2-VL-7B-Instruct …
+2026-04-18 17:45:07,082  INFO      HTTP Request: HEAD https://huggingface.co/Qwen/Qwen2-VL-7B-Instruct/resolve/main/processor_config.json "HTTP/1.1 404 Not Found"
+2026-04-18 17:45:07,359  INFO      HTTP Request: HEAD https://huggingface.co/Qwen/Qwen2-VL-7B-Instruct/resolve/main/preprocessor_config.json "HTTP/1.1 307 Temporary Redirect"
+2026-04-18 17:45:07,383  INFO      HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/Qwen/Qwen2-VL-7B-Instruct/eed13092ef92e448dd6875b2a00151bd3f7db0ac/preprocessor_config.json "HTTP/1.1 200 OK"
+2026-04-18 17:45:07,671  INFO      HTTP Request: HEAD https://huggingface.co/Qwen/Qwen2-VL-7B-Instruct/resolve/main/processor_config.json "HTTP/1.1 404 Not Found"
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+2026-04-18 17:45:07,672  WARNING   Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+2026-04-18 17:45:07,938  INFO      HTTP Request: HEAD https://huggingface.co/Qwen/Qwen2-VL-7B-Instruct/resolve/main/preprocessor_config.json "HTTP/1.1 307 Temporary Redirect"
+2026-04-18 17:45:07,963  INFO      HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/Qwen/Qwen2-VL-7B-Instruct/eed13092ef92e448dd6875b2a00151bd3f7db0ac/preprocessor_config.json "HTTP/1.1 200 OK"
+2026-04-18 17:45:08,248  INFO      HTTP Request: GET https://huggingface.co/api/models/Qwen/Qwen2-VL-7B-Instruct/tree/main/additional_chat_templates?recursive=false&expand=false "HTTP/1.1 404 Not Found"
+2026-04-18 17:45:08,539  INFO      HTTP Request: HEAD https://huggingface.co/Qwen/Qwen2-VL-7B-Instruct/resolve/main/processor_config.json "HTTP/1.1 404 Not Found"
+2026-04-18 17:45:08,820  INFO      HTTP Request: HEAD https://huggingface.co/Qwen/Qwen2-VL-7B-Instruct/resolve/main/chat_template.json "HTTP/1.1 307 Temporary Redirect"
+2026-04-18 17:45:08,845  INFO      HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/Qwen/Qwen2-VL-7B-Instruct/eed13092ef92e448dd6875b2a00151bd3f7db0ac/chat_template.json "HTTP/1.1 200 OK"
+2026-04-18 17:45:09,123  INFO      HTTP Request: HEAD https://huggingface.co/Qwen/Qwen2-VL-7B-Instruct/resolve/main/chat_template.jinja "HTTP/1.1 404 Not Found"
+2026-04-18 17:45:09,397  INFO      HTTP Request: HEAD https://huggingface.co/Qwen/Qwen2-VL-7B-Instruct/resolve/main/audio_tokenizer_config.json "HTTP/1.1 404 Not Found"
+2026-04-18 17:45:09,668  INFO      HTTP Request: HEAD https://huggingface.co/Qwen/Qwen2-VL-7B-Instruct/resolve/main/processor_config.json "HTTP/1.1 404 Not Found"
+2026-04-18 17:45:09,938  INFO      HTTP Request: HEAD https://huggingface.co/Qwen/Qwen2-VL-7B-Instruct/resolve/main/preprocessor_config.json "HTTP/1.1 307 Temporary Redirect"
+2026-04-18 17:45:09,962  INFO      HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/Qwen/Qwen2-VL-7B-Instruct/eed13092ef92e448dd6875b2a00151bd3f7db0ac/preprocessor_config.json "HTTP/1.1 200 OK"
+2026-04-18 17:45:10,251  INFO      HTTP Request: HEAD https://huggingface.co/Qwen/Qwen2-VL-7B-Instruct/resolve/main/processor_config.json "HTTP/1.1 404 Not Found"
+2026-04-18 17:45:10,519  INFO      HTTP Request: HEAD https://huggingface.co/Qwen/Qwen2-VL-7B-Instruct/resolve/main/preprocessor_config.json "HTTP/1.1 307 Temporary Redirect"
+2026-04-18 17:45:10,543  INFO      HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/Qwen/Qwen2-VL-7B-Instruct/eed13092ef92e448dd6875b2a00151bd3f7db0ac/preprocessor_config.json "HTTP/1.1 200 OK"
+2026-04-18 17:45:10,815  INFO      HTTP Request: HEAD https://huggingface.co/Qwen/Qwen2-VL-7B-Instruct/resolve/main/config.json "HTTP/1.1 307 Temporary Redirect"
+2026-04-18 17:45:10,841  INFO      HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/Qwen/Qwen2-VL-7B-Instruct/eed13092ef92e448dd6875b2a00151bd3f7db0ac/config.json "HTTP/1.1 200 OK"
+2026-04-18 17:45:11,140  INFO      HTTP Request: HEAD https://huggingface.co/Qwen/Qwen2-VL-7B-Instruct/resolve/main/tokenizer_config.json "HTTP/1.1 307 Temporary Redirect"
+2026-04-18 17:45:11,164  INFO      HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/Qwen/Qwen2-VL-7B-Instruct/eed13092ef92e448dd6875b2a00151bd3f7db0ac/tokenizer_config.json "HTTP/1.1 200 OK"
+2026-04-18 17:45:11,440  INFO      HTTP Request: GET https://huggingface.co/api/models/Qwen/Qwen2-VL-7B-Instruct/tree/main/additional_chat_templates?recursive=false&expand=false "HTTP/1.1 404 Not Found"
+2026-04-18 17:45:11,725  INFO      HTTP Request: GET https://huggingface.co/api/models/Qwen/Qwen2-VL-7B-Instruct/tree/main?recursive=true&expand=false "HTTP/1.1 200 OK"
+2026-04-18 17:45:12,410  INFO      HTTP Request: GET https://huggingface.co/api/models/Qwen/Qwen2-VL-7B-Instruct "HTTP/1.1 200 OK"
+2026-04-18 17:45:12,689  INFO      HTTP Request: HEAD https://huggingface.co/Qwen/Qwen2-VL-7B-Instruct/resolve/main/processor_config.json "HTTP/1.1 404 Not Found"
+2026-04-18 17:45:12,961  INFO      HTTP Request: HEAD https://huggingface.co/Qwen/Qwen2-VL-7B-Instruct/resolve/main/video_preprocessor_config.json "HTTP/1.1 404 Not Found"
+2026-04-18 17:45:13,230  INFO      HTTP Request: HEAD https://huggingface.co/Qwen/Qwen2-VL-7B-Instruct/resolve/main/preprocessor_config.json "HTTP/1.1 307 Temporary Redirect"
+2026-04-18 17:45:13,254  INFO      HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/Qwen/Qwen2-VL-7B-Instruct/eed13092ef92e448dd6875b2a00151bd3f7db0ac/preprocessor_config.json "HTTP/1.1 200 OK"
+2026-04-18 17:45:13,541  INFO      HTTP Request: HEAD https://huggingface.co/Qwen/Qwen2-VL-7B-Instruct/resolve/main/processor_config.json "HTTP/1.1 404 Not Found"
+2026-04-18 17:45:13,817  INFO      HTTP Request: HEAD https://huggingface.co/Qwen/Qwen2-VL-7B-Instruct/resolve/main/video_preprocessor_config.json "HTTP/1.1 404 Not Found"
+2026-04-18 17:45:14,097  INFO      HTTP Request: HEAD https://huggingface.co/Qwen/Qwen2-VL-7B-Instruct/resolve/main/preprocessor_config.json "HTTP/1.1 307 Temporary Redirect"
+2026-04-18 17:45:14,122  INFO      HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/Qwen/Qwen2-VL-7B-Instruct/eed13092ef92e448dd6875b2a00151bd3f7db0ac/preprocessor_config.json "HTTP/1.1 200 OK"
+2026-04-18 17:45:14,399  INFO      HTTP Request: HEAD https://huggingface.co/Qwen/Qwen2-VL-7B-Instruct/resolve/main/config.json "HTTP/1.1 307 Temporary Redirect"
+2026-04-18 17:45:14,426  INFO      HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/Qwen/Qwen2-VL-7B-Instruct/eed13092ef92e448dd6875b2a00151bd3f7db0ac/config.json "HTTP/1.1 200 OK"
+2026-04-18 17:45:14,734  INFO      HTTP Request: HEAD https://huggingface.co/Qwen/Qwen2-VL-7B-Instruct/resolve/main/model.safetensors "HTTP/1.1 404 Not Found"
+2026-04-18 17:45:15,018  INFO      HTTP Request: HEAD https://huggingface.co/Qwen/Qwen2-VL-7B-Instruct/resolve/main/model.safetensors.index.json "HTTP/1.1 307 Temporary Redirect"
+2026-04-18 17:45:15,043  INFO      HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/Qwen/Qwen2-VL-7B-Instruct/eed13092ef92e448dd6875b2a00151bd3f7db0ac/model.safetensors.index.json "HTTP/1.1 200 OK"
+2026-04-18 17:45:15,321  INFO      HTTP Request: GET https://huggingface.co/api/models/Qwen/Qwen2-VL-7B-Instruct/revision/main "HTTP/1.1 200 OK"
+Fetching 5 files:   0%|          | 0/5 [00:00<?, ?it/s]Fetching 5 files: 100%|██████████| 5/5 [00:00<00:00, 9813.53it/s]
+Loading weights:   0%|          | 0/730 [00:00<?, ?it/s]Loading weights:   0%|          | 2/730 [00:00<01:49,  6.65it/s]Loading weights:   1%|          | 6/730 [00:00<00:41, 17.25it/s]Loading weights:   2%|▏         | 18/730 [00:00<00:15, 47.16it/s]Loading weights:   4%|▍         | 29/730 [00:00<00:11, 62.89it/s]Loading weights:   6%|▌         | 41/730 [00:00<00:09, 75.75it/s]Loading weights:   7%|▋         | 54/730 [00:00<00:07, 85.97it/s]Loading weights:   9%|▉         | 66/730 [00:00<00:07, 90.97it/s]Loading weights:  11%|█         | 78/730 [00:01<00:06, 94.51it/s]Loading weights:  12%|█▏        | 89/730 [00:01<00:06, 92.46it/s]Loading weights:  14%|█▍        | 102/730 [00:01<00:06, 99.62it/s]Loading weights:  16%|█▌        | 114/730 [00:01<00:05, 103.00it/s]Loading weights:  17%|█▋        | 126/730 [00:01<00:05, 101.74it/s]Loading weights:  19%|█▉        | 137/730 [00:01<00:06, 97.37it/s] Loading weights:  20%|██        | 149/730 [00:01<00:05, 97.90it/s]Loading weights:  22%|██▏       | 163/730 [00:01<00:05, 109.00it/s]Loading weights:  24%|██▍       | 175/730 [00:02<00:05, 98.40it/s] Loading weights:  25%|██▌       | 186/730 [00:02<00:05, 96.98it/s]Loading weights:  27%|██▋       | 198/730 [00:02<00:05, 99.57it/s]Loading weights:  29%|██▉       | 210/730 [00:02<00:05, 99.45it/s]Loading weights:  30%|███       | 221/730 [00:02<00:05, 100.14it/s]Loading weights:  32%|███▏      | 233/730 [00:02<00:05, 98.73it/s] Loading weights:  33%|███▎      | 244/730 [00:02<00:04, 98.96it/s]Loading weights:  35%|███▌      | 257/730 [00:02<00:05, 94.13it/s]Loading weights:  37%|███▋      | 268/730 [00:03<00:04, 96.14it/s]Loading weights:  38%|███▊      | 281/730 [00:03<00:04, 90.89it/s]Loading weights:  40%|████      | 292/730 [00:03<00:04, 92.68it/s]Loading weights:  42%|████▏     | 306/730 [00:03<00:04, 99.32it/s]Loading weights:  44%|████▎     | 318/730 [00:03<00:04, 94.61it/s]Loading weights:  45%|████▌     | 329/730 [00:03<00:04, 95.61it/s]Loading weights:  57%|█████▋    | 413/730 [00:03<00:01, 286.01it/s]Loading weights:  68%|██████▊   | 498/730 [00:03<00:00, 436.81it/s]Loading weights:  79%|███████▉  | 575/730 [00:03<00:00, 523.93it/s]Loading weights:  90%|█████████ | 659/730 [00:04<00:00, 607.14it/s]Loading weights: 100%|█████████▉| 729/730 [00:04<00:00, 625.47it/s]Loading weights: 100%|██████████| 730/730 [00:04<00:00, 174.48it/s]
+2026-04-18 17:45:20,483  INFO      HTTP Request: HEAD https://huggingface.co/Qwen/Qwen2-VL-7B-Instruct/resolve/main/generation_config.json "HTTP/1.1 307 Temporary Redirect"
+2026-04-18 17:45:20,508  INFO      HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/Qwen/Qwen2-VL-7B-Instruct/eed13092ef92e448dd6875b2a00151bd3f7db0ac/generation_config.json "HTTP/1.1 200 OK"
+2026-04-18 17:45:20,519  INFO      Qwen2-VL loaded.
+2026-04-18 17:45:20,519  INFO        Scene 1/999: superCLEVR_new_020000
+2026-04-18 17:45:27,716  WARNING   Qwen2-VL batch: got 25/28 values — NaN-padding
+2026-04-18 17:45:27,740  INFO        Scene 2/999: superCLEVR_new_020001
+2026-04-18 17:45:29,899  WARNING   Qwen2-VL batch: got 14/15 values — NaN-padding
+2026-04-18 17:45:29,902  INFO        Scene 3/999: superCLEVR_new_020002
+2026-04-18 17:45:32,464  WARNING   Qwen2-VL batch: got 20/21 values — NaN-padding
+2026-04-18 17:45:32,468  INFO        Scene 4/999: superCLEVR_new_020003
+2026-04-18 17:45:33,323  INFO        Scene 5/999: superCLEVR_new_020004
+2026-04-18 17:45:37,507  INFO        Scene 6/999: superCLEVR_new_020005
+2026-04-18 17:45:40,061  WARNING   Qwen2-VL batch: got 20/21 values — NaN-padding
+2026-04-18 17:45:40,065  INFO        Scene 7/999: superCLEVR_new_020006
+2026-04-18 17:45:41,772  WARNING   Qwen2-VL batch: got 13/15 values — NaN-padding
+2026-04-18 17:45:41,775  INFO        Scene 8/999: superCLEVR_new_020007
+2026-04-18 17:45:42,328  INFO        Scene 9/999: superCLEVR_new_020008
+2026-04-18 17:45:43,695  INFO        Scene 10/999: superCLEVR_new_020009
+2026-04-18 17:45:47,885  WARNING   Qwen2-VL batch: got 34/36 values — NaN-padding
+2026-04-18 17:45:47,889  INFO        Scene 11/999: superCLEVR_new_020010
+2026-04-18 17:45:51,019  WARNING   Qwen2-VL batch: got 25/28 values — NaN-padding
+2026-04-18 17:45:51,023  INFO        Scene 12/999: superCLEVR_new_020011
+2026-04-18 17:45:51,503  INFO        Scene 13/999: superCLEVR_new_020012
+2026-04-18 17:45:52,351  INFO        Scene 14/999: superCLEVR_new_020013
+2026-04-18 17:45:53,207  INFO        Scene 15/999: superCLEVR_new_020014
+2026-04-18 17:45:54,906  WARNING   Qwen2-VL batch: got 13/15 values — NaN-padding
+2026-04-18 17:45:54,909  INFO        Scene 16/999: superCLEVR_new_020015
+2026-04-18 17:45:55,759  INFO        Scene 17/999: superCLEVR_new_020016
+2026-04-18 17:45:58,528  INFO        Scene 18/999: superCLEVR_new_020017
+2026-04-18 17:46:03,309  INFO        Scene 19/999: superCLEVR_new_020018
+2026-04-18 17:46:06,436  WARNING   Qwen2-VL batch: got 25/28 values — NaN-padding
+2026-04-18 17:46:06,440  INFO        Scene 20/999: superCLEVR_new_020019
+2026-04-18 17:46:18,612  WARNING   Qwen2-VL batch: no JSON array in: '[1.2, 3.4, 0.8, 2.1, 1.5, 3.6, 2.5, 1.8, 2.3, 1.5, 2.7, 2.1, 1.8, 2.3, 1.5, 2.7, 2.1, 1.8, 2.3, 1.5,'
+2026-04-18 17:46:18,616  INFO        Scene 21/999: superCLEVR_new_020020
+2026-04-18 17:46:19,937  INFO        Scene 22/999: superCLEVR_new_020021
+2026-04-18 17:46:32,044  WARNING   Qwen2-VL batch: no JSON array in: '[0.5, 0.3, 0.8, 0.2, 1.5, 0.1, 0.3, 0.5, 0.2, 0.5, 0.1, 0.3, 0.5, 0.8, 0.5, 0.2, 0.3, 0.5, 0.1, 0.3,'
+2026-04-18 17:46:32,047  INFO        Scene 23/999: superCLEVR_new_020022
+2026-04-18 17:46:44,161  WARNING   Qwen2-VL batch: no JSON array in: '[1.2, 3.4, 0.8, 1.2, 2.4, 1.2, 1.2, 2.4, 1.2, 3.4, 1.2, 2.4, 1.2, 2.4, 1.2, 3.4, 1.2, 2.4, 1.2, 2.4,'
+2026-04-18 17:46:44,165  INFO        Scene 24/999: superCLEVR_new_020023
+2026-04-18 17:46:46,885  WARNING   Qwen2-VL batch: got 20/21 values — NaN-padding
+2026-04-18 17:46:46,888  INFO        Scene 25/999: superCLEVR_new_020024
+2026-04-18 17:46:51,040  WARNING   Qwen2-VL batch: got 33/36 values — NaN-padding
+2026-04-18 17:46:51,043  INFO        Scene 26/999: superCLEVR_new_020025
+2026-04-18 17:46:54,637  WARNING   Qwen2-VL batch: got 29/36 values — NaN-padding
+2026-04-18 17:46:54,641  INFO        Scene 27/999: superCLEVR_new_020026
+2026-04-18 17:46:57,160  WARNING   Qwen2-VL batch: got 20/21 values — NaN-padding
+2026-04-18 17:46:57,163  INFO        Scene 28/999: superCLEVR_new_020027
+2026-04-18 17:46:58,013  INFO        Scene 29/999: superCLEVR_new_020028
+2026-04-18 17:47:01,053  WARNING   Qwen2-VL batch: got 24/28 values — NaN-padding
+2026-04-18 17:47:01,056  INFO        Scene 30/999: superCLEVR_new_020029
+2026-04-18 17:47:02,383  INFO        Scene 31/999: superCLEVR_new_020030
+2026-04-18 17:47:02,871  INFO        Scene 32/999: superCLEVR_new_020031
+2026-04-18 17:47:03,734  INFO        Scene 33/999: superCLEVR_new_020032
+2026-04-18 17:47:05,474  WARNING   Qwen2-VL batch: got 13/15 values — NaN-padding
+2026-04-18 17:47:05,477  INFO        Scene 34/999: superCLEVR_new_020033
+2026-04-18 17:47:08,482  WARNING   Qwen2-VL batch: got 24/28 values — NaN-padding
+2026-04-18 17:47:08,485  INFO        Scene 35/999: superCLEVR_new_020034
+2026-04-18 17:47:20,965  WARNING   Qwen2-VL batch: no JSON array in: '[1.2, 3.4, 0.8, 2.5, 1.5, 0.5, 2.0, 3.0, 1.0, 1.5, 2.0, 3.0, 1.0, 2.5, 1.5, 2.0, 1.0, 2.5, 1.5, 2.0,'
+2026-04-18 17:47:20,970  INFO        Scene 36/999: superCLEVR_new_020035
+2026-04-18 17:47:28,029  INFO        Scene 37/999: superCLEVR_new_020036
+2026-04-18 17:47:29,329  INFO        Scene 38/999: superCLEVR_new_020037
+2026-04-18 17:47:32,990  WARNING   Qwen2-VL batch: got 30/36 values — NaN-padding
+2026-04-18 17:47:32,994  INFO        Scene 39/999: superCLEVR_new_020038
+2026-04-18 17:47:34,764  WARNING   Qwen2-VL batch: got 14/15 values — NaN-padding
+2026-04-18 17:47:34,767  INFO        Scene 40/999: superCLEVR_new_020039
+2026-04-18 17:47:35,596  INFO        Scene 41/999: superCLEVR_new_020040
+2026-04-18 17:47:36,438  INFO        Scene 42/999: superCLEVR_new_020041
+2026-04-18 17:47:36,922  INFO        Scene 43/999: superCLEVR_new_020042
+2026-04-18 17:47:42,215  INFO        Scene 44/999: superCLEVR_new_020043
+2026-04-18 17:47:54,063  WARNING   Qwen2-VL batch: no JSON array in: '[1.2, 2.4, 1.8, 2.1, 1.5, 3.6, 1.0, 2.7, 1.5, 1.8, 2.1, 2.4, 3.0, 1.2, 2.1, 1.5, 2.4, 1.8, 3.0, 1.5,'
+2026-04-18 17:47:54,068  INFO        Scene 45/999: superCLEVR_new_020044
+2026-04-18 17:48:05,932  WARNING   Qwen2-VL batch: no JSON array in: '[1.2, 3.4, 0.8, 2.1, 1.5, 0.9, 2.3, 1.7, 3.6, 1.9, 2.5, 1.1, 2.7, 1.3, 2.9, 1.6, 3.1, 1.8, 3.3, 1.4,'
+2026-04-18 17:48:05,935  INFO        Scene 46/999: superCLEVR_new_020045
+2026-04-18 17:48:06,407  INFO        Scene 47/999: superCLEVR_new_020046
+2026-04-18 17:48:10,046  INFO        Scene 48/999: superCLEVR_new_020047
+2026-04-18 17:48:11,819  WARNING   Qwen2-VL batch: got 14/15 values — NaN-padding
+2026-04-18 17:48:11,821  INFO        Scene 49/999: superCLEVR_new_020048
+2026-04-18 17:48:13,711  INFO        Scene 50/999: superCLEVR_new_020049
+2026-04-18 17:48:15,373  WARNING   Qwen2-VL batch: got 13/15 values — NaN-padding
+2026-04-18 17:48:15,376  INFO        Scene 51/999: superCLEVR_new_020050
+2026-04-18 17:48:16,664  INFO        Scene 52/999: superCLEVR_new_020051
+2026-04-18 17:48:21,373  WARNING   Qwen2-VL batch: got 39/45 values — NaN-padding
+2026-04-18 17:48:21,377  INFO        Scene 53/999: superCLEVR_new_020052
+2026-04-18 17:48:21,857  INFO        Scene 54/999: superCLEVR_new_020053
+2026-04-18 17:48:26,825  INFO        Scene 55/999: superCLEVR_new_020054
+2026-04-18 17:48:27,958  INFO        Scene 56/999: superCLEVR_new_020055
+2026-04-18 17:48:32,799  WARNING   Qwen2-VL batch: got 39/45 values — NaN-padding
+2026-04-18 17:48:32,803  INFO        Scene 57/999: superCLEVR_new_020056
+2026-04-18 17:48:38,873  INFO        Scene 58/999: superCLEVR_new_020057
+2026-04-18 17:48:40,179  INFO        Scene 59/999: superCLEVR_new_020058
+2026-04-18 17:48:40,659  INFO        Scene 60/999: superCLEVR_new_020059
+2026-04-18 17:48:44,748  INFO        Scene 61/999: superCLEVR_new_020060
+2026-04-18 17:48:56,678  WARNING   Qwen2-VL batch: no JSON array in: '[1.2, 3.4, 0.8, 1.5, 2.1, 3.6, 0.5, 1.8, 2.3, 1.6, 2.7, 1.9, 2.4, 1.7, 2.6, 1.4, 2.5, 1.1, 2.2, 1.3,'
+2026-04-18 17:48:56,681  INFO        Scene 62/999: superCLEVR_new_020061
+2026-04-18 17:48:57,514  INFO        Scene 63/999: superCLEVR_new_020062
+2026-04-18 17:49:00,597  WARNING   Qwen2-VL batch: got 25/28 values — NaN-padding
+2026-04-18 17:49:00,601  INFO        Scene 64/999: superCLEVR_new_020063
+2026-04-18 17:49:12,523  WARNING   Qwen2-VL batch: no JSON array in: '[1.2, 3.4, 0.8, 2.5, 1.5, 4.2, 2.1, 2.8, 1.6, 1.9, 3.2, 4.5, 2.3, 3.7, 1.1, 2.6, 1.4, 3.9, 2.7, 1.7,'
+2026-04-18 17:49:12,526  INFO        Scene 65/999: superCLEVR_new_020064
+2026-04-18 17:49:15,000  WARNING   Qwen2-VL batch: got 20/21 values — NaN-padding
+2026-04-18 17:49:15,003  INFO        Scene 66/999: superCLEVR_new_020065
+2026-04-18 17:49:15,833  INFO        Scene 67/999: superCLEVR_new_020066
+2026-04-18 17:49:19,793  WARNING   Qwen2-VL batch: got 32/36 values — NaN-padding
+2026-04-18 17:49:19,797  INFO        Scene 68/999: superCLEVR_new_020067
+2026-04-18 17:49:21,109  INFO        Scene 69/999: superCLEVR_new_020068
+2026-04-18 17:49:21,589  INFO        Scene 70/999: superCLEVR_new_020069
+2026-04-18 17:49:22,072  INFO        Scene 71/999: superCLEVR_new_020070
+2026-04-18 17:49:22,914  INFO        Scene 72/999: superCLEVR_new_020071
+2026-04-18 17:49:25,762  WARNING   Qwen2-VL batch: got 23/28 values — NaN-padding
+2026-04-18 17:49:25,766  INFO        Scene 73/999: superCLEVR_new_020072
+2026-04-18 17:49:26,691  INFO        Scene 74/999: superCLEVR_new_020073
+2026-04-18 17:49:31,789  INFO        Scene 75/999: superCLEVR_new_020074
+2026-04-18 17:49:33,444  WARNING   Qwen2-VL batch: got 13/15 values — NaN-padding
+2026-04-18 17:49:33,447  INFO        Scene 76/999: superCLEVR_new_020075
+2026-04-18 17:49:34,998  WARNING   Qwen2-VL batch: got 12/15 values — NaN-padding
+2026-04-18 17:49:35,001  INFO        Scene 77/999: superCLEVR_new_020076
+2026-04-18 17:49:36,653  WARNING   Qwen2-VL batch: got 13/15 values — NaN-padding
+2026-04-18 17:49:36,656  INFO        Scene 78/999: superCLEVR_new_020077
+2026-04-18 17:49:39,146  WARNING   Qwen2-VL batch: got 20/21 values — NaN-padding
+2026-04-18 17:49:39,149  INFO        Scene 79/999: superCLEVR_new_020078
+2026-04-18 17:49:39,680  INFO        Scene 80/999: superCLEVR_new_020079
+2026-04-18 17:49:40,162  INFO        Scene 81/999: superCLEVR_new_020080
+2026-04-18 17:49:52,134  WARNING   Qwen2-VL batch: no JSON array in: '[1.2, 1.5, 2.0, 1.0, 1.5, 1.0, 1.0, 2.0, 1.5, 1.5, 1.0, 1.0, 1.0, 2.0, 1.5, 1.0, 2.0, 1.5, 1.0, 1.0,'
+2026-04-18 17:49:52,138  INFO        Scene 82/999: superCLEVR_new_020081
+2026-04-18 17:49:55,781  WARNING   Qwen2-VL batch: got 30/36 values — NaN-padding
+2026-04-18 17:49:55,785  INFO        Scene 83/999: superCLEVR_new_020082
+2026-04-18 17:49:57,660  WARNING   Qwen2-VL batch: got 14/15 values — NaN-padding
+2026-04-18 17:49:57,663  INFO        Scene 84/999: superCLEVR_new_020083
+2026-04-18 17:50:09,623  WARNING   Qwen2-VL batch: no JSON array in: '[1.2, 3.4, 0.8, 2.1, 1.5, 0.5, 1.8, 2.3, 3.6, 2.9, 1.7, 2.5, 1.9, 2.2, 3.1, 2.7, 1.4, 2.6, 1.6, 2.4,'
+2026-04-18 17:50:09,626  INFO        Scene 85/999: superCLEVR_new_020084
+2026-04-18 17:50:10,104  INFO        Scene 86/999: superCLEVR_new_020085
+2026-04-18 17:50:22,055  WARNING   Qwen2-VL batch: no JSON array in: '[1.2, 1.5, 2.5, 1.8, 2.0, 1.5, 1.8, 2.2, 1.5, 1.2, 1.5, 1.8, 2.2, 1.5, 1.8, 2.2, 1.5, 1.2, 1.5, 1.8,'
+2026-04-18 17:50:22,058  INFO        Scene 87/999: superCLEVR_new_020086
+2026-04-18 17:50:22,535  INFO        Scene 88/999: superCLEVR_new_020087
+2026-04-18 17:50:27,822  WARNING   Qwen2-VL batch: got 44/45 values — NaN-padding
+2026-04-18 17:50:27,825  INFO        Scene 89/999: superCLEVR_new_020088
+2026-04-18 17:50:28,304  INFO        Scene 90/999: superCLEVR_new_020089
+2026-04-18 17:50:40,295  WARNING   Qwen2-VL batch: no JSON array in: '[1.2, 3.4, 0.8, 1.2, 2.4, 0.8, 1.2, 0.8, 1.2, 1.2, 2.4, 0.8, 1.2, 0.8, 1.2, 1.2, 2.4, 0.8, 1.2, 0.8,'
+2026-04-18 17:50:40,299  INFO        Scene 91/999: superCLEVR_new_020090
+2026-04-18 17:50:52,287  WARNING   Qwen2-VL batch: no JSON array in: '[1.2, 0.8, 2.5, 3.0, 1.5, 1.8, 2.0, 1.5, 0.8, 0.8, 2.0, 1.5, 1.8, 2.0, 0.8, 2.5, 3.0, 0.8, 2.0, 1.5,'
+2026-04-18 17:50:52,291  INFO        Scene 92/999: superCLEVR_new_020091
+2026-04-18 17:50:52,770  INFO        Scene 93/999: superCLEVR_new_020092
+2026-04-18 17:50:53,247  INFO        Scene 94/999: superCLEVR_new_020093
+2026-04-18 17:50:54,597  INFO        Scene 95/999: superCLEVR_new_020094
+2026-04-18 17:50:56,065  INFO        Scene 96/999: superCLEVR_new_020095
+2026-04-18 17:51:02,557  INFO        Scene 97/999: superCLEVR_new_020096
+2026-04-18 17:51:03,873  INFO        Scene 98/999: superCLEVR_new_020097
+2026-04-18 17:51:04,703  INFO        Scene 99/999: superCLEVR_new_020098
+2026-04-18 17:51:05,542  INFO        Scene 100/999: superCLEVR_new_020099
+2026-04-18 17:51:17,556  WARNING   Qwen2-VL batch: no JSON array in: '[1.2, 1.5, 1.8, 1.0, 1.5, 1.2, 1.0, 1.5, 1.8, 1.5, 1.2, 1.0, 1.5, 1.8, 1.5, 1.2, 1.0, 1.5, 1.8, 1.5,'
+2026-04-18 17:51:17,560  INFO        Scene 101/999: superCLEVR_new_020100
+2026-04-18 17:51:20,733  WARNING   Qwen2-VL batch: got 26/28 values — NaN-padding
+2026-04-18 17:51:20,737  INFO        Scene 102/999: superCLEVR_new_020101
+2026-04-18 17:51:23,227  WARNING   Qwen2-VL batch: got 20/21 values — NaN-padding
+2026-04-18 17:51:23,230  INFO        Scene 103/999: superCLEVR_new_020102
+2026-04-18 17:51:26,065  INFO        Scene 104/999: superCLEVR_new_020103
+2026-04-18 17:51:26,898  INFO        Scene 105/999: superCLEVR_new_020104
+2026-04-18 17:51:27,804  INFO        Scene 106/999: superCLEVR_new_020105
+2026-04-18 17:51:30,493  WARNING   Qwen2-VL batch: got 20/21 values — NaN-padding
+2026-04-18 17:51:30,496  INFO        Scene 107/999: superCLEVR_new_020106
+2026-04-18 17:51:33,693  WARNING   Qwen2-VL batch: got 26/28 values — NaN-padding
+2026-04-18 17:51:33,697  INFO        Scene 108/999: superCLEVR_new_020107
+2026-04-18 17:51:45,622  WARNING   Qwen2-VL batch: no JSON array in: '[1.2, 3.4, 0.8, 2.5, 4.3, 1.5, 2.1, 1.8, 1.2, 1.5, 2.5, 3.2, 1.8, 1.5, 1.2, 1.5, 2.5, 3.2, 1.8, 1.5,'
+2026-04-18 17:51:45,626  INFO        Scene 109/999: superCLEVR_new_020108
+2026-04-18 17:51:50,547  INFO        Scene 110/999: superCLEVR_new_020109
+2026-04-18 17:51:52,797  WARNING   Qwen2-VL batch: got 18/21 values — NaN-padding
+2026-04-18 17:51:52,800  INFO        Scene 111/999: superCLEVR_new_020110
+2026-04-18 17:51:54,457  WARNING   Qwen2-VL batch: got 13/15 values — NaN-padding
+2026-04-18 17:51:54,460  INFO        Scene 112/999: superCLEVR_new_020111
+2026-04-18 17:52:06,408  WARNING   Qwen2-VL batch: no JSON array in: '[0.5, 0.5, 0.5, 1.0, 0.5, 1.0, 0.5, 0.5, 0.5, 0.5, 1.0, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5,'
+2026-04-18 17:52:06,412  INFO        Scene 113/999: superCLEVR_new_020112
+2026-04-18 17:52:07,242  INFO        Scene 114/999: superCLEVR_new_020113
+2026-04-18 17:52:13,901  INFO        Scene 115/999: superCLEVR_new_020114
+2026-04-18 17:52:16,566  WARNING   Qwen2-VL batch: got 20/21 values — NaN-padding
+2026-04-18 17:52:16,569  INFO        Scene 116/999: superCLEVR_new_020115
+2026-04-18 17:52:19,995  WARNING   Qwen2-VL batch: got 27/28 values — NaN-padding
+2026-04-18 17:52:19,999  INFO        Scene 117/999: superCLEVR_new_020116
+2026-04-18 17:52:22,956  WARNING   Qwen2-VL batch: got 24/28 values — NaN-padding
+2026-04-18 17:52:22,960  INFO        Scene 118/999: superCLEVR_new_020117
+2026-04-18 17:52:24,500  WARNING   Qwen2-VL batch: got 12/15 values — NaN-padding
+2026-04-18 17:52:24,503  INFO        Scene 119/999: superCLEVR_new_020118
+2026-04-18 17:52:36,576  WARNING   Qwen2-VL batch: no JSON array in: '[1.2, 3.4, 0.8, 2.5, 4.2, 1.5, 2.1, 3.6, 0.5, 1.8, 3.2, 4.5, 2.7, 1.9, 0.6, 2.3, 4.8, 3.1, 2.9, 1.6,'
+2026-04-18 17:52:36,580  INFO        Scene 120/999: superCLEVR_new_020119
+2026-04-18 17:52:37,058  INFO        Scene 121/999: superCLEVR_new_020120
+2026-04-18 17:52:37,535  INFO        Scene 122/999: superCLEVR_new_020121
+2026-04-18 17:52:40,607  WARNING   Qwen2-VL batch: got 25/28 values — NaN-padding
+2026-04-18 17:52:40,610  INFO        Scene 123/999: superCLEVR_new_020122
+2026-04-18 17:52:41,915  INFO        Scene 124/999: superCLEVR_new_020123
+2026-04-18 17:52:43,451  WARNING   Qwen2-VL batch: got 12/15 values — NaN-padding
+2026-04-18 17:52:43,454  INFO        Scene 125/999: superCLEVR_new_020124
+2026-04-18 17:52:48,151  INFO        Scene 126/999: superCLEVR_new_020125
+2026-04-18 17:52:49,923  WARNING   Qwen2-VL batch: got 14/15 values — NaN-padding
+2026-04-18 17:52:49,926  INFO        Scene 127/999: superCLEVR_new_020126
+2026-04-18 17:52:50,409  INFO        Scene 128/999: superCLEVR_new_020127
+2026-04-18 17:52:54,134  INFO        Scene 129/999: superCLEVR_new_020128
+2026-04-18 17:52:56,606  WARNING   Qwen2-VL batch: got 20/21 values — NaN-padding
+2026-04-18 17:52:56,609  INFO        Scene 130/999: superCLEVR_new_020129
+2026-04-18 17:52:57,090  INFO        Scene 131/999: superCLEVR_new_020130
+2026-04-18 17:53:00,052  WARNING   Qwen2-VL batch: got 24/28 values — NaN-padding
+2026-04-18 17:53:00,055  INFO        Scene 132/999: superCLEVR_new_020131
+2026-04-18 17:53:01,358  INFO        Scene 133/999: superCLEVR_new_020132
+2026-04-18 17:53:04,441  WARNING   Qwen2-VL batch: got 25/28 values — NaN-padding
+2026-04-18 17:53:04,444  INFO        Scene 134/999: superCLEVR_new_020133
+2026-04-18 17:53:05,752  INFO        Scene 135/999: superCLEVR_new_020134
+2026-04-18 17:53:07,055  INFO        Scene 136/999: superCLEVR_new_020135
+2026-04-18 17:53:08,963  INFO        Scene 137/999: superCLEVR_new_020136
+2026-04-18 17:53:13,449  INFO        Scene 138/999: superCLEVR_new_020137
+2026-04-18 17:53:16,079  WARNING   Qwen2-VL batch: got 19/21 values — NaN-padding
+2026-04-18 17:53:16,082  INFO        Scene 139/999: superCLEVR_new_020138
+2026-04-18 17:53:16,562  INFO        Scene 140/999: superCLEVR_new_020139
+2026-04-18 17:53:19,162  INFO        Scene 141/999: superCLEVR_new_020140
+2026-04-18 17:53:21,534  WARNING   Qwen2-VL batch: got 19/21 values — NaN-padding
+2026-04-18 17:53:21,537  INFO        Scene 142/999: superCLEVR_new_020141
+2026-04-18 17:53:24,149  INFO        Scene 143/999: superCLEVR_new_020142
+2026-04-18 17:53:24,626  INFO        Scene 144/999: superCLEVR_new_020143
+2026-04-18 17:53:25,129  INFO        Scene 145/999: superCLEVR_new_020144
+2026-04-18 17:53:26,918  WARNING   Qwen2-VL batch: got 14/15 values — NaN-padding
+2026-04-18 17:53:26,921  INFO        Scene 146/999: superCLEVR_new_020145
+2026-04-18 17:53:28,697  WARNING   Qwen2-VL batch: got 14/15 values — NaN-padding
+2026-04-18 17:53:28,700  INFO        Scene 147/999: superCLEVR_new_020146
+2026-04-18 17:53:30,557  WARNING   Qwen2-VL batch: got 14/15 values — NaN-padding
+2026-04-18 17:53:30,559  INFO        Scene 148/999: superCLEVR_new_020147
+2026-04-18 17:53:32,321  WARNING   Qwen2-VL batch: got 13/15 values — NaN-padding
+2026-04-18 17:53:32,324  INFO        Scene 149/999: superCLEVR_new_020148
+2026-04-18 17:53:37,572  INFO        Scene 150/999: superCLEVR_new_020149
+2026-04-18 17:53:38,053  INFO        Scene 151/999: superCLEVR_new_020150
+2026-04-18 17:53:39,360  INFO        Scene 152/999: superCLEVR_new_020151
+2026-04-18 17:53:43,267  INFO        Scene 153/999: superCLEVR_new_020152
+2026-04-18 17:53:50,284  INFO        Scene 154/999: superCLEVR_new_020153
+2026-04-18 17:53:52,968  INFO        Scene 155/999: superCLEVR_new_020154
+2026-04-18 17:53:56,175  WARNING   Qwen2-VL batch: got 26/28 values — NaN-padding
+2026-04-18 17:53:56,179  INFO        Scene 156/999: superCLEVR_new_020155
+2026-04-18 17:53:57,484  INFO        Scene 157/999: superCLEVR_new_020156
+2026-04-18 17:54:00,445  WARNING   Qwen2-VL batch: got 24/28 values — NaN-padding
+2026-04-18 17:54:00,448  INFO        Scene 158/999: superCLEVR_new_020157
+2026-04-18 17:54:01,756  INFO        Scene 159/999: superCLEVR_new_020158
+2026-04-18 17:54:03,153  INFO        Scene 160/999: superCLEVR_new_020159
+2026-04-18 17:54:04,816  WARNING   Qwen2-VL batch: got 13/15 values — NaN-padding
+2026-04-18 17:54:04,819  INFO        Scene 161/999: superCLEVR_new_020160
+2026-04-18 17:54:07,785  WARNING   Qwen2-VL batch: got 24/28 values — NaN-padding
+2026-04-18 17:54:07,789  INFO        Scene 162/999: superCLEVR_new_020161
+2026-04-18 17:54:08,630  INFO        Scene 163/999: superCLEVR_new_020162
+2026-04-18 17:54:12,150  WARNING   Qwen2-VL batch: got 27/28 values — NaN-padding
+2026-04-18 17:54:12,153  INFO        Scene 164/999: superCLEVR_new_020163
+2026-04-18 17:54:14,767  INFO        Scene 165/999: superCLEVR_new_020164
+2026-04-18 17:54:15,602  INFO        Scene 166/999: superCLEVR_new_020165
+2026-04-18 17:54:17,966  WARNING   Qwen2-VL batch: got 19/21 values — NaN-padding
+2026-04-18 17:54:17,970  INFO        Scene 167/999: superCLEVR_new_020166
+2026-04-18 17:54:21,822  INFO        Scene 168/999: superCLEVR_new_020167
+2026-04-18 17:54:23,118  INFO        Scene 169/999: superCLEVR_new_020168
+2026-04-18 17:54:23,633  INFO        Scene 170/999: superCLEVR_new_020169
+2026-04-18 17:54:35,616  WARNING   Qwen2-VL batch: no JSON array in: '[1.2, 1.5, 3.0, 1.8, 1.5, 1.2, 2.4, 2.1, 1.5, 3.0, 1.8, 2.4, 2.1, 3.0, 2.4, 2.1, 1.5, 1.2, 1.5, 1.8,'
+2026-04-18 17:54:35,620  INFO        Scene 171/999: superCLEVR_new_020170
+2026-04-18 17:54:36,453  INFO        Scene 172/999: superCLEVR_new_020171
+2026-04-18 17:54:39,646  WARNING   Qwen2-VL batch: got 26/28 values — NaN-padding
+2026-04-18 17:54:39,650  INFO        Scene 173/999: superCLEVR_new_020172
+2026-04-18 17:54:44,793  INFO        Scene 174/999: superCLEVR_new_020173
+2026-04-18 17:54:45,628  INFO        Scene 175/999: superCLEVR_new_020174
+2026-04-18 17:54:46,472  INFO        Scene 176/999: superCLEVR_new_020175
+2026-04-18 17:54:48,371  INFO        Scene 177/999: superCLEVR_new_020176
+2026-04-18 17:54:50,847  WARNING   Qwen2-VL batch: got 20/21 values — NaN-padding
+2026-04-18 17:54:50,850  INFO        Scene 178/999: superCLEVR_new_020177
+2026-04-18 17:54:51,692  INFO        Scene 179/999: superCLEVR_new_020178
+2026-04-18 17:54:55,802  INFO        Scene 180/999: superCLEVR_new_020179
+2026-04-18 17:54:57,110  INFO        Scene 181/999: superCLEVR_new_020180
+2026-04-18 17:54:57,591  INFO        Scene 182/999: superCLEVR_new_020181
+2026-04-18 17:54:58,430  INFO        Scene 183/999: superCLEVR_new_020182
+2026-04-18 17:55:00,395  INFO        Scene 184/999: superCLEVR_new_020183
+2026-04-18 17:55:03,357  WARNING   Qwen2-VL batch: got 24/28 values — NaN-padding
+2026-04-18 17:55:03,360  INFO        Scene 185/999: superCLEVR_new_020184
+2026-04-18 17:55:06,188  WARNING   Qwen2-VL batch: got 23/28 values — NaN-padding
+2026-04-18 17:55:06,191  INFO        Scene 186/999: superCLEVR_new_020185
+2026-04-18 17:55:07,946  WARNING   Qwen2-VL batch: got 13/15 values — NaN-padding
+2026-04-18 17:55:07,949  INFO        Scene 187/999: superCLEVR_new_020186
+2026-04-18 17:55:08,456  INFO        Scene 188/999: superCLEVR_new_020187
+2026-04-18 17:55:20,515  WARNING   Qwen2-VL batch: no JSON array in: '[1.2, 3.4, 0.8, 1.5, 2.1, 2.7, 3.0, 1.8, 2.5, 2.0, 1.5, 2.1, 2.7, 3.0, 1.8, 2.5, 2.0, 1.5, 2.1, 2.7,'
+2026-04-18 17:55:20,519  INFO        Scene 189/999: superCLEVR_new_020188
+2026-04-18 17:55:21,006  INFO        Scene 190/999: superCLEVR_new_020189
+2026-04-18 17:55:22,314  INFO        Scene 191/999: superCLEVR_new_020190
+2026-04-18 17:55:22,798  INFO        Scene 192/999: superCLEVR_new_020191
+2026-04-18 17:55:34,773  WARNING   Qwen2-VL batch: no JSON array in: '[1.2, 1.5, 1.0, 1.8, 1.5, 1.2, 1.5, 1.8, 1.5, 1.0, 1.5, 1.8, 1.5, 1.2, 1.5, 1.8, 1.5, 1.2, 1.5, 1.8,'
+2026-04-18 17:55:34,777  INFO        Scene 193/999: superCLEVR_new_020192
+2026-04-18 17:55:35,629  INFO        Scene 194/999: superCLEVR_new_020193
+2026-04-18 17:55:36,931  INFO        Scene 195/999: superCLEVR_new_020194
+2026-04-18 17:55:37,768  INFO        Scene 196/999: superCLEVR_new_020195
+2026-04-18 17:55:42,966  WARNING   Qwen2-VL batch: got 43/45 values — NaN-padding
+2026-04-18 17:55:42,970  INFO        Scene 197/999: superCLEVR_new_020196
+2026-04-18 17:55:43,808  INFO        Scene 198/999: superCLEVR_new_020197
+2026-04-18 17:55:55,721  WARNING   Qwen2-VL batch: no JSON array in: '[1.5, 1.2, 1.8, 1.5, 2.0, 2.5, 1.5, 2.0, 1.2, 1.8, 2.5, 2.0, 1.5, 1.2, 1.8, 2.5, 2.0, 1.5, 1.2, 1.8,'
+2026-04-18 17:55:55,725  INFO        Scene 199/999: superCLEVR_new_020198
+2026-04-18 17:56:07,752  WARNING   Qwen2-VL batch: no JSON array in: '[1.2, 3.4, 0.8, 1.5, 2.1, 1.8, 2.5, 3.7, 1.9, 2.3, 2.7, 2.1, 3.3, 2.5, 3.7, 2.3, 3.9, 2.7, 3.5, 2.1,'
+2026-04-18 17:56:07,756  INFO        Scene 200/999: superCLEVR_new_020199
+2026-04-18 17:56:19,735  WARNING   Qwen2-VL batch: no JSON array in: '[1.2, 3.4, 0.8, 2.5, 5.6, 1.5, 4.2, 3.1, 0.9, 1.8, 2.3, 4.5, 6.7, 2.9, 1.1, 3.6, 2.7, 1.4, 2.1, 3.3,'
+2026-04-18 17:56:19,739  INFO        Scene 201/999: superCLEVR_new_020200
+2026-04-18 17:56:24,914  INFO        Scene 202/999: superCLEVR_new_020201
+2026-04-18 17:56:28,528  INFO        Scene 203/999: superCLEVR_new_020202
+2026-04-18 17:56:40,524  WARNING   Qwen2-VL batch: no JSON array in: '[10.0, 5.0, 7.0, 10.0, 15.0, 5.0, 5.0, 10.0, 5.0, 7.0, 15.0, 5.0, 10.0, 5.0, 7.0, 15.0, 5.0, 7.0, 10'
+2026-04-18 17:56:40,528  INFO        Scene 204/999: superCLEVR_new_020203
+2026-04-18 17:56:43,739  WARNING   Qwen2-VL batch: got 26/28 values — NaN-padding
+2026-04-18 17:56:43,742  INFO        Scene 205/999: superCLEVR_new_020204
+2026-04-18 17:56:48,592  INFO        Scene 206/999: superCLEVR_new_020205
+2026-04-18 17:56:49,427  INFO        Scene 207/999: superCLEVR_new_020206
+2026-04-18 17:56:50,266  INFO        Scene 208/999: superCLEVR_new_020207
+2026-04-18 17:56:53,597  WARNING   Qwen2-VL batch: got 27/28 values — NaN-padding
+2026-04-18 17:56:53,600  INFO        Scene 209/999: superCLEVR_new_020208
+2026-04-18 17:57:05,553  WARNING   Qwen2-VL batch: no JSON array in: '[1.2, 3.4, 0.8, 1.5, 2.1, 4.2, 2.5, 1.8, 3.6, 1.9, 2.3, 3.1, 2.7, 4.5, 3.9, 1.6, 2.9, 4.7, 3.3, 1.7,'
+2026-04-18 17:57:05,557  INFO        Scene 210/999: superCLEVR_new_020209
+2026-04-18 17:57:17,530  WARNING   Qwen2-VL batch: no JSON array in: '[1.2, 0.6, 0.8, 1.5, 0.4, 0.3, 0.5, 0.7, 2.0, 0.9, 1.0, 0.8, 1.5, 0.4, 0.3, 2.0, 0.6, 0.8, 1.5, 0.4,'
+2026-04-18 17:57:17,534  INFO        Scene 211/999: superCLEVR_new_020210
+2026-04-18 17:57:18,011  INFO        Scene 212/999: superCLEVR_new_020211
+2026-04-18 17:57:21,793  WARNING   Qwen2-VL batch: got 31/36 values — NaN-padding
+2026-04-18 17:57:21,797  INFO        Scene 213/999: superCLEVR_new_020212
+2026-04-18 17:57:26,980  WARNING   Qwen2-VL batch: got 43/45 values — NaN-padding
+2026-04-18 17:57:26,984  INFO        Scene 214/999: superCLEVR_new_020213
+2026-04-18 17:57:27,463  INFO        Scene 215/999: superCLEVR_new_020214
+2026-04-18 17:57:39,453  WARNING   Qwen2-VL batch: no JSON array in: '[1.2, 3.4, 0.8, 1.5, 0.5, 1.0, 1.5, 2.0, 1.0, 0.5, 1.5, 1.0, 2.0, 1.5, 0.5, 1.0, 1.5, 2.0, 1.0, 0.5,'
+2026-04-18 17:57:39,456  INFO        Scene 216/999: superCLEVR_new_020215
+2026-04-18 17:57:44,988  INFO        Scene 217/999: superCLEVR_new_020216
+2026-04-18 17:57:45,468  INFO        Scene 218/999: superCLEVR_new_020217
+2026-04-18 17:57:46,770  INFO        Scene 219/999: superCLEVR_new_020218
+2026-04-18 17:57:50,198  INFO        Scene 220/999: superCLEVR_new_020219
+2026-04-18 17:57:55,011  WARNING   Qwen2-VL batch: got 38/45 values — NaN-padding
+2026-04-18 17:57:55,015  INFO        Scene 221/999: superCLEVR_new_020220
+2026-04-18 17:57:57,956  WARNING   Qwen2-VL batch: got 24/28 values — NaN-padding
+2026-04-18 17:57:57,959  INFO        Scene 222/999: superCLEVR_new_020221
+2026-04-18 17:58:00,434  WARNING   Qwen2-VL batch: got 20/21 values — NaN-padding
+2026-04-18 17:58:00,437  INFO        Scene 223/999: superCLEVR_new_020222
+2026-04-18 17:58:00,919  INFO        Scene 224/999: superCLEVR_new_020223
+2026-04-18 17:58:06,000  WARNING   Qwen2-VL batch: got 42/45 values — NaN-padding
+2026-04-18 17:58:06,004  INFO        Scene 225/999: superCLEVR_new_020224
+2026-04-18 17:58:08,007  WARNING   Qwen2-VL batch: got 14/15 values — NaN-padding
+2026-04-18 17:58:08,010  INFO        Scene 226/999: superCLEVR_new_020225
+2026-04-18 17:58:11,900  INFO        Scene 227/999: superCLEVR_new_020226
+2026-04-18 17:58:13,560  WARNING   Qwen2-VL batch: got 13/15 values — NaN-padding
+2026-04-18 17:58:13,563  INFO        Scene 228/999: superCLEVR_new_020227
+2026-04-18 17:58:17,027  INFO        Scene 229/999: superCLEVR_new_020228
+2026-04-18 17:58:17,515  INFO        Scene 230/999: superCLEVR_new_020229
+2026-04-18 17:58:18,381  INFO        Scene 231/999: superCLEVR_new_020230
+2026-04-18 17:58:18,862  INFO        Scene 232/999: superCLEVR_new_020231
+2026-04-18 17:58:20,188  INFO        Scene 233/999: superCLEVR_new_020232
+2026-04-18 17:58:21,500  INFO        Scene 234/999: superCLEVR_new_020233
+2026-04-18 17:58:22,804  INFO        Scene 235/999: superCLEVR_new_020234
+2026-04-18 17:58:34,722  WARNING   Qwen2-VL batch: no JSON array in: '[1.2, 3.4, 0.8, 2.5, 1.5, 2.0, 3.0, 4.2, 1.8, 2.3, 1.5, 2.0, 3.0, 4.2, 1.8, 2.3, 1.5, 2.0, 3.0, 4.2,'
+2026-04-18 17:58:34,726  INFO        Scene 236/999: superCLEVR_new_020235
+2026-04-18 17:58:36,047  INFO        Scene 237/999: superCLEVR_new_020236
+2026-04-18 17:58:36,886  INFO        Scene 238/999: superCLEVR_new_020237
+2026-04-18 17:58:38,189  INFO        Scene 239/999: superCLEVR_new_020238
+2026-04-18 17:58:38,692  INFO        Scene 240/999: superCLEVR_new_020239
+2026-04-18 17:58:40,005  INFO        Scene 241/999: superCLEVR_new_020240
+2026-04-18 17:58:44,588  INFO        Scene 242/999: superCLEVR_new_020241
+2026-04-18 17:58:51,339  INFO        Scene 243/999: superCLEVR_new_020242
+2026-04-18 17:58:52,644  INFO        Scene 244/999: superCLEVR_new_020243
+2026-04-18 17:59:04,644  WARNING   Qwen2-VL batch: no JSON array in: '[0.5, 1.0, 1.5, 0.5, 1.0, 0.5, 1.5, 1.0, 0.5, 1.0, 0.5, 1.5, 1.0, 0.5, 1.5, 1.0, 0.5, 1.0, 0.5, 1.5,'
+2026-04-18 17:59:04,648  INFO        Scene 245/999: superCLEVR_new_020244
+2026-04-18 17:59:07,934  WARNING   Qwen2-VL batch: got 26/28 values — NaN-padding
+2026-04-18 17:59:07,937  INFO        Scene 246/999: superCLEVR_new_020245
+2026-04-18 17:59:12,639  INFO        Scene 247/999: superCLEVR_new_020246
+2026-04-18 17:59:15,948  WARNING   Qwen2-VL batch: got 27/28 values — NaN-padding
+2026-04-18 17:59:15,951  INFO        Scene 248/999: superCLEVR_new_020247
+2026-04-18 17:59:19,943  INFO        Scene 249/999: superCLEVR_new_020248
+2026-04-18 17:59:25,429  WARNING   Qwen2-VL batch: got 43/45 values — NaN-padding
+2026-04-18 17:59:25,433  INFO        Scene 250/999: superCLEVR_new_020249
+2026-04-18 17:59:28,862  INFO        Scene 251/999: superCLEVR_new_020250
+2026-04-18 17:59:31,598  WARNING   Qwen2-VL batch: got 20/21 values — NaN-padding
+2026-04-18 17:59:31,601  INFO        Scene 252/999: superCLEVR_new_020251
+2026-04-18 17:59:32,084  INFO        Scene 253/999: superCLEVR_new_020252
+2026-04-18 17:59:33,390  INFO        Scene 254/999: superCLEVR_new_020253
+2026-04-18 17:59:36,570  WARNING   Qwen2-VL batch: got 26/28 values — NaN-padding
+2026-04-18 17:59:36,573  INFO        Scene 255/999: superCLEVR_new_020254
+2026-04-18 17:59:48,574  WARNING   Qwen2-VL batch: no JSON array in: '[0.1, 0.1, 0.1, 0.1, 0.1, 0.1, 0.1, 0.1, 0.1, 0.1, 0.1, 0.1, 0.1, 0.1, 0.1, 0.1, 0.1, 0.1, 0.1, 0.1,'
+2026-04-18 17:59:48,578  INFO        Scene 256/999: superCLEVR_new_020255
+2026-04-18 17:59:50,352  WARNING   Qwen2-VL batch: got 14/15 values — NaN-padding
+2026-04-18 17:59:50,355  INFO        Scene 257/999: superCLEVR_new_020256
+2026-04-18 18:00:02,316  WARNING   Qwen2-VL batch: no JSON array in: '[1.2, 1.5, 1.8, 2.4, 2.1, 1.5, 1.8, 2.1, 1.5, 1.8, 2.1, 1.5, 1.8, 2.1, 1.5, 1.8, 2.1, 1.5, 1.8, 2.1,'
+2026-04-18 18:00:02,319  INFO        Scene 258/999: superCLEVR_new_020257
+2026-04-18 18:00:14,413  WARNING   Qwen2-VL batch: no JSON array in: '[1.2, 3.4, 0.8, 2.1, 1.5, 2.6, 3.9, 4.2, 1.8, 2.3, 3.6, 4.5, 5.7, 6.9, 2.1, 3.4, 0.8, 2.1, 1.5, 2.6,'
+2026-04-18 18:00:14,416  INFO        Scene 259/999: superCLEVR_new_020258
+2026-04-18 18:00:16,889  WARNING   Qwen2-VL batch: got 20/21 values — NaN-padding
+2026-04-18 18:00:16,893  INFO        Scene 260/999: superCLEVR_new_020259
+2026-04-18 18:00:18,544  WARNING   Qwen2-VL batch: got 13/15 values — NaN-padding
+2026-04-18 18:00:18,546  INFO        Scene 261/999: superCLEVR_new_020260
+2026-04-18 18:00:21,155  INFO        Scene 262/999: superCLEVR_new_020261
+2026-04-18 18:00:25,183  WARNING   Qwen2-VL batch: got 33/36 values — NaN-padding
+2026-04-18 18:00:25,186  INFO        Scene 263/999: superCLEVR_new_020262
+2026-04-18 18:00:28,594  INFO        Scene 264/999: superCLEVR_new_020263
+2026-04-18 18:00:30,137  WARNING   Qwen2-VL batch: got 12/15 values — NaN-padding
+2026-04-18 18:00:30,140  INFO        Scene 265/999: superCLEVR_new_020264
+2026-04-18 18:00:42,107  WARNING   Qwen2-VL batch: no JSON array in: '[1.2, 3.4, 0.8, 0.5, 1.5, 2.5, 0.3, 0.5, 0.5, 1.2, 0.8, 1.5, 0.5, 0.3, 0.5, 0.5, 1.2, 0.8, 1.5, 0.5,'
+2026-04-18 18:00:42,111  INFO        Scene 266/999: superCLEVR_new_020265
+2026-04-18 18:00:48,191  INFO        Scene 267/999: superCLEVR_new_020266
+2026-04-18 18:00:49,503  INFO        Scene 268/999: superCLEVR_new_020267
+2026-04-18 18:01:01,472  WARNING   Qwen2-VL batch: no JSON array in: '[1.2, 3.4, 0.8, 1.5, 2.1, 0.5, 3.6, 0.7, 2.3, 0.9, 1.1, 0.6, 2.4, 0.8, 1.3, 0.7, 1.6, 0.9, 1.4, 0.6,'
+2026-04-18 18:01:01,476  INFO        Scene 269/999: superCLEVR_new_020268
+2026-04-18 18:01:03,246  WARNING   Qwen2-VL batch: got 14/15 values — NaN-padding
+2026-04-18 18:01:03,248  INFO        Scene 270/999: superCLEVR_new_020269
+2026-04-18 18:01:07,112  INFO        Scene 271/999: superCLEVR_new_020270
+2026-04-18 18:01:19,079  WARNING   Qwen2-VL batch: no JSON array in: '[1.5, 2.0, 1.0, 1.5, 2.5, 1.0, 2.5, 2.0, 1.5, 2.5, 2.0, 2.5, 1.5, 1.0, 2.0, 1.5, 1.0, 2.0, 1.5, 1.0,'
+2026-04-18 18:01:19,082  INFO        Scene 272/999: superCLEVR_new_020271
+2026-04-18 18:01:20,744  WARNING   Qwen2-VL batch: got 13/15 values — NaN-padding
+2026-04-18 18:01:20,746  INFO        Scene 273/999: superCLEVR_new_020272
+2026-04-18 18:01:32,703  WARNING   Qwen2-VL batch: no JSON array in: '[1.2, 1.5, 2.5, 1.8, 3.0, 1.0, 2.0, 1.5, 1.0, 2.5, 1.5, 1.0, 2.0, 1.5, 2.5, 1.0, 1.5, 2.5, 1.0, 1.5,'
+2026-04-18 18:01:32,707  INFO        Scene 274/999: superCLEVR_new_020273
+2026-04-18 18:01:34,248  WARNING   Qwen2-VL batch: got 12/15 values — NaN-padding
+2026-04-18 18:01:34,251  INFO        Scene 275/999: superCLEVR_new_020274
+2026-04-18 18:01:35,563  INFO        Scene 276/999: superCLEVR_new_020275
+2026-04-18 18:01:38,942  INFO        Scene 277/999: superCLEVR_new_020276
+2026-04-18 18:01:50,884  WARNING   Qwen2-VL batch: no JSON array in: '[1.2, 0.8, 2.5, 1.5, 1.8, 2.3, 2.0, 1.5, 1.0, 2.5, 1.8, 1.5, 2.0, 1.0, 2.5, 1.5, 2.0, 1.8, 1.5, 2.3,'
+2026-04-18 18:01:50,888  INFO        Scene 278/999: superCLEVR_new_020277
+2026-04-18 18:01:53,259  WARNING   Qwen2-VL batch: got 19/21 values — NaN-padding
+2026-04-18 18:01:53,262  INFO        Scene 279/999: superCLEVR_new_020278
+2026-04-18 18:01:55,745  WARNING   Qwen2-VL batch: got 20/21 values — NaN-padding
+2026-04-18 18:01:55,748  INFO        Scene 280/999: superCLEVR_new_020279
+2026-04-18 18:01:57,164  INFO        Scene 281/999: superCLEVR_new_020280
+2026-04-18 18:01:58,708  WARNING   Qwen2-VL batch: got 12/15 values — NaN-padding
+2026-04-18 18:01:58,711  INFO        Scene 282/999: superCLEVR_new_020281
+2026-04-18 18:01:59,623  INFO        Scene 283/999: superCLEVR_new_020282
+2026-04-18 18:02:01,164  WARNING   Qwen2-VL batch: got 12/15 values — NaN-padding
+2026-04-18 18:02:01,167  INFO        Scene 284/999: superCLEVR_new_020283
+2026-04-18 18:02:05,064  WARNING   Qwen2-VL batch: got 32/36 values — NaN-padding
+2026-04-18 18:02:05,067  INFO        Scene 285/999: superCLEVR_new_020284
+2026-04-18 18:02:17,047  WARNING   Qwen2-VL batch: no JSON array in: '[1.2, 3.4, 0.8, 2.5, 1.5, 1.8, 4.2, 2.1, 1.5, 1.8, 4.2, 2.1, 1.5, 1.8, 4.2, 2.1, 1.5, 1.8, 4.2, 2.1,'
+2026-04-18 18:02:17,050  INFO        Scene 286/999: superCLEVR_new_020285
+2026-04-18 18:02:18,945  INFO        Scene 287/999: superCLEVR_new_020286
+2026-04-18 18:02:30,893  WARNING   Qwen2-VL batch: no JSON array in: '[1.2, 3.4, 0.8, 2.5, 4.6, 3.2, 1.5, 5.7, 2.1, 1.8, 3.6, 4.9, 2.3, 5.1, 3.9, 2.7, 4.2, 3.5, 2.9, 4.4,'
+2026-04-18 18:02:30,897  INFO        Scene 288/999: superCLEVR_new_020287
+2026-04-18 18:02:31,736  INFO        Scene 289/999: superCLEVR_new_020288
+2026-04-18 18:02:33,046  INFO        Scene 290/999: superCLEVR_new_020289
+2026-04-18 18:02:44,982  WARNING   Qwen2-VL batch: no JSON array in: '[1.2, 3.4, 0.8, 1.5, 2.1, 3.6, 1.8, 2.3, 1.5, 2.1, 3.6, 1.8, 2.3, 1.5, 2.1, 3.6, 1.8, 2.3, 1.5, 2.1,'
+2026-04-18 18:02:44,985  INFO        Scene 291/999: superCLEVR_new_020290
+2026-04-18 18:02:45,467  INFO        Scene 292/999: superCLEVR_new_020291
+2026-04-18 18:02:48,910  WARNING   Qwen2-VL batch: got 28/45 values — NaN-padding
+2026-04-18 18:02:48,914  INFO        Scene 293/999: superCLEVR_new_020292
+2026-04-18 18:02:50,574  WARNING   Qwen2-VL batch: got 13/15 values — NaN-padding
+2026-04-18 18:02:50,577  INFO        Scene 294/999: superCLEVR_new_020293
+2026-04-18 18:03:02,513  WARNING   Qwen2-VL batch: no JSON array in: '[1.2, 1.5, 2.0, 2.5, 1.8, 2.2, 2.0, 1.5, 1.8, 2.0, 2.5, 2.2, 1.5, 2.0, 1.8, 1.5, 2.0, 2.5, 2.2, 1.5,'
+2026-04-18 18:03:02,517  INFO        Scene 295/999: superCLEVR_new_020294
+2026-04-18 18:03:02,995  INFO        Scene 296/999: superCLEVR_new_020295
+2026-04-18 18:03:15,028  WARNING   Qwen2-VL batch: no JSON array in: '[1.2, 1.5, 1.0, 2.0, 1.5, 1.0, 2.0, 1.0, 1.5, 1.0, 1.5, 1.0, 2.0, 1.0, 1.5, 1.0, 2.0, 1.0, 1.5, 1.0,'
+2026-04-18 18:03:15,032  INFO        Scene 297/999: superCLEVR_new_020296
+2026-04-18 18:03:26,991  WARNING   Qwen2-VL batch: no JSON array in: '[1.2, 3.4, 0.8, 2.1, 1.5, 3.6, 4.5, 1.8, 2.4, 2.1, 3.4, 4.5, 1.8, 2.4, 2.1, 3.4, 1.8, 2.4, 2.1, 3.4,'
+2026-04-18 18:03:26,995  INFO        Scene 298/999: superCLEVR_new_020297
+2026-04-18 18:03:28,300  INFO        Scene 299/999: superCLEVR_new_020298
+2026-04-18 18:03:29,138  INFO        Scene 300/999: superCLEVR_new_020299
+2026-04-18 18:03:41,091  WARNING   Qwen2-VL batch: no JSON array in: '[1.2, 3.4, 0.8, 1.5, 2.1, 2.5, 1.8, 2.3, 1.6, 2.7, 2.9, 2.2, 2.4, 1.9, 2.6, 2.8, 2.1, 2.3, 1.7, 2.5,'
+2026-04-18 18:03:41,095  INFO        Scene 301/999: superCLEVR_new_020300
+2026-04-18 18:03:44,048  WARNING   Qwen2-VL batch: got 24/28 values — NaN-padding
+2026-04-18 18:03:44,051  INFO        Scene 302/999: superCLEVR_new_020301
+2026-04-18 18:03:44,885  INFO        Scene 303/999: superCLEVR_new_020302
+2026-04-18 18:03:48,269  INFO        Scene 304/999: superCLEVR_new_020303
+2026-04-18 18:03:49,566  INFO        Scene 305/999: superCLEVR_new_020304
+2026-04-18 18:03:52,045  WARNING   Qwen2-VL batch: got 20/21 values — NaN-padding
+2026-04-18 18:03:52,048  INFO        Scene 306/999: superCLEVR_new_020305
+2026-04-18 18:03:52,577  INFO        Scene 307/999: superCLEVR_new_020306
+2026-04-18 18:03:56,392  WARNING   Qwen2-VL batch: got 31/36 values — NaN-padding
+2026-04-18 18:03:56,395  INFO        Scene 308/999: superCLEVR_new_020307
+2026-04-18 18:03:58,755  WARNING   Qwen2-VL batch: got 19/21 values — NaN-padding
+2026-04-18 18:03:58,758  INFO        Scene 309/999: superCLEVR_new_020308
+2026-04-18 18:04:00,071  INFO        Scene 310/999: superCLEVR_new_020309
+2026-04-18 18:04:12,023  WARNING   Qwen2-VL batch: no JSON array in: '[1.2, 3.4, 0.8, 1.5, 0.5, 2.1, 1.8, 0.6, 3.6, 2.5, 1.9, 1.5, 2.3, 0.5, 2.1, 1.8, 0.6, 3.6, 2.5, 1.9,'
+2026-04-18 18:04:12,026  INFO        Scene 311/999: superCLEVR_new_020310
+2026-04-18 18:04:12,856  INFO        Scene 312/999: superCLEVR_new_020311
+2026-04-18 18:04:14,518  WARNING   Qwen2-VL batch: got 13/15 values — NaN-padding
+2026-04-18 18:04:14,521  INFO        Scene 313/999: superCLEVR_new_020312
+2026-04-18 18:04:15,060  INFO        Scene 314/999: superCLEVR_new_020313
+2026-04-18 18:04:17,538  WARNING   Qwen2-VL batch: got 20/21 values — NaN-padding
+2026-04-18 18:04:17,541  INFO        Scene 315/999: superCLEVR_new_020314
+2026-04-18 18:04:18,020  INFO        Scene 316/999: superCLEVR_new_020315
+2026-04-18 18:04:19,323  INFO        Scene 317/999: superCLEVR_new_020316
+2026-04-18 18:04:20,697  INFO        Scene 318/999: superCLEVR_new_020317
+2026-04-18 18:04:22,471  WARNING   Qwen2-VL batch: got 14/15 values — NaN-padding
+2026-04-18 18:04:22,474  INFO        Scene 319/999: superCLEVR_new_020318
+2026-04-18 18:04:24,959  WARNING   Qwen2-VL batch: got 20/21 values — NaN-padding
+2026-04-18 18:04:24,962  INFO        Scene 320/999: superCLEVR_new_020319
+2026-04-18 18:04:27,451  WARNING   Qwen2-VL batch: got 20/21 values — NaN-padding
+2026-04-18 18:04:27,454  INFO        Scene 321/999: superCLEVR_new_020320
+2026-04-18 18:04:28,768  INFO        Scene 322/999: superCLEVR_new_020321
+2026-04-18 18:04:34,192  INFO        Scene 323/999: superCLEVR_new_020322
+2026-04-18 18:04:36,669  WARNING   Qwen2-VL batch: got 20/21 values — NaN-padding
+2026-04-18 18:04:36,672  INFO        Scene 324/999: superCLEVR_new_020323
+2026-04-18 18:04:37,983  INFO        Scene 325/999: superCLEVR_new_020324
+2026-04-18 18:04:39,282  INFO        Scene 326/999: superCLEVR_new_020325
+2026-04-18 18:04:39,815  INFO        Scene 327/999: superCLEVR_new_020326
+2026-04-18 18:04:42,197  WARNING   Qwen2-VL batch: got 19/21 values — NaN-padding
+2026-04-18 18:04:42,200  INFO        Scene 328/999: superCLEVR_new_020327
+2026-04-18 18:04:43,506  INFO        Scene 329/999: superCLEVR_new_020328
+2026-04-18 18:04:55,448  WARNING   Qwen2-VL batch: no JSON array in: '[1.2, 3.4, 0.8, 2.1, 1.5, 3.6, 2.3, 1.7, 1.8, 2.5, 2.9, 2.7, 2.1, 1.9, 2.3, 2.5, 2.7, 2.9, 3.1, 3.3,'
+2026-04-18 18:04:55,452  INFO        Scene 330/999: superCLEVR_new_020329
+2026-04-18 18:04:57,220  WARNING   Qwen2-VL batch: got 14/15 values — NaN-padding
+2026-04-18 18:04:57,223  INFO        Scene 331/999: superCLEVR_new_020330
+2026-04-18 18:04:58,881  WARNING   Qwen2-VL batch: got 13/15 values — NaN-padding
+2026-04-18 18:04:58,884  INFO        Scene 332/999: superCLEVR_new_020331
+2026-04-18 18:05:01,376  WARNING   Qwen2-VL batch: got 20/21 values — NaN-padding
+2026-04-18 18:05:01,379  INFO        Scene 333/999: superCLEVR_new_020332
+2026-04-18 18:05:03,864  WARNING   Qwen2-VL batch: got 19/21 values — NaN-padding
+2026-04-18 18:05:03,867  INFO        Scene 334/999: superCLEVR_new_020333
+2026-04-18 18:05:04,706  INFO        Scene 335/999: superCLEVR_new_020334
+2026-04-18 18:05:06,359  WARNING   Qwen2-VL batch: got 13/15 values — NaN-padding
+2026-04-18 18:05:06,362  INFO        Scene 336/999: superCLEVR_new_020335
+2026-04-18 18:05:07,689  INFO        Scene 337/999: superCLEVR_new_020336
+2026-04-18 18:05:08,171  INFO        Scene 338/999: superCLEVR_new_020337
+2026-04-18 18:05:11,602  INFO        Scene 339/999: superCLEVR_new_020338
+2026-04-18 18:05:12,085  INFO        Scene 340/999: superCLEVR_new_020339
+2026-04-18 18:05:13,836  WARNING   Qwen2-VL batch: got 13/15 values — NaN-padding
+2026-04-18 18:05:13,838  INFO        Scene 341/999: superCLEVR_new_020340
+2026-04-18 18:05:17,130  WARNING   Qwen2-VL batch: got 27/28 values — NaN-padding
+2026-04-18 18:05:17,133  INFO        Scene 342/999: superCLEVR_new_020341
+2026-04-18 18:05:18,788  WARNING   Qwen2-VL batch: got 13/15 values — NaN-padding
+2026-04-18 18:05:18,791  INFO        Scene 343/999: superCLEVR_new_020342
+2026-04-18 18:05:20,688  INFO        Scene 344/999: superCLEVR_new_020343
+2026-04-18 18:05:21,171  INFO        Scene 345/999: superCLEVR_new_020344
+2026-04-18 18:05:23,101  WARNING   Qwen2-VL batch: got 14/15 values — NaN-padding
+2026-04-18 18:05:23,104  INFO        Scene 346/999: superCLEVR_new_020345
+2026-04-18 18:05:25,482  WARNING   Qwen2-VL batch: got 19/21 values — NaN-padding
+2026-04-18 18:05:25,485  INFO        Scene 347/999: superCLEVR_new_020346
+2026-04-18 18:05:37,548  WARNING   Qwen2-VL batch: no JSON array in: '[1.2, 1.5, 2.0, 2.5, 1.8, 1.0, 1.5, 1.0, 1.5, 2.0, 2.5, 3.0, 1.5, 1.0, 1.5, 1.5, 1.0, 1.5, 2.0, 2.5,'
+2026-04-18 18:05:37,552  INFO        Scene 348/999: superCLEVR_new_020347
+2026-04-18 18:05:42,600  WARNING   Qwen2-VL batch: got 42/45 values — NaN-padding
+2026-04-18 18:05:42,604  INFO        Scene 349/999: superCLEVR_new_020348
+2026-04-18 18:05:45,319  INFO        Scene 350/999: superCLEVR_new_020349
+2026-04-18 18:05:46,152  INFO        Scene 351/999: superCLEVR_new_020350
+2026-04-18 18:05:58,252  WARNING   Qwen2-VL batch: no JSON array in: '[1.2, 3.4, 0.8, 1.5, 2.1, 3.6, 4.2, 5.0, 2.5, 1.8, 3.0, 4.5, 5.5, 6.0, 6.5, 7.0, 7.5, 8.0, 8.5, 9.0,'
+2026-04-18 18:05:58,255  INFO        Scene 352/999: superCLEVR_new_020351
+2026-04-18 18:06:00,727  WARNING   Qwen2-VL batch: got 20/21 values — NaN-padding
+2026-04-18 18:06:00,730  INFO        Scene 353/999: superCLEVR_new_020352
+2026-04-18 18:06:04,270  INFO        Scene 354/999: superCLEVR_new_020353
+2026-04-18 18:06:07,945  WARNING   Qwen2-VL batch: got 30/36 values — NaN-padding
+2026-04-18 18:06:07,948  INFO        Scene 355/999: superCLEVR_new_020354
+2026-04-18 18:06:11,749  WARNING   Qwen2-VL batch: got 31/36 values — NaN-padding
+2026-04-18 18:06:11,752  INFO        Scene 356/999: superCLEVR_new_020355
+2026-04-18 18:06:13,415  WARNING   Qwen2-VL batch: got 13/15 values — NaN-padding
+2026-04-18 18:06:13,417  INFO        Scene 357/999: superCLEVR_new_020356
+2026-04-18 18:06:15,894  WARNING   Qwen2-VL batch: got 20/21 values — NaN-padding
+2026-04-18 18:06:15,897  INFO        Scene 358/999: superCLEVR_new_020357
+2026-04-18 18:06:27,898  WARNING   Qwen2-VL batch: no JSON array in: '[1.2, 1.5, 1.8, 1.5, 1.2, 1.8, 1.5, 1.2, 1.5, 1.2, 1.5, 1.8, 1.5, 1.2, 1.5, 1.8, 1.5, 1.2, 1.5, 1.8,'
+2026-04-18 18:06:27,901  INFO        Scene 359/999: superCLEVR_new_020358
+2026-04-18 18:06:28,743  INFO        Scene 360/999: superCLEVR_new_020359
+2026-04-18 18:06:30,631  INFO        Scene 361/999: superCLEVR_new_020360
+2026-04-18 18:06:32,423  WARNING   Qwen2-VL batch: got 14/15 values — NaN-padding
+2026-04-18 18:06:32,425  INFO        Scene 362/999: superCLEVR_new_020361
+2026-04-18 18:06:34,063  WARNING   Qwen2-VL batch: got 13/15 values — NaN-padding
+2026-04-18 18:06:34,066  INFO        Scene 363/999: superCLEVR_new_020362
+2026-04-18 18:06:38,766  WARNING   Qwen2-VL batch: got 39/45 values — NaN-padding
+2026-04-18 18:06:38,769  INFO        Scene 364/999: superCLEVR_new_020363
+2026-04-18 18:06:41,255  WARNING   Qwen2-VL batch: got 20/21 values — NaN-padding
+2026-04-18 18:06:41,258  INFO        Scene 365/999: superCLEVR_new_020364
+2026-04-18 18:06:42,564  INFO        Scene 366/999: superCLEVR_new_020365
+2026-04-18 18:06:43,400  INFO        Scene 367/999: superCLEVR_new_020366
+2026-04-18 18:06:45,898  WARNING   Qwen2-VL batch: got 20/21 values — NaN-padding
+2026-04-18 18:06:45,901  INFO        Scene 368/999: superCLEVR_new_020367
+2026-04-18 18:06:47,575  WARNING   Qwen2-VL batch: got 13/15 values — NaN-padding
+2026-04-18 18:06:47,578  INFO        Scene 369/999: superCLEVR_new_020368
+2026-04-18 18:06:59,566  WARNING   Qwen2-VL batch: no JSON array in: '[1.5, 2.0, 1.0, 2.5, 1.5, 2.0, 1.0, 2.5, 2.0, 1.0, 2.5, 1.5, 2.0, 1.0, 2.5, 2.0, 1.0, 2.5, 2.0, 1.0,'
+2026-04-18 18:06:59,569  INFO        Scene 370/999: superCLEVR_new_020369
+2026-04-18 18:07:01,454  INFO        Scene 371/999: superCLEVR_new_020370
+2026-04-18 18:07:02,292  INFO        Scene 372/999: superCLEVR_new_020371
+2026-04-18 18:07:02,774  INFO        Scene 373/999: superCLEVR_new_020372
+2026-04-18 18:07:05,257  WARNING   Qwen2-VL batch: got 20/21 values — NaN-padding
+2026-04-18 18:07:05,260  INFO        Scene 374/999: superCLEVR_new_020373
+2026-04-18 18:07:06,110  INFO        Scene 375/999: superCLEVR_new_020374
+2026-04-18 18:07:06,944  INFO        Scene 376/999: superCLEVR_new_020375
+2026-04-18 18:07:07,778  INFO        Scene 377/999: superCLEVR_new_020376
+2026-04-18 18:07:10,249  WARNING   Qwen2-VL batch: got 20/21 values — NaN-padding
+2026-04-18 18:07:10,252  INFO        Scene 378/999: superCLEVR_new_020377
+2026-04-18 18:07:13,703  INFO        Scene 379/999: superCLEVR_new_020378
+2026-04-18 18:07:25,671  WARNING   Qwen2-VL batch: no JSON array in: '[1.2, 3.4, 0.8, 2.1, 1.5, 4.3, 2.7, 3.6, 1.8, 2.9, 4.1, 3.2, 5.5, 2.3, 3.7, 4.6, 1.9, 2.5, 3.1, 4.8,'
+2026-04-18 18:07:25,675  INFO        Scene 380/999: superCLEVR_new_020379
+2026-04-18 18:07:27,441  WARNING   Qwen2-VL batch: got 14/15 values — NaN-padding
+2026-04-18 18:07:27,443  INFO        Scene 381/999: superCLEVR_new_020380
+2026-04-18 18:07:29,924  WARNING   Qwen2-VL batch: got 20/21 values — NaN-padding
+2026-04-18 18:07:29,928  INFO        Scene 382/999: superCLEVR_new_020381
+2026-04-18 18:07:33,731  WARNING   Qwen2-VL batch: got 31/36 values — NaN-padding
+2026-04-18 18:07:33,735  INFO        Scene 383/999: superCLEVR_new_020382
+2026-04-18 18:07:38,522  WARNING   Qwen2-VL batch: got 38/45 values — NaN-padding
+2026-04-18 18:07:38,526  INFO        Scene 384/999: superCLEVR_new_020383
+2026-04-18 18:07:43,267  WARNING   Qwen2-VL batch: got 38/45 values — NaN-padding
+2026-04-18 18:07:43,271  INFO        Scene 385/999: superCLEVR_new_020384
+2026-04-18 18:07:44,937  WARNING   Qwen2-VL batch: got 13/15 values — NaN-padding
+2026-04-18 18:07:44,940  INFO        Scene 386/999: superCLEVR_new_020385
+2026-04-18 18:07:47,438  WARNING   Qwen2-VL batch: got 19/21 values — NaN-padding
+2026-04-18 18:07:47,441  INFO        Scene 387/999: superCLEVR_new_020386
+2026-04-18 18:07:48,749  INFO        Scene 388/999: superCLEVR_new_020387
+2026-04-18 18:07:50,415  WARNING   Qwen2-VL batch: got 13/15 values — NaN-padding
+2026-04-18 18:07:50,418  INFO        Scene 389/999: superCLEVR_new_020388
+2026-04-18 18:07:53,853  INFO        Scene 390/999: superCLEVR_new_020389
+2026-04-18 18:07:56,357  WARNING   Qwen2-VL batch: got 20/21 values — NaN-padding
+2026-04-18 18:07:56,360  INFO        Scene 391/999: superCLEVR_new_020390
+2026-04-18 18:08:01,904  INFO        Scene 392/999: superCLEVR_new_020391
+2026-04-18 18:08:03,220  INFO        Scene 393/999: superCLEVR_new_020392
+2026-04-18 18:08:15,255  WARNING   Qwen2-VL batch: no JSON array in: '[1.2, 2.5, 1.8, 2.0, 1.5, 1.0, 1.8, 1.5, 1.2, 2.5, 2.0, 1.5, 1.8, 1.0, 1.5, 1.2, 2.5, 2.0, 1.5, 1.8,'
+2026-04-18 18:08:15,259  INFO        Scene 394/999: superCLEVR_new_020393
+2026-04-18 18:08:17,738  WARNING   Qwen2-VL batch: got 20/21 values — NaN-padding
+2026-04-18 18:08:17,741  INFO        Scene 395/999: superCLEVR_new_020394
+2026-04-18 18:08:18,221  INFO        Scene 396/999: superCLEVR_new_020395
+2026-04-18 18:08:20,703  WARNING   Qwen2-VL batch: got 20/21 values — NaN-padding
+2026-04-18 18:08:20,706  INFO        Scene 397/999: superCLEVR_new_020396
+2026-04-18 18:08:22,017  INFO        Scene 398/999: superCLEVR_new_020397
+2026-04-18 18:08:24,548  WARNING   Qwen2-VL batch: got 19/21 values — NaN-padding
+2026-04-18 18:08:24,551  INFO        Scene 399/999: superCLEVR_new_020398
+2026-04-18 18:08:25,862  INFO        Scene 400/999: superCLEVR_new_020399
+2026-04-18 18:08:29,880  INFO        Scene 401/999: superCLEVR_new_020400
+2026-04-18 18:08:31,663  WARNING   Qwen2-VL batch: got 14/15 values — NaN-padding
+2026-04-18 18:08:31,665  INFO        Scene 402/999: superCLEVR_new_020401
+2026-04-18 18:08:36,625  WARNING   Qwen2-VL batch: got 41/45 values — NaN-padding
+2026-04-18 18:08:36,629  INFO        Scene 403/999: superCLEVR_new_020402
+2026-04-18 18:08:37,473  INFO        Scene 404/999: superCLEVR_new_020403
+2026-04-18 18:08:38,313  INFO        Scene 405/999: superCLEVR_new_020404
+2026-04-18 18:08:39,160  INFO        Scene 406/999: superCLEVR_new_020405
+2026-04-18 18:08:41,413  WARNING   Qwen2-VL batch: got 20/21 values — NaN-padding
+2026-04-18 18:08:41,416  INFO        Scene 407/999: superCLEVR_new_020406
+2026-04-18 18:08:53,476  WARNING   Qwen2-VL batch: no JSON array in: '[1.5, 1.2, 1.8, 1.5, 2.0, 1.5, 1.2, 1.8, 1.5, 1.2, 1.8, 1.5, 1.2, 1.8, 1.5, 1.2, 1.8, 1.5, 1.2, 1.8,'
+2026-04-18 18:08:53,480  INFO        Scene 408/999: superCLEVR_new_020407
+2026-04-18 18:08:56,084  INFO        Scene 409/999: superCLEVR_new_020408
+2026-04-18 18:09:02,738  INFO        Scene 410/999: superCLEVR_new_020409
+2026-04-18 18:09:14,768  WARNING   Qwen2-VL batch: no JSON array in: '[1.2, 3.4, 5.6, 2.3, 1.5, 2.8, 1.2, 3.4, 5.6, 1.5, 2.3, 1.2, 3.4, 5.6, 1.5, 2.3, 1.2, 3.4, 5.6, 1.5,'
+2026-04-18 18:09:14,771  INFO        Scene 411/999: superCLEVR_new_020410
+2026-04-18 18:09:26,830  WARNING   Qwen2-VL batch: no JSON array in: '[1.2, 3.4, 0.8, 1.5, 2.1, 1.8, 2.5, 1.9, 1.5, 2.1, 1.8, 2.5, 1.9, 1.5, 2.1, 1.8, 2.5, 1.9, 1.5, 2.1,'
+2026-04-18 18:09:26,834  INFO        Scene 412/999: superCLEVR_new_020411
+2026-04-18 18:09:29,913  WARNING   Qwen2-VL batch: got 25/28 values — NaN-padding
+2026-04-18 18:09:29,916  INFO        Scene 413/999: superCLEVR_new_020412
+2026-04-18 18:09:30,402  INFO        Scene 414/999: superCLEVR_new_020413
+2026-04-18 18:09:30,929  INFO        Scene 415/999: superCLEVR_new_020414
+2026-04-18 18:09:32,284  INFO        Scene 416/999: superCLEVR_new_020415
+2026-04-18 18:09:32,769  INFO        Scene 417/999: superCLEVR_new_020416
+2026-04-18 18:09:35,455  WARNING   Qwen2-VL batch: got 19/21 values — NaN-padding
+2026-04-18 18:09:35,460  INFO        Scene 418/999: superCLEVR_new_020417
+2026-04-18 18:09:42,408  INFO        Scene 419/999: superCLEVR_new_020418
+2026-04-18 18:09:43,254  INFO        Scene 420/999: superCLEVR_new_020419
+2026-04-18 18:09:43,743  INFO        Scene 421/999: superCLEVR_new_020420
+2026-04-18 18:09:46,278  WARNING   Qwen2-VL batch: got 20/21 values — NaN-padding
+2026-04-18 18:09:46,281  INFO        Scene 422/999: superCLEVR_new_020421
+2026-04-18 18:09:47,130  INFO        Scene 423/999: superCLEVR_new_020422
+2026-04-18 18:09:47,712  INFO        Scene 424/999: superCLEVR_new_020423
+2026-04-18 18:09:49,470  WARNING   Qwen2-VL batch: got 13/15 values — NaN-padding
+2026-04-18 18:09:49,473  INFO        Scene 425/999: superCLEVR_new_020424
+2026-04-18 18:09:51,784  WARNING   Qwen2-VL batch: got 18/21 values — NaN-padding
+2026-04-18 18:09:51,787  INFO        Scene 426/999: superCLEVR_new_020425
+2026-04-18 18:09:56,569  INFO        Scene 427/999: superCLEVR_new_020426
+2026-04-18 18:09:57,054  INFO        Scene 428/999: superCLEVR_new_020427
+2026-04-18 18:09:58,975  INFO        Scene 429/999: superCLEVR_new_020428
+2026-04-18 18:10:11,246  WARNING   Qwen2-VL batch: no JSON array in: '[1.2, 3.4, 0.8, 1.5, 2.1, 2.5, 1.8, 2.3, 2.0, 1.5, 2.5, 2.8, 1.8, 2.3, 2.0, 1.5, 2.5, 2.8, 1.8, 2.3,'
+2026-04-18 18:10:11,250  INFO        Scene 430/999: superCLEVR_new_020429
+2026-04-18 18:10:13,750  WARNING   Qwen2-VL batch: got 20/21 values — NaN-padding
+2026-04-18 18:10:13,753  INFO        Scene 431/999: superCLEVR_new_020430
+2026-04-18 18:10:15,077  INFO        Scene 432/999: superCLEVR_new_020431
+2026-04-18 18:10:16,110  INFO        Scene 433/999: superCLEVR_new_020432
+2026-04-18 18:10:19,490  WARNING   Qwen2-VL batch: got 27/28 values — NaN-padding
+2026-04-18 18:10:19,494  INFO        Scene 434/999: superCLEVR_new_020433
+2026-04-18 18:10:19,983  INFO        Scene 435/999: superCLEVR_new_020434
+2026-04-18 18:10:23,115  WARNING   Qwen2-VL batch: got 25/28 values — NaN-padding
+2026-04-18 18:10:23,118  INFO        Scene 436/999: superCLEVR_new_020435
+2026-04-18 18:10:35,305  WARNING   Qwen2-VL batch: no JSON array in: '[1.2, 1.5, 1.8, 1.0, 1.5, 1.2, 1.5, 1.0, 1.8, 1.5, 1.2, 1.0, 1.5, 1.0, 1.8, 1.5, 1.2, 1.0, 1.5, 1.0,'
+2026-04-18 18:10:35,308  INFO        Scene 437/999: superCLEVR_new_020436
+2026-04-18 18:10:47,561  WARNING   Qwen2-VL batch: no JSON array in: '[1.2, 1.5, 1.8, 2.1, 2.4, 2.7, 3.0, 3.3, 3.6, 3.9, 4.2, 4.5, 4.8, 5.1, 5.4, 5.7, 6.0, 6.3, 6.6, 6.9,'
+2026-04-18 18:10:47,565  INFO        Scene 438/999: superCLEVR_new_020437
+2026-04-18 18:10:50,082  WARNING   Qwen2-VL batch: got 20/21 values — NaN-padding
+2026-04-18 18:10:50,085  INFO        Scene 439/999: superCLEVR_new_020438
+2026-04-18 18:10:50,940  INFO        Scene 440/999: superCLEVR_new_020439
+2026-04-18 18:10:51,794  INFO        Scene 441/999: superCLEVR_new_020440
+2026-04-18 18:10:52,638  INFO        Scene 442/999: superCLEVR_new_020441
+2026-04-18 18:10:55,162  WARNING   Qwen2-VL batch: got 20/21 values — NaN-padding
+2026-04-18 18:10:55,165  INFO        Scene 443/999: superCLEVR_new_020442
+2026-04-18 18:10:59,860  WARNING   Qwen2-VL batch: got 38/45 values — NaN-padding
+2026-04-18 18:10:59,864  INFO        Scene 444/999: superCLEVR_new_020443
+2026-04-18 18:11:00,712  INFO        Scene 445/999: superCLEVR_new_020444
+2026-04-18 18:11:03,960  WARNING   Qwen2-VL batch: got 26/28 values — NaN-padding
+2026-04-18 18:11:03,964  INFO        Scene 446/999: superCLEVR_new_020445
+2026-04-18 18:11:13,691  INFO        Scene 447/999: superCLEVR_new_020446
+2026-04-18 18:11:18,947  WARNING   Qwen2-VL batch: got 43/45 values — NaN-padding
+2026-04-18 18:11:18,951  INFO        Scene 448/999: superCLEVR_new_020447
+2026-04-18 18:11:21,354  WARNING   Qwen2-VL batch: got 19/21 values — NaN-padding
+2026-04-18 18:11:21,357  INFO        Scene 449/999: superCLEVR_new_020448
+2026-04-18 18:11:23,035  WARNING   Qwen2-VL batch: got 13/15 values — NaN-padding
+2026-04-18 18:11:23,037  INFO        Scene 450/999: superCLEVR_new_020449
+2026-04-18 18:11:24,502  INFO        Scene 451/999: superCLEVR_new_020450
+2026-04-18 18:11:26,184  WARNING   Qwen2-VL batch: got 13/15 values — NaN-padding
+2026-04-18 18:11:26,186  INFO        Scene 452/999: superCLEVR_new_020451
+2026-04-18 18:11:31,682  INFO        Scene 453/999: superCLEVR_new_020452
+2026-04-18 18:11:32,525  INFO        Scene 454/999: superCLEVR_new_020453
+2026-04-18 18:11:36,145  WARNING   Qwen2-VL batch: got 29/36 values — NaN-padding
+2026-04-18 18:11:36,149  INFO        Scene 455/999: superCLEVR_new_020454
+2026-04-18 18:11:38,665  WARNING   Qwen2-VL batch: got 20/21 values — NaN-padding
+2026-04-18 18:11:38,668  INFO        Scene 456/999: superCLEVR_new_020455
+2026-04-18 18:11:45,662  INFO        Scene 457/999: superCLEVR_new_020456
+2026-04-18 18:11:57,949  WARNING   Qwen2-VL batch: no JSON array in: '[1.2, 3.4, 0.8, 2.5, 1.5, 0.5, 2.0, 3.0, 1.0, 1.5, 2.0, 3.0, 1.0, 2.5, 1.5, 2.0, 3.0, 1.0, 1.5, 2.0,'
+2026-04-18 18:11:57,953  INFO        Scene 458/999: superCLEVR_new_020457
+2026-04-18 18:11:59,660  WARNING   Qwen2-VL batch: got 13/15 values — NaN-padding
+2026-04-18 18:11:59,663  INFO        Scene 459/999: superCLEVR_new_020458
+2026-04-18 18:12:00,998  INFO        Scene 460/999: superCLEVR_new_020459
+2026-04-18 18:12:13,253  WARNING   Qwen2-VL batch: no JSON array in: '[1.2, 1.5, 1.8, 2.1, 2.4, 2.7, 3.0, 3.3, 3.6, 0.9, 1.2, 1.5, 1.8, 2.1, 2.4, 2.7, 3.0, 3.3, 3.6, 0.9,'
+2026-04-18 18:12:13,257  INFO        Scene 461/999: superCLEVR_new_020460
+2026-04-18 18:12:23,668  INFO        Scene 462/999: superCLEVR_new_020461
+2026-04-18 18:12:27,262  WARNING   Qwen2-VL batch: got 29/36 values — NaN-padding
+2026-04-18 18:12:27,266  INFO        Scene 463/999: superCLEVR_new_020462
+2026-04-18 18:12:29,898  WARNING   Qwen2-VL batch: got 20/21 values — NaN-padding
+2026-04-18 18:12:29,901  INFO        Scene 464/999: superCLEVR_new_020463
+2026-04-18 18:12:31,356  INFO        Scene 465/999: superCLEVR_new_020464
+2026-04-18 18:12:31,846  INFO        Scene 466/999: superCLEVR_new_020465
+2026-04-18 18:12:32,384  INFO        Scene 467/999: superCLEVR_new_020466
+2026-04-18 18:12:33,807  INFO        Scene 468/999: superCLEVR_new_020467
+2026-04-18 18:12:35,150  INFO        Scene 469/999: superCLEVR_new_020468
+2026-04-18 18:12:41,689  INFO        Scene 470/999: superCLEVR_new_020469
+2026-04-18 18:12:43,382  WARNING   Qwen2-VL batch: got 13/15 values — NaN-padding
+2026-04-18 18:12:43,385  INFO        Scene 471/999: superCLEVR_new_020470
+2026-04-18 18:12:44,776  INFO        Scene 472/999: superCLEVR_new_020471
+2026-04-18 18:12:45,625  INFO        Scene 473/999: superCLEVR_new_020472
+2026-04-18 18:12:48,022  WARNING   Qwen2-VL batch: got 19/21 values — NaN-padding
+2026-04-18 18:12:48,025  INFO        Scene 474/999: superCLEVR_new_020473
+2026-04-18 18:12:52,697  INFO        Scene 475/999: superCLEVR_new_020474
+2026-04-18 18:13:04,864  WARNING   Qwen2-VL batch: no JSON array in: '[1.2, 3.4, 0.8, 1.5, 2.1, 2.5, 1.8, 2.0, 1.2, 2.1, 1.5, 1.8, 1.5, 1.8, 2.0, 2.5, 2.1, 1.8, 1.5, 1.2,'
+2026-04-18 18:13:04,868  INFO        Scene 476/999: superCLEVR_new_020475
+2026-04-18 18:13:09,759  INFO        Scene 477/999: superCLEVR_new_020476
+2026-04-18 18:13:21,912  WARNING   Qwen2-VL batch: no JSON array in: '[1.2, 3.4, 0.8, 2.5, 1.5, 3.2, 1.8, 0.9, 2.1, 1.5, 3.2, 1.8, 0.9, 2.1, 1.5, 3.2, 1.8, 0.9, 2.1, 1.5,'
+2026-04-18 18:13:21,916  INFO        Scene 478/999: superCLEVR_new_020477
+2026-04-18 18:13:34,098  WARNING   Qwen2-VL batch: no JSON array in: '[1.2, 3.4, 0.8, 2.5, 1.5, 0.5, 2.0, 1.0, 2.2, 3.0, 1.5, 0.5, 1.0, 2.0, 1.5, 0.5, 1.0, 2.0, 1.5, 0.5,'
+2026-04-18 18:13:34,102  INFO        Scene 479/999: superCLEVR_new_020478
+2026-04-18 18:13:46,309  WARNING   Qwen2-VL batch: no JSON array in: '[1.2, 1.5, 2.0, 1.8, 1.5, 2.5, 1.8, 2.0, 2.5, 1.5, 2.0, 2.5, 1.8, 2.0, 2.5, 1.5, 2.0, 2.5, 1.8, 2.0,'
+2026-04-18 18:13:46,313  INFO        Scene 480/999: superCLEVR_new_020479
+2026-04-18 18:13:58,516  WARNING   Qwen2-VL batch: no JSON array in: '[1.2, 3.4, 0.8, 2.1, 1.5, 2.6, 1.8, 1.1, 1.4, 2.3, 1.7, 1.9, 1.6, 2.5, 1.3, 1.5, 1.7, 2.2, 1.9, 2.4,'
+2026-04-18 18:13:58,520  INFO        Scene 481/999: superCLEVR_new_020480
+2026-04-18 18:13:59,078  INFO        Scene 482/999: superCLEVR_new_020481
+2026-04-18 18:13:59,931  INFO        Scene 483/999: superCLEVR_new_020482
+2026-04-18 18:14:00,420  INFO        Scene 484/999: superCLEVR_new_020483
+2026-04-18 18:14:02,809  WARNING   Qwen2-VL batch: got 19/21 values — NaN-padding
+2026-04-18 18:14:02,813  INFO        Scene 485/999: superCLEVR_new_020484
+2026-04-18 18:14:03,383  INFO        Scene 486/999: superCLEVR_new_020485
+2026-04-18 18:14:08,676  WARNING   Qwen2-VL batch: got 43/45 values — NaN-padding
+2026-04-18 18:14:08,680  INFO        Scene 487/999: superCLEVR_new_020486
+2026-04-18 18:14:10,007  INFO        Scene 488/999: superCLEVR_new_020487
+2026-04-18 18:14:14,056  INFO        Scene 489/999: superCLEVR_new_020488
+2026-04-18 18:14:14,547  INFO        Scene 490/999: superCLEVR_new_020489
+2026-04-18 18:14:17,878  WARNING   Qwen2-VL batch: got 27/28 values — NaN-padding
+2026-04-18 18:14:17,881  INFO        Scene 491/999: superCLEVR_new_020490
+2026-04-18 18:14:19,199  INFO        Scene 492/999: superCLEVR_new_020491
+2026-04-18 18:14:21,617  WARNING   Qwen2-VL batch: got 19/21 values — NaN-padding
+2026-04-18 18:14:21,620  INFO        Scene 493/999: superCLEVR_new_020492
+2026-04-18 18:14:22,490  INFO        Scene 494/999: superCLEVR_new_020493
+2026-04-18 18:14:25,016  WARNING   Qwen2-VL batch: got 20/21 values — NaN-padding
+2026-04-18 18:14:25,019  INFO        Scene 495/999: superCLEVR_new_020494
+2026-04-18 18:14:26,938  INFO        Scene 496/999: superCLEVR_new_020495
+2026-04-18 18:14:27,425  INFO        Scene 497/999: superCLEVR_new_020496
+2026-04-18 18:14:29,371  INFO        Scene 498/999: superCLEVR_new_020497
+2026-04-18 18:14:30,269  INFO        Scene 499/999: superCLEVR_new_020498
+2026-04-18 18:14:31,896  INFO        Scene 500/999: superCLEVR_new_020499
+2026-04-18 18:14:33,374  INFO        Scene 501/999: superCLEVR_new_020500
+2026-04-18 18:14:35,748  WARNING   Qwen2-VL batch: got 19/21 values — NaN-padding
+2026-04-18 18:14:35,751  INFO        Scene 502/999: superCLEVR_new_020501
+2026-04-18 18:14:36,586  INFO        Scene 503/999: superCLEVR_new_020502
+2026-04-18 18:14:38,490  INFO        Scene 504/999: superCLEVR_new_020503
+2026-04-18 18:14:38,972  INFO        Scene 505/999: superCLEVR_new_020504
+2026-04-18 18:14:41,951  WARNING   Qwen2-VL batch: got 24/28 values — NaN-padding
+2026-04-18 18:14:41,955  INFO        Scene 506/999: superCLEVR_new_020505
+2026-04-18 18:14:42,434  INFO        Scene 507/999: superCLEVR_new_020506
+2026-04-18 18:14:43,748  INFO        Scene 508/999: superCLEVR_new_020507
+2026-04-18 18:14:44,228  INFO        Scene 509/999: superCLEVR_new_020508
+2026-04-18 18:14:48,459  WARNING   Qwen2-VL batch: got 34/36 values — NaN-padding
+2026-04-18 18:14:48,463  INFO        Scene 510/999: superCLEVR_new_020509
+2026-04-18 18:14:52,720  WARNING   Qwen2-VL batch: got 35/36 values — NaN-padding
+2026-04-18 18:14:52,724  INFO        Scene 511/999: superCLEVR_new_020510
+2026-04-18 18:14:53,565  INFO        Scene 512/999: superCLEVR_new_020511
+2026-04-18 18:14:56,871  WARNING   Qwen2-VL batch: got 27/28 values — NaN-padding
+2026-04-18 18:14:56,874  INFO        Scene 513/999: superCLEVR_new_020512
+2026-04-18 18:14:57,812  INFO        Scene 514/999: superCLEVR_new_020513
+2026-04-18 18:15:01,608  WARNING   Qwen2-VL batch: got 31/36 values — NaN-padding
+2026-04-18 18:15:01,612  INFO        Scene 515/999: superCLEVR_new_020514
+2026-04-18 18:15:02,092  INFO        Scene 516/999: superCLEVR_new_020515
+2026-04-18 18:15:14,093  WARNING   Qwen2-VL batch: no JSON array in: '[1.2, 3.4, 0.8, 1.2, 1.2, 1.2, 1.2, 1.2, 1.2, 1.2, 1.2, 1.2, 1.2, 1.2, 1.2, 1.2, 1.2, 1.2, 1.2, 1.2,'
+2026-04-18 18:15:14,097  INFO        Scene 517/999: superCLEVR_new_020516
+2026-04-18 18:15:14,581  INFO        Scene 518/999: superCLEVR_new_020517
+2026-04-18 18:15:16,125  WARNING   Qwen2-VL batch: got 12/15 values — NaN-padding
+2026-04-18 18:15:16,128  INFO        Scene 519/999: superCLEVR_new_020518
+2026-04-18 18:15:21,019  INFO        Scene 520/999: superCLEVR_new_020519
+2026-04-18 18:15:25,936  WARNING   Qwen2-VL batch: got 34/36 values — NaN-padding
+2026-04-18 18:15:25,940  INFO        Scene 521/999: superCLEVR_new_020520
+2026-04-18 18:15:28,409  WARNING   Qwen2-VL batch: got 20/21 values — NaN-padding
+2026-04-18 18:15:28,412  INFO        Scene 522/999: superCLEVR_new_020521
+2026-04-18 18:15:40,534  WARNING   Qwen2-VL batch: no JSON array in: '[1.5, 2.0, 2.5, 3.0, 2.0, 1.5, 2.5, 2.0, 1.5, 2.0, 2.5, 3.0, 2.5, 3.0, 2.0, 1.5, 2.5, 3.0, 2.0, 1.5,'
+2026-04-18 18:15:40,537  INFO        Scene 523/999: superCLEVR_new_020522
+2026-04-18 18:15:41,021  INFO        Scene 524/999: superCLEVR_new_020523
+2026-04-18 18:15:41,897  INFO        Scene 525/999: superCLEVR_new_020524
+2026-04-18 18:15:53,848  WARNING   Qwen2-VL batch: no JSON array in: '[1.2, 1.5, 1.8, 1.5, 2.0, 2.5, 1.5, 2.0, 1.2, 1.5, 2.0, 2.5, 1.5, 2.0, 1.5, 1.8, 1.5, 2.0, 2.5, 1.5,'
+2026-04-18 18:15:53,852  INFO        Scene 526/999: superCLEVR_new_020525
+2026-04-18 18:15:59,441  WARNING   Qwen2-VL batch: got 42/45 values — NaN-padding
+2026-04-18 18:15:59,445  INFO        Scene 527/999: superCLEVR_new_020526
+2026-04-18 18:16:01,938  WARNING   Qwen2-VL batch: got 20/21 values — NaN-padding
+2026-04-18 18:16:01,941  INFO        Scene 528/999: superCLEVR_new_020527
+2026-04-18 18:16:04,434  WARNING   Qwen2-VL batch: got 20/21 values — NaN-padding
+2026-04-18 18:16:04,437  INFO        Scene 529/999: superCLEVR_new_020528
+2026-04-18 18:16:05,282  INFO        Scene 530/999: superCLEVR_new_020529
+2026-04-18 18:16:06,950  WARNING   Qwen2-VL batch: got 13/15 values — NaN-padding
+2026-04-18 18:16:06,953  INFO        Scene 531/999: superCLEVR_new_020530
+2026-04-18 18:16:12,265  WARNING   Qwen2-VL batch: got 44/45 values — NaN-padding
+2026-04-18 18:16:12,269  INFO        Scene 532/999: superCLEVR_new_020531
+2026-04-18 18:16:14,752  WARNING   Qwen2-VL batch: got 20/21 values — NaN-padding
+2026-04-18 18:16:14,755  INFO        Scene 533/999: superCLEVR_new_020532
+2026-04-18 18:16:15,235  INFO        Scene 534/999: superCLEVR_new_020533
+2026-04-18 18:16:16,534  INFO        Scene 535/999: superCLEVR_new_020534
+2026-04-18 18:16:21,823  INFO        Scene 536/999: superCLEVR_new_020535
+2026-04-18 18:16:27,601  INFO        Scene 537/999: superCLEVR_new_020536
+2026-04-18 18:16:32,774  INFO        Scene 538/999: superCLEVR_new_020537
+2026-04-18 18:16:34,087  INFO        Scene 539/999: superCLEVR_new_020538
+2026-04-18 18:16:36,794  INFO        Scene 540/999: superCLEVR_new_020539
+2026-04-18 18:16:40,574  INFO        Scene 541/999: superCLEVR_new_020540
+2026-04-18 18:16:43,642  WARNING   Qwen2-VL batch: got 25/28 values — NaN-padding
+2026-04-18 18:16:43,645  INFO        Scene 542/999: superCLEVR_new_020541
+2026-04-18 18:16:44,488  INFO        Scene 543/999: superCLEVR_new_020542
+2026-04-18 18:16:45,351  INFO        Scene 544/999: superCLEVR_new_020543
+2026-04-18 18:16:46,188  INFO        Scene 545/999: superCLEVR_new_020544
+2026-04-18 18:16:47,497  INFO        Scene 546/999: superCLEVR_new_020545
+2026-04-18 18:16:51,983  INFO        Scene 547/999: superCLEVR_new_020546
+2026-04-18 18:16:55,066  WARNING   Qwen2-VL batch: got 25/28 values — NaN-padding
+2026-04-18 18:16:55,069  INFO        Scene 548/999: superCLEVR_new_020547
+2026-04-18 18:17:07,569  WARNING   Qwen2-VL batch: no JSON array in: '[1.2, 1.5, 2.0, 1.8, 2.5, 3.0, 2.2, 2.8, 1.5, 2.0, 1.8, 2.5, 3.0, 2.2, 2.8, 1.5, 2.0, 1.8, 2.5, 3.0,'
+2026-04-18 18:17:07,573  INFO        Scene 549/999: superCLEVR_new_020548
+2026-04-18 18:17:08,054  INFO        Scene 550/999: superCLEVR_new_020549
+2026-04-18 18:17:11,284  WARNING   Qwen2-VL batch: got 26/28 values — NaN-padding
+2026-04-18 18:17:11,287  INFO        Scene 551/999: superCLEVR_new_020550
+2026-04-18 18:17:13,655  WARNING   Qwen2-VL batch: got 19/21 values — NaN-padding
+2026-04-18 18:17:13,658  INFO        Scene 552/999: superCLEVR_new_020551
+2026-04-18 18:17:25,735  WARNING   Qwen2-VL batch: no JSON array in: '[1.2, 3.4, 0.8, 2.5, 1.5, 2.0, 2.5, 2.0, 1.5, 2.0, 2.5, 2.0, 1.5, 2.0, 2.5, 2.0, 1.5, 2.0, 2.5, 2.0,'
+2026-04-18 18:17:25,739  INFO        Scene 553/999: superCLEVR_new_020552
+2026-04-18 18:17:28,849  WARNING   Qwen2-VL batch: got 25/28 values — NaN-padding
+2026-04-18 18:17:28,853  INFO        Scene 554/999: superCLEVR_new_020553
+2026-04-18 18:17:30,656  WARNING   Qwen2-VL batch: got 14/15 values — NaN-padding
+2026-04-18 18:17:30,659  INFO        Scene 555/999: superCLEVR_new_020554
+2026-04-18 18:17:34,604  WARNING   Qwen2-VL batch: got 27/28 values — NaN-padding
+2026-04-18 18:17:34,608  INFO        Scene 556/999: superCLEVR_new_020555
+2026-04-18 18:17:35,456  INFO        Scene 557/999: superCLEVR_new_020556
+2026-04-18 18:17:36,292  INFO        Scene 558/999: superCLEVR_new_020557
+2026-04-18 18:17:36,776  INFO        Scene 559/999: superCLEVR_new_020558
+2026-04-18 18:17:38,687  INFO        Scene 560/999: superCLEVR_new_020559
+2026-04-18 18:17:41,544  WARNING   Qwen2-VL batch: got 23/28 values — NaN-padding
+2026-04-18 18:17:41,548  INFO        Scene 561/999: superCLEVR_new_020560
+2026-04-18 18:17:44,034  WARNING   Qwen2-VL batch: got 20/21 values — NaN-padding
+2026-04-18 18:17:44,037  INFO        Scene 562/999: superCLEVR_new_020561
+2026-04-18 18:17:48,774  WARNING   Qwen2-VL batch: got 39/45 values — NaN-padding
+2026-04-18 18:17:48,778  INFO        Scene 563/999: superCLEVR_new_020562
+2026-04-18 18:17:51,292  WARNING   Qwen2-VL batch: got 20/21 values — NaN-padding
+2026-04-18 18:17:51,295  INFO        Scene 564/999: superCLEVR_new_020563
+2026-04-18 18:17:52,145  INFO        Scene 565/999: superCLEVR_new_020564
+2026-04-18 18:17:55,589  INFO        Scene 566/999: superCLEVR_new_020565
+2026-04-18 18:17:57,253  WARNING   Qwen2-VL batch: got 13/15 values — NaN-padding
+2026-04-18 18:17:57,256  INFO        Scene 567/999: superCLEVR_new_020566
+2026-04-18 18:18:02,789  WARNING   Qwen2-VL batch: got 43/45 values — NaN-padding
+2026-04-18 18:18:02,793  INFO        Scene 568/999: superCLEVR_new_020567
+2026-04-18 18:18:03,279  INFO        Scene 569/999: superCLEVR_new_020568
+2026-04-18 18:18:03,763  INFO        Scene 570/999: superCLEVR_new_020569
+2026-04-18 18:18:04,250  INFO        Scene 571/999: superCLEVR_new_020570
+2026-04-18 18:18:07,439  WARNING   Qwen2-VL batch: got 26/28 values — NaN-padding
+2026-04-18 18:18:07,443  INFO        Scene 572/999: superCLEVR_new_020571
+2026-04-18 18:18:07,927  INFO        Scene 573/999: superCLEVR_new_020572
+2026-04-18 18:18:08,413  INFO        Scene 574/999: superCLEVR_new_020573
+2026-04-18 18:18:10,202  WARNING   Qwen2-VL batch: got 14/15 values — NaN-padding
+2026-04-18 18:18:10,205  INFO        Scene 575/999: superCLEVR_new_020574
+2026-04-18 18:18:10,693  INFO        Scene 576/999: superCLEVR_new_020575
+2026-04-18 18:18:12,494  WARNING   Qwen2-VL batch: got 14/15 values — NaN-padding
+2026-04-18 18:18:12,497  INFO        Scene 577/999: superCLEVR_new_020576
+2026-04-18 18:18:14,300  WARNING   Qwen2-VL batch: got 14/15 values — NaN-padding
+2026-04-18 18:18:14,302  INFO        Scene 578/999: superCLEVR_new_020577
+2026-04-18 18:18:16,800  WARNING   Qwen2-VL batch: got 20/21 values — NaN-padding
+2026-04-18 18:18:16,803  INFO        Scene 579/999: superCLEVR_new_020578
+2026-04-18 18:18:19,178  WARNING   Qwen2-VL batch: got 19/21 values — NaN-padding
+2026-04-18 18:18:19,181  INFO        Scene 580/999: superCLEVR_new_020579
+2026-04-18 18:18:20,460  WARNING   Qwen2-VL batch: got 9/10 values — NaN-padding
+2026-04-18 18:18:20,463  INFO        Scene 581/999: superCLEVR_new_020580
+2026-04-18 18:18:22,126  WARNING   Qwen2-VL batch: got 13/15 values — NaN-padding
+2026-04-18 18:18:22,129  INFO        Scene 582/999: superCLEVR_new_020581
+2026-04-18 18:18:24,622  WARNING   Qwen2-VL batch: got 20/21 values — NaN-padding
+2026-04-18 18:18:24,625  INFO        Scene 583/999: superCLEVR_new_020582
+2026-04-18 18:18:25,459  INFO        Scene 584/999: superCLEVR_new_020583
+2026-04-18 18:18:30,093  WARNING   Qwen2-VL batch: got 38/45 values — NaN-padding
+2026-04-18 18:18:30,097  INFO        Scene 585/999: superCLEVR_new_020584
+2026-04-18 18:18:31,018  INFO        Scene 586/999: superCLEVR_new_020585
+2026-04-18 18:18:35,971  WARNING   Qwen2-VL batch: got 39/45 values — NaN-padding
+2026-04-18 18:18:35,974  INFO        Scene 587/999: superCLEVR_new_020586
+2026-04-18 18:18:36,452  INFO        Scene 588/999: superCLEVR_new_020587
+2026-04-18 18:18:40,294  WARNING   Qwen2-VL batch: got 31/36 values — NaN-padding
+2026-04-18 18:18:40,297  INFO        Scene 589/999: superCLEVR_new_020588
+2026-04-18 18:18:41,851  WARNING   Qwen2-VL batch: got 12/15 values — NaN-padding
+2026-04-18 18:18:41,854  INFO        Scene 590/999: superCLEVR_new_020589
+2026-04-18 18:18:43,171  INFO        Scene 591/999: superCLEVR_new_020590
+2026-04-18 18:18:46,949  WARNING   Qwen2-VL batch: got 31/36 values — NaN-padding
+2026-04-18 18:18:46,953  INFO        Scene 592/999: superCLEVR_new_020591
+2026-04-18 18:18:50,162  WARNING   Qwen2-VL batch: got 26/28 values — NaN-padding
+2026-04-18 18:18:50,166  INFO        Scene 593/999: superCLEVR_new_020592
+2026-04-18 18:18:51,840  WARNING   Qwen2-VL batch: got 13/15 values — NaN-padding
+2026-04-18 18:18:51,842  INFO        Scene 594/999: superCLEVR_new_020593
+2026-04-18 18:18:54,450  INFO        Scene 595/999: superCLEVR_new_020594
+2026-04-18 18:18:54,932  INFO        Scene 596/999: superCLEVR_new_020595
+2026-04-18 18:18:55,416  INFO        Scene 597/999: superCLEVR_new_020596
+2026-04-18 18:18:58,390  WARNING   Qwen2-VL batch: got 24/28 values — NaN-padding
+2026-04-18 18:18:58,393  INFO        Scene 598/999: superCLEVR_new_020597
+2026-04-18 18:19:01,949  INFO        Scene 599/999: superCLEVR_new_020598
+2026-04-18 18:19:03,851  INFO        Scene 600/999: superCLEVR_new_020599
+2026-04-18 18:19:05,169  INFO        Scene 601/999: superCLEVR_new_020600
+2026-04-18 18:19:06,481  INFO        Scene 602/999: superCLEVR_new_020601
+2026-04-18 18:19:08,150  WARNING   Qwen2-VL batch: got 13/15 values — NaN-padding
+2026-04-18 18:19:08,153  INFO        Scene 603/999: superCLEVR_new_020602
+2026-04-18 18:19:11,591  INFO        Scene 604/999: superCLEVR_new_020603
+2026-04-18 18:19:23,646  WARNING   Qwen2-VL batch: no JSON array in: '[1.2, 3.4, 0.8, 1.5, 2.0, 1.0, 1.5, 2.5, 0.5, 1.0, 2.0, 1.5, 2.5, 0.5, 1.0, 2.0, 1.5, 2.5, 0.5, 1.0,'
+2026-04-18 18:19:23,650  INFO        Scene 605/999: superCLEVR_new_020604
+2026-04-18 18:19:25,654  WARNING   Qwen2-VL batch: got 14/15 values — NaN-padding
+2026-04-18 18:19:25,658  INFO        Scene 606/999: superCLEVR_new_020605
+2026-04-18 18:19:27,235  INFO        Scene 607/999: superCLEVR_new_020606
+2026-04-18 18:19:31,954  INFO        Scene 608/999: superCLEVR_new_020607
+2026-04-18 18:19:43,874  WARNING   Qwen2-VL batch: no JSON array in: '[1.2, 1.5, 2.0, 2.5, 3.0, 3.5, 4.0, 4.5, 0.5, 1.0, 1.5, 2.0, 2.5, 3.0, 3.5, 4.0, 4.5, 5.0, 5.5, 6.0,'
+2026-04-18 18:19:43,877  INFO        Scene 609/999: superCLEVR_new_020608
+2026-04-18 18:19:44,746  INFO        Scene 610/999: superCLEVR_new_020609
+2026-04-18 18:19:46,407  WARNING   Qwen2-VL batch: got 13/15 values — NaN-padding
+2026-04-18 18:19:46,410  INFO        Scene 611/999: superCLEVR_new_020610
+2026-04-18 18:19:46,897  INFO        Scene 612/999: superCLEVR_new_020611
+2026-04-18 18:19:47,384  INFO        Scene 613/999: superCLEVR_new_020612
+2026-04-18 18:19:48,687  INFO        Scene 614/999: superCLEVR_new_020613
+2026-04-18 18:19:51,662  WARNING   Qwen2-VL batch: got 24/28 values — NaN-padding
+2026-04-18 18:19:51,666  INFO        Scene 615/999: superCLEVR_new_020614
+2026-04-18 18:19:54,741  WARNING   Qwen2-VL batch: got 25/28 values — NaN-padding
+2026-04-18 18:19:54,744  INFO        Scene 616/999: superCLEVR_new_020615
+2026-04-18 18:19:56,042  INFO        Scene 617/999: superCLEVR_new_020616
+2026-04-18 18:19:57,363  INFO        Scene 618/999: superCLEVR_new_020617
+2026-04-18 18:20:00,316  WARNING   Qwen2-VL batch: got 24/28 values — NaN-padding
+2026-04-18 18:20:00,320  INFO        Scene 619/999: superCLEVR_new_020618
+2026-04-18 18:20:00,799  INFO        Scene 620/999: superCLEVR_new_020619
+2026-04-18 18:20:01,514  INFO        Scene 621/999: superCLEVR_new_020620
+2026-04-18 18:20:05,278  WARNING   Qwen2-VL batch: got 31/36 values — NaN-padding
+2026-04-18 18:20:05,282  INFO        Scene 622/999: superCLEVR_new_020621
+2026-04-18 18:20:06,582  INFO        Scene 623/999: superCLEVR_new_020622
+2026-04-18 18:20:09,988  INFO        Scene 624/999: superCLEVR_new_020623
+2026-04-18 18:20:21,938  WARNING   Qwen2-VL batch: no JSON array in: '[1.5, 1.2, 1.8, 1.5, 1.2, 1.8, 1.5, 1.2, 1.8, 1.5, 1.2, 1.8, 1.5, 1.2, 1.8, 1.5, 1.2, 1.8, 1.5, 1.2,'
+2026-04-18 18:20:21,942  INFO        Scene 625/999: superCLEVR_new_020624
+2026-04-18 18:20:23,262  INFO        Scene 626/999: superCLEVR_new_020625
+2026-04-18 18:20:24,121  INFO        Scene 627/999: superCLEVR_new_020626
+2026-04-18 18:20:24,603  INFO        Scene 628/999: superCLEVR_new_020627
+2026-04-18 18:20:26,135  WARNING   Qwen2-VL batch: got 12/15 values — NaN-padding
+2026-04-18 18:20:26,138  INFO        Scene 629/999: superCLEVR_new_020628
+2026-04-18 18:20:38,119  WARNING   Qwen2-VL batch: no JSON array in: '[1.2, 1.5, 1.8, 2.1, 2.4, 2.7, 3.0, 3.3, 3.6, 0.9, 1.2, 1.5, 1.8, 2.1, 2.4, 2.7, 3.0, 3.3, 3.6, 0.9,'
+2026-04-18 18:20:38,123  INFO        Scene 630/999: superCLEVR_new_020629
+2026-04-18 18:20:40,480  WARNING   Qwen2-VL batch: got 19/21 values — NaN-padding
+2026-04-18 18:20:40,483  INFO        Scene 631/999: superCLEVR_new_020630
+2026-04-18 18:20:41,009  INFO        Scene 632/999: superCLEVR_new_020631
+2026-04-18 18:20:41,486  INFO        Scene 633/999: superCLEVR_new_020632
+2026-04-18 18:20:42,798  INFO        Scene 634/999: superCLEVR_new_020633
+2026-04-18 18:20:43,278  INFO        Scene 635/999: superCLEVR_new_020634
+2026-04-18 18:20:44,118  INFO        Scene 636/999: superCLEVR_new_020635
+2026-04-18 18:20:49,144  WARNING   Qwen2-VL batch: got 42/45 values — NaN-padding
+2026-04-18 18:20:49,148  INFO        Scene 637/999: superCLEVR_new_020636
+2026-04-18 18:20:52,093  WARNING   Qwen2-VL batch: got 24/28 values — NaN-padding
+2026-04-18 18:20:52,097  INFO        Scene 638/999: superCLEVR_new_020637
+2026-04-18 18:21:04,027  WARNING   Qwen2-VL batch: no JSON array in: '[1.2, 3.4, 0.8, 2.1, 1.5, 1.8, 2.5, 1.6, 1.2, 3.4, 2.1, 1.5, 1.8, 2.5, 1.6, 1.2, 3.4, 2.1, 1.5, 1.8,'
+2026-04-18 18:21:04,031  INFO        Scene 639/999: superCLEVR_new_020638
+2026-04-18 18:21:04,512  INFO        Scene 640/999: superCLEVR_new_020639
+2026-04-18 18:21:05,815  INFO        Scene 641/999: superCLEVR_new_020640
+2026-04-18 18:21:07,470  WARNING   Qwen2-VL batch: got 13/15 values — NaN-padding
+2026-04-18 18:21:07,473  INFO        Scene 642/999: superCLEVR_new_020641
+2026-04-18 18:21:09,365  INFO        Scene 643/999: superCLEVR_new_020642
+2026-04-18 18:21:10,665  INFO        Scene 644/999: superCLEVR_new_020643
+2026-04-18 18:21:12,330  WARNING   Qwen2-VL batch: got 13/15 values — NaN-padding
+2026-04-18 18:21:12,332  INFO        Scene 645/999: superCLEVR_new_020644
+2026-04-18 18:21:24,221  WARNING   Qwen2-VL batch: no JSON array in: '[1.2, 1.5, 2.5, 1.8, 1.5, 2.0, 1.2, 2.5, 1.5, 2.0, 1.8, 2.5, 1.2, 1.5, 2.0, 1.8, 2.5, 1.5, 2.0, 1.8,'
+2026-04-18 18:21:24,225  INFO        Scene 646/999: superCLEVR_new_020645
+2026-04-18 18:21:25,858  WARNING   Qwen2-VL batch: got 13/15 values — NaN-padding
+2026-04-18 18:21:25,861  INFO        Scene 647/999: superCLEVR_new_020646
+2026-04-18 18:21:30,357  WARNING   Qwen2-VL batch: got 37/45 values — NaN-padding
+2026-04-18 18:21:30,361  INFO        Scene 648/999: superCLEVR_new_020647
+2026-04-18 18:21:30,803  INFO        Scene 649/999: superCLEVR_new_020648
+2026-04-18 18:21:35,494  WARNING   Qwen2-VL batch: got 39/45 values — NaN-padding
+2026-04-18 18:21:35,498  INFO        Scene 650/999: superCLEVR_new_020649
+2026-04-18 18:21:36,806  INFO        Scene 651/999: superCLEVR_new_020650
+2026-04-18 18:21:40,609  WARNING   Qwen2-VL batch: got 31/36 values — NaN-padding
+2026-04-18 18:21:40,612  INFO        Scene 652/999: superCLEVR_new_020651
+2026-04-18 18:21:45,442  INFO        Scene 653/999: superCLEVR_new_020652
+2026-04-18 18:21:48,144  WARNING   Qwen2-VL batch: got 22/28 values — NaN-padding
+2026-04-18 18:21:48,148  INFO        Scene 654/999: superCLEVR_new_020653
+2026-04-18 18:22:00,192  WARNING   Qwen2-VL batch: no JSON array in: '[1.2, 3.4, 0.8, 2.1, 1.5, 4.2, 0.5, 1.8, 0.9, 2.3, 3.6, 0.7, 1.9, 2.5, 1.1, 2.7, 0.6, 1.3, 2.9, 0.4,'
+2026-04-18 18:22:00,196  INFO        Scene 655/999: superCLEVR_new_020654
+2026-04-18 18:22:03,503  WARNING   Qwen2-VL batch: got 27/28 values — NaN-padding
+2026-04-18 18:22:03,506  INFO        Scene 656/999: superCLEVR_new_020655
+2026-04-18 18:22:04,338  INFO        Scene 657/999: superCLEVR_new_020656
+2026-04-18 18:22:06,221  INFO        Scene 658/999: superCLEVR_new_020657
+2026-04-18 18:22:11,350  INFO        Scene 659/999: superCLEVR_new_020658
+2026-04-18 18:22:12,278  INFO        Scene 660/999: superCLEVR_new_020659
+2026-04-18 18:22:14,753  WARNING   Qwen2-VL batch: got 20/21 values — NaN-padding
+2026-04-18 18:22:14,756  INFO        Scene 661/999: superCLEVR_new_020660
+2026-04-18 18:22:26,634  WARNING   Qwen2-VL batch: no JSON array in: '[1.5, 1.2, 1.8, 1.5, 2.5, 1.2, 2.0, 1.5, 0.5, 2.0, 1.8, 2.5, 1.5, 1.2, 1.5, 1.8, 2.5, 1.5, 1.2, 1.5,'
+2026-04-18 18:22:26,638  INFO        Scene 662/999: superCLEVR_new_020661
+2026-04-18 18:22:27,477  INFO        Scene 663/999: superCLEVR_new_020662
+2026-04-18 18:22:28,788  INFO        Scene 664/999: superCLEVR_new_020663
+2026-04-18 18:22:32,446  WARNING   Qwen2-VL batch: got 30/36 values — NaN-padding
+2026-04-18 18:22:32,449  INFO        Scene 665/999: superCLEVR_new_020664
+2026-04-18 18:22:33,279  INFO        Scene 666/999: superCLEVR_new_020665
+2026-04-18 18:22:34,582  INFO        Scene 667/999: superCLEVR_new_020666
+2026-04-18 18:22:37,533  WARNING   Qwen2-VL batch: got 24/28 values — NaN-padding
+2026-04-18 18:22:37,537  INFO        Scene 668/999: superCLEVR_new_020667
+2026-04-18 18:22:40,952  INFO        Scene 669/999: superCLEVR_new_020668
+2026-04-18 18:22:42,604  WARNING   Qwen2-VL batch: got 13/15 values — NaN-padding
+2026-04-18 18:22:42,607  INFO        Scene 670/999: superCLEVR_new_020669
+2026-04-18 18:22:48,221  INFO        Scene 671/999: superCLEVR_new_020670
+2026-04-18 18:22:51,976  INFO        Scene 672/999: superCLEVR_new_020671
+2026-04-18 18:22:53,279  INFO        Scene 673/999: superCLEVR_new_020672
+2026-04-18 18:22:54,113  INFO        Scene 674/999: superCLEVR_new_020673
+2026-04-18 18:22:54,944  INFO        Scene 675/999: superCLEVR_new_020674
+2026-04-18 18:23:00,253  WARNING   Qwen2-VL batch: got 37/45 values — NaN-padding
+2026-04-18 18:23:00,257  INFO        Scene 676/999: superCLEVR_new_020675
+2026-04-18 18:23:12,139  WARNING   Qwen2-VL batch: no JSON array in: '[0.5, 1.0, 1.5, 0.5, 1.0, 1.0, 1.5, 1.0, 1.0, 1.0, 1.0, 1.5, 1.0, 1.5, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0,'
+2026-04-18 18:23:12,143  INFO        Scene 677/999: superCLEVR_new_020676
+2026-04-18 18:23:14,069  WARNING   Qwen2-VL batch: got 14/15 values — NaN-padding
+2026-04-18 18:23:14,071  INFO        Scene 678/999: superCLEVR_new_020677
+2026-04-18 18:23:16,531  WARNING   Qwen2-VL batch: got 20/21 values — NaN-padding
+2026-04-18 18:23:16,534  INFO        Scene 679/999: superCLEVR_new_020678
+2026-04-18 18:23:28,520  WARNING   Qwen2-VL batch: no JSON array in: '[1.5, 3.0, 1.0, 2.5, 1.5, 2.0, 1.0, 2.5, 1.0, 3.0, 1.0, 2.5, 1.0, 2.0, 1.0, 2.5, 1.0, 2.0, 1.0, 2.5,'
+2026-04-18 18:23:28,524  INFO        Scene 680/999: superCLEVR_new_020679
+2026-04-18 18:23:30,073  WARNING   Qwen2-VL batch: got 12/15 values — NaN-padding
+2026-04-18 18:23:30,076  INFO        Scene 681/999: superCLEVR_new_020680
+2026-04-18 18:23:34,900  INFO        Scene 682/999: superCLEVR_new_020681
+2026-04-18 18:23:35,384  INFO        Scene 683/999: superCLEVR_new_020682
+2026-04-18 18:23:37,792  WARNING   Qwen2-VL batch: got 19/21 values — NaN-padding
+2026-04-18 18:23:37,795  INFO        Scene 684/999: superCLEVR_new_020683
+2026-04-18 18:23:41,670  WARNING   Qwen2-VL batch: got 32/36 values — NaN-padding
+2026-04-18 18:23:41,674  INFO        Scene 685/999: superCLEVR_new_020684
+2026-04-18 18:23:42,972  INFO        Scene 686/999: superCLEVR_new_020685
+2026-04-18 18:23:46,525  INFO        Scene 687/999: superCLEVR_new_020686
+2026-04-18 18:23:50,314  WARNING   Qwen2-VL batch: got 31/36 values — NaN-padding
+2026-04-18 18:23:50,317  INFO        Scene 688/999: superCLEVR_new_020687
+2026-04-18 18:23:50,800  INFO        Scene 689/999: superCLEVR_new_020688
+2026-04-18 18:23:55,499  INFO        Scene 690/999: superCLEVR_new_020689
+2026-04-18 18:24:07,464  WARNING   Qwen2-VL batch: no JSON array in: '```json\n[\n  1.5,\n  1.2,\n  1.0,\n  1.8,\n  2.0,\n  1.5,\n  1.2,\n  1.0,\n  0.5,\n  1.0,\n  2.0,\n  1.5,\n  1.2,'
+2026-04-18 18:24:07,468  INFO        Scene 691/999: superCLEVR_new_020690
+2026-04-18 18:24:09,355  INFO        Scene 692/999: superCLEVR_new_020691
+2026-04-18 18:24:12,786  INFO        Scene 693/999: superCLEVR_new_020692
+2026-04-18 18:24:13,621  INFO        Scene 694/999: superCLEVR_new_020693
+2026-04-18 18:24:16,828  WARNING   Qwen2-VL batch: got 26/28 values — NaN-padding
+2026-04-18 18:24:16,831  INFO        Scene 695/999: superCLEVR_new_020694
+2026-04-18 18:24:17,335  INFO        Scene 696/999: superCLEVR_new_020695
+2026-04-18 18:24:18,632  INFO        Scene 697/999: superCLEVR_new_020696
+2026-04-18 18:24:22,052  INFO        Scene 698/999: superCLEVR_new_020697
+2026-04-18 18:24:24,775  WARNING   Qwen2-VL batch: got 20/21 values — NaN-padding
+2026-04-18 18:24:24,778  INFO        Scene 699/999: superCLEVR_new_020698
+2026-04-18 18:24:27,120  WARNING   Qwen2-VL batch: got 19/21 values — NaN-padding
+2026-04-18 18:24:27,123  INFO        Scene 700/999: superCLEVR_new_020699
+2026-04-18 18:24:39,097  WARNING   Qwen2-VL batch: no JSON array in: '[1.2, 3.4, 0.8, 2.5, 4.3, 1.5, 0.5, 1.8, 2.1, 2.8, 3.6, 4.9, 3.2, 2.3, 1.9, 2.7, 3.1, 4.5, 3.7, 2.9,'
+2026-04-18 18:24:39,101  INFO        Scene 701/999: superCLEVR_new_020700
+2026-04-18 18:24:43,808  INFO        Scene 702/999: superCLEVR_new_020701
+2026-04-18 18:24:44,825  INFO        Scene 703/999: superCLEVR_new_020702
+2026-04-18 18:24:45,307  INFO        Scene 704/999: superCLEVR_new_020703
+2026-04-18 18:24:49,166  WARNING   Qwen2-VL batch: got 32/36 values — NaN-padding
+2026-04-18 18:24:49,169  INFO        Scene 705/999: superCLEVR_new_020704
+2026-04-18 18:24:50,011  INFO        Scene 706/999: superCLEVR_new_020705
+2026-04-18 18:25:01,966  WARNING   Qwen2-VL batch: no JSON array in: '[1.2, 3.4, 0.8, 1.5, 2.1, 2.5, 3.0, 1.8, 1.0, 1.5, 2.0, 2.5, 3.0, 1.8, 1.0, 1.5, 2.0, 2.5, 3.0, 1.8,'
+2026-04-18 18:25:01,970  INFO        Scene 707/999: superCLEVR_new_020706
+2026-04-18 18:25:03,267  INFO        Scene 708/999: superCLEVR_new_020707
+2026-04-18 18:25:04,576  INFO        Scene 709/999: superCLEVR_new_020708
+2026-04-18 18:25:07,858  WARNING   Qwen2-VL batch: got 27/28 values — NaN-padding
+2026-04-18 18:25:07,861  INFO        Scene 710/999: superCLEVR_new_020709
+2026-04-18 18:25:09,521  WARNING   Qwen2-VL batch: got 13/15 values — NaN-padding
+2026-04-18 18:25:09,524  INFO        Scene 711/999: superCLEVR_new_020710
+2026-04-18 18:25:14,586  INFO        Scene 712/999: superCLEVR_new_020711
+2026-04-18 18:25:15,435  INFO        Scene 713/999: superCLEVR_new_020712
+2026-04-18 18:25:16,730  INFO        Scene 714/999: superCLEVR_new_020713
+2026-04-18 18:25:20,264  INFO        Scene 715/999: superCLEVR_new_020714
+2026-04-18 18:25:32,164  WARNING   Qwen2-VL batch: no JSON array in: '[1.5, 3.0, 1.0, 2.5, 2.0, 3.0, 2.5, 1.0, 1.5, 1.0, 2.0, 1.5, 2.5, 1.0, 1.5, 2.0, 1.0, 2.5, 1.5, 1.0,'
+2026-04-18 18:25:32,168  INFO        Scene 716/999: superCLEVR_new_020715
+2026-04-18 18:25:33,001  INFO        Scene 717/999: superCLEVR_new_020716
+2026-04-18 18:25:44,916  WARNING   Qwen2-VL batch: no JSON array in: '[1.2, 1.5, 2.0, 2.5, 1.8, 1.0, 1.5, 2.0, 1.2, 0.5, 0.8, 1.0, 1.5, 1.8, 2.0, 1.2, 1.5, 2.0, 1.8, 1.0,'
+2026-04-18 18:25:44,920  INFO        Scene 718/999: superCLEVR_new_020717
+2026-04-18 18:25:45,427  INFO        Scene 719/999: superCLEVR_new_020718
+2026-04-18 18:25:46,716  INFO        Scene 720/999: superCLEVR_new_020719
+2026-04-18 18:25:48,024  INFO        Scene 721/999: superCLEVR_new_020720
+2026-04-18 18:25:48,508  INFO        Scene 722/999: superCLEVR_new_020721
+2026-04-18 18:25:49,885  INFO        Scene 723/999: superCLEVR_new_020722
+2026-04-18 18:25:50,368  INFO        Scene 724/999: superCLEVR_new_020723
+2026-04-18 18:25:51,670  INFO        Scene 725/999: superCLEVR_new_020724
+2026-04-18 18:25:55,646  INFO        Scene 726/999: superCLEVR_new_020725
+2026-04-18 18:25:57,185  WARNING   Qwen2-VL batch: got 12/15 values — NaN-padding
+2026-04-18 18:25:57,187  INFO        Scene 727/999: superCLEVR_new_020726
+2026-04-18 18:25:58,485  INFO        Scene 728/999: superCLEVR_new_020727
+2026-04-18 18:26:02,028  WARNING   Qwen2-VL batch: got 29/36 values — NaN-padding
+2026-04-18 18:26:02,032  INFO        Scene 729/999: superCLEVR_new_020728
+2026-04-18 18:26:14,136  WARNING   Qwen2-VL batch: no JSON array in: '[1.2, 2.4, 3.6, 4.8, 0.6, 1.8, 2.4, 3.0, 1.2, 2.4, 3.6, 4.8, 0.6, 2.4, 3.6, 4.8, 0.6, 1.8, 3.0, 4.2,'
+2026-04-18 18:26:14,140  INFO        Scene 730/999: superCLEVR_new_020729
+2026-04-18 18:26:26,158  WARNING   Qwen2-VL batch: no JSON array in: '[1.2, 3.4, 0.8, 1.5, 2.1, 2.8, 1.8, 1.5, 2.1, 1.2, 1.5, 1.8, 1.5, 1.2, 1.5, 1.8, 1.5, 2.1, 2.8, 1.5,'
+2026-04-18 18:26:26,162  INFO        Scene 731/999: superCLEVR_new_020730
+2026-04-18 18:26:29,965  WARNING   Qwen2-VL batch: got 31/36 values — NaN-padding
+2026-04-18 18:26:29,968  INFO        Scene 732/999: superCLEVR_new_020731
+2026-04-18 18:26:31,512  WARNING   Qwen2-VL batch: got 12/15 values — NaN-padding
+2026-04-18 18:26:31,515  INFO        Scene 733/999: superCLEVR_new_020732
+2026-04-18 18:26:33,895  WARNING   Qwen2-VL batch: got 19/21 values — NaN-padding
+2026-04-18 18:26:33,898  INFO        Scene 734/999: superCLEVR_new_020733
+2026-04-18 18:26:36,383  WARNING   Qwen2-VL batch: got 20/21 values — NaN-padding
+2026-04-18 18:26:36,386  INFO        Scene 735/999: superCLEVR_new_020734
+2026-04-18 18:26:37,696  INFO        Scene 736/999: superCLEVR_new_020735
+2026-04-18 18:26:38,529  INFO        Scene 737/999: superCLEVR_new_020736
+2026-04-18 18:26:43,344  INFO        Scene 738/999: superCLEVR_new_020737
+2026-04-18 18:26:46,882  WARNING   Qwen2-VL batch: got 29/36 values — NaN-padding
+2026-04-18 18:26:46,886  INFO        Scene 739/999: superCLEVR_new_020738
+2026-04-18 18:26:49,259  WARNING   Qwen2-VL batch: got 19/21 values — NaN-padding
+2026-04-18 18:26:49,263  INFO        Scene 740/999: superCLEVR_new_020739
+2026-04-18 18:26:54,205  INFO        Scene 741/999: superCLEVR_new_020740
+2026-04-18 18:26:56,792  INFO        Scene 742/999: superCLEVR_new_020741
+2026-04-18 18:26:57,624  INFO        Scene 743/999: superCLEVR_new_020742
+2026-04-18 18:26:58,458  INFO        Scene 744/999: superCLEVR_new_020743
+2026-04-18 18:27:01,653  WARNING   Qwen2-VL batch: got 26/28 values — NaN-padding
+2026-04-18 18:27:01,656  INFO        Scene 745/999: superCLEVR_new_020744
+2026-04-18 18:27:02,492  INFO        Scene 746/999: superCLEVR_new_020745
+2026-04-18 18:27:03,794  INFO        Scene 747/999: superCLEVR_new_020746
+2026-04-18 18:27:07,197  INFO        Scene 748/999: superCLEVR_new_020747
+2026-04-18 18:27:19,106  WARNING   Qwen2-VL batch: no JSON array in: '[1.5, 1.2, 3.0, 1.8, 1.0, 2.5, 1.5, 1.8, 1.2, 1.5, 2.0, 1.8, 1.5, 1.2, 1.8, 1.5, 1.2, 1.5, 1.8, 1.5,'
+2026-04-18 18:27:19,109  INFO        Scene 749/999: superCLEVR_new_020748
+2026-04-18 18:27:24,181  WARNING   Qwen2-VL batch: got 42/45 values — NaN-padding
+2026-04-18 18:27:24,185  INFO        Scene 750/999: superCLEVR_new_020749
+2026-04-18 18:27:25,483  INFO        Scene 751/999: superCLEVR_new_020750
+2026-04-18 18:27:25,962  INFO        Scene 752/999: superCLEVR_new_020751
+2026-04-18 18:27:26,798  INFO        Scene 753/999: superCLEVR_new_020752
+2026-04-18 18:27:29,272  WARNING   Qwen2-VL batch: got 20/21 values — NaN-padding
+2026-04-18 18:27:29,275  INFO        Scene 754/999: superCLEVR_new_020753
+2026-04-18 18:27:32,554  WARNING   Qwen2-VL batch: got 26/28 values — NaN-padding
+2026-04-18 18:27:32,558  INFO        Scene 755/999: superCLEVR_new_020754
+2026-04-18 18:27:33,392  INFO        Scene 756/999: superCLEVR_new_020755
+2026-04-18 18:27:34,690  INFO        Scene 757/999: superCLEVR_new_020756
+2026-04-18 18:27:46,597  WARNING   Qwen2-VL batch: no JSON array in: '[1.2, 2.5, 1.8, 3.0, 1.5, 2.2, 3.5, 2.8, 1.0, 1.5, 2.0, 3.0, 2.5, 2.8, 3.2, 2.0, 1.8, 2.5, 2.2, 3.0,'
+2026-04-18 18:27:46,600  INFO        Scene 758/999: superCLEVR_new_020757
+2026-04-18 18:27:47,905  INFO        Scene 759/999: superCLEVR_new_020758
+2026-04-18 18:27:51,203  WARNING   Qwen2-VL batch: got 27/28 values — NaN-padding
+2026-04-18 18:27:51,206  INFO        Scene 760/999: superCLEVR_new_020759
+2026-04-18 18:27:53,562  WARNING   Qwen2-VL batch: got 19/21 values — NaN-padding
+2026-04-18 18:27:53,565  INFO        Scene 761/999: superCLEVR_new_020760
+2026-04-18 18:27:56,154  INFO        Scene 762/999: superCLEVR_new_020761
+2026-04-18 18:28:00,855  INFO        Scene 763/999: superCLEVR_new_020762
+2026-04-18 18:28:12,771  WARNING   Qwen2-VL batch: no JSON array in: '[1.2, 3.4, 0.8, 2.5, 1.5, 2.0, 3.0, 4.2, 2.8, 1.5, 2.0, 3.0, 4.2, 2.8, 1.5, 2.0, 3.0, 4.2, 2.8, 1.5,'
+2026-04-18 18:28:12,775  INFO        Scene 764/999: superCLEVR_new_020763
+2026-04-18 18:28:13,677  INFO        Scene 765/999: superCLEVR_new_020764
+2026-04-18 18:28:14,988  INFO        Scene 766/999: superCLEVR_new_020765
+2026-04-18 18:28:15,460  INFO        Scene 767/999: superCLEVR_new_020766
+2026-04-18 18:28:18,104  WARNING   Qwen2-VL batch: got 20/21 values — NaN-padding
+2026-04-18 18:28:18,107  INFO        Scene 768/999: superCLEVR_new_020767
+2026-04-18 18:28:21,289  WARNING   Qwen2-VL batch: got 26/28 values — NaN-padding
+2026-04-18 18:28:21,292  INFO        Scene 769/999: superCLEVR_new_020768
+2026-04-18 18:28:21,761  INFO        Scene 770/999: superCLEVR_new_020769
+2026-04-18 18:28:24,238  WARNING   Qwen2-VL batch: got 20/21 values — NaN-padding
+2026-04-18 18:28:24,241  INFO        Scene 771/999: superCLEVR_new_020770
+2026-04-18 18:28:29,367  WARNING   Qwen2-VL batch: got 37/45 values — NaN-padding
+2026-04-18 18:28:29,371  INFO        Scene 772/999: superCLEVR_new_020771
+2026-04-18 18:28:29,852  INFO        Scene 773/999: superCLEVR_new_020772
+2026-04-18 18:28:30,359  INFO        Scene 774/999: superCLEVR_new_020773
+2026-04-18 18:28:35,304  WARNING   Qwen2-VL batch: got 34/36 values — NaN-padding
+2026-04-18 18:28:35,307  INFO        Scene 775/999: superCLEVR_new_020774
+2026-04-18 18:28:35,790  INFO        Scene 776/999: superCLEVR_new_020775
+2026-04-18 18:28:37,094  INFO        Scene 777/999: superCLEVR_new_020776
+2026-04-18 18:28:38,756  WARNING   Qwen2-VL batch: got 13/15 values — NaN-padding
+2026-04-18 18:28:38,759  INFO        Scene 778/999: superCLEVR_new_020777
+2026-04-18 18:28:43,893  INFO        Scene 779/999: superCLEVR_new_020778
+2026-04-18 18:28:46,490  INFO        Scene 780/999: superCLEVR_new_020779
+2026-04-18 18:28:47,322  INFO        Scene 781/999: superCLEVR_new_020780
+2026-04-18 18:28:48,618  INFO        Scene 782/999: superCLEVR_new_020781
+2026-04-18 18:29:00,620  WARNING   Qwen2-VL batch: no JSON array in: '[1.2, 3.4, 0.8, 2.1, 1.5, 0.9, 1.8, 1.5, 1.2, 2.1, 3.4, 1.5, 1.8, 1.5, 1.2, 2.1, 3.4, 1.5, 1.8, 1.5,'
+2026-04-18 18:29:00,623  INFO        Scene 783/999: superCLEVR_new_020782
+2026-04-18 18:29:01,151  INFO        Scene 784/999: superCLEVR_new_020783
+2026-04-18 18:29:06,099  WARNING   Qwen2-VL batch: got 41/45 values — NaN-padding
+2026-04-18 18:29:06,103  INFO        Scene 785/999: superCLEVR_new_020784
+2026-04-18 18:29:18,074  WARNING   Qwen2-VL batch: no JSON array in: '[1.5, 2.0, 1.0, 2.5, 1.0, 2.0, 2.5, 1.5, 1.0, 2.0, 1.0, 2.5, 1.5, 1.0, 2.0, 1.0, 2.5, 1.5, 1.0, 2.0,'
+2026-04-18 18:29:18,078  INFO        Scene 786/999: superCLEVR_new_020785
+2026-04-18 18:29:19,382  INFO        Scene 787/999: superCLEVR_new_020786
+2026-04-18 18:29:24,104  WARNING   Qwen2-VL batch: got 39/45 values — NaN-padding
+2026-04-18 18:29:24,107  INFO        Scene 788/999: superCLEVR_new_020787
+2026-04-18 18:29:24,587  INFO        Scene 789/999: superCLEVR_new_020788
+2026-04-18 18:29:25,422  INFO        Scene 790/999: superCLEVR_new_020789
+2026-04-18 18:29:25,912  INFO        Scene 791/999: superCLEVR_new_020790
+2026-04-18 18:29:26,751  INFO        Scene 792/999: superCLEVR_new_020791
+2026-04-18 18:29:27,589  INFO        Scene 793/999: superCLEVR_new_020792
+2026-04-18 18:29:32,893  WARNING   Qwen2-VL batch: got 44/45 values — NaN-padding
+2026-04-18 18:29:32,897  INFO        Scene 794/999: superCLEVR_new_020793
+2026-04-18 18:29:34,555  WARNING   Qwen2-VL batch: got 13/15 values — NaN-padding
+2026-04-18 18:29:34,558  INFO        Scene 795/999: superCLEVR_new_020794
+2026-04-18 18:29:35,864  INFO        Scene 796/999: superCLEVR_new_020795
+2026-04-18 18:29:39,754  WARNING   Qwen2-VL batch: got 32/36 values — NaN-padding
+2026-04-18 18:29:39,758  INFO        Scene 797/999: superCLEVR_new_020796
+2026-04-18 18:29:42,120  WARNING   Qwen2-VL batch: got 19/21 values — NaN-padding
+2026-04-18 18:29:42,123  INFO        Scene 798/999: superCLEVR_new_020797
+2026-04-18 18:29:44,372  WARNING   Qwen2-VL batch: got 18/21 values — NaN-padding
+2026-04-18 18:29:44,375  INFO        Scene 799/999: superCLEVR_new_020798
+2026-04-18 18:29:44,856  INFO        Scene 800/999: superCLEVR_new_020799
+2026-04-18 18:29:45,335  INFO        Scene 801/999: superCLEVR_new_020800
+2026-04-18 18:29:45,858  INFO        Scene 802/999: superCLEVR_new_020801
+2026-04-18 18:29:46,344  INFO        Scene 803/999: superCLEVR_new_020802
+2026-04-18 18:29:47,667  INFO        Scene 804/999: superCLEVR_new_020803
+2026-04-18 18:29:49,086  INFO        Scene 805/999: superCLEVR_new_020804
+2026-04-18 18:29:50,392  INFO        Scene 806/999: superCLEVR_new_020805
+2026-04-18 18:29:50,876  INFO        Scene 807/999: superCLEVR_new_020806
+2026-04-18 18:29:53,361  WARNING   Qwen2-VL batch: got 20/21 values — NaN-padding
+2026-04-18 18:29:53,364  INFO        Scene 808/999: superCLEVR_new_020807
+2026-04-18 18:29:55,026  WARNING   Qwen2-VL batch: got 13/15 values — NaN-padding
+2026-04-18 18:29:55,028  INFO        Scene 809/999: superCLEVR_new_020808
+2026-04-18 18:29:56,575  INFO        Scene 810/999: superCLEVR_new_020809
+2026-04-18 18:29:59,063  WARNING   Qwen2-VL batch: got 20/21 values — NaN-padding
+2026-04-18 18:29:59,066  INFO        Scene 811/999: superCLEVR_new_020810
+2026-04-18 18:30:00,944  INFO        Scene 812/999: superCLEVR_new_020811
+2026-04-18 18:30:03,439  WARNING   Qwen2-VL batch: got 20/21 values — NaN-padding
+2026-04-18 18:30:03,442  INFO        Scene 813/999: superCLEVR_new_020812
+2026-04-18 18:30:06,891  INFO        Scene 814/999: superCLEVR_new_020813
+2026-04-18 18:30:10,651  INFO        Scene 815/999: superCLEVR_new_020814
+2026-04-18 18:30:11,957  INFO        Scene 816/999: superCLEVR_new_020815
+2026-04-18 18:30:16,475  INFO        Scene 817/999: superCLEVR_new_020816
+2026-04-18 18:30:18,114  WARNING   Qwen2-VL batch: got 13/15 values — NaN-padding
+2026-04-18 18:30:18,117  INFO        Scene 818/999: superCLEVR_new_020817
+2026-04-18 18:30:22,817  INFO        Scene 819/999: superCLEVR_new_020818
+2026-04-18 18:30:23,301  INFO        Scene 820/999: superCLEVR_new_020819
+2026-04-18 18:30:24,603  INFO        Scene 821/999: superCLEVR_new_020820
+2026-04-18 18:30:28,269  WARNING   Qwen2-VL batch: got 30/36 values — NaN-padding
+2026-04-18 18:30:28,273  INFO        Scene 822/999: superCLEVR_new_020821
+2026-04-18 18:30:30,053  WARNING   Qwen2-VL batch: got 14/15 values — NaN-padding
+2026-04-18 18:30:30,056  INFO        Scene 823/999: superCLEVR_new_020822
+2026-04-18 18:30:33,251  WARNING   Qwen2-VL batch: got 26/28 values — NaN-padding
+2026-04-18 18:30:33,254  INFO        Scene 824/999: superCLEVR_new_020823
+2026-04-18 18:30:34,560  INFO        Scene 825/999: superCLEVR_new_020824
+2026-04-18 18:30:39,789  INFO        Scene 826/999: superCLEVR_new_020825
+2026-04-18 18:30:42,977  WARNING   Qwen2-VL batch: got 26/28 values — NaN-padding
+2026-04-18 18:30:42,980  INFO        Scene 827/999: superCLEVR_new_020826
+2026-04-18 18:30:43,821  INFO        Scene 828/999: superCLEVR_new_020827
+2026-04-18 18:30:45,174  INFO        Scene 829/999: superCLEVR_new_020828
+2026-04-18 18:30:46,099  INFO        Scene 830/999: superCLEVR_new_020829
+2026-04-18 18:30:58,108  WARNING   Qwen2-VL batch: no JSON array in: '[1.2, 3.4, 0.8, 2.5, 1.5, 1.8, 2.5, 2.0, 1.5, 1.8, 2.5, 2.0, 1.5, 2.5, 1.8, 1.5, 2.0, 2.5, 1.8, 1.5,'
+2026-04-18 18:30:58,111  INFO        Scene 831/999: superCLEVR_new_020830
+2026-04-18 18:31:01,400  WARNING   Qwen2-VL batch: got 27/28 values — NaN-padding
+2026-04-18 18:31:01,403  INFO        Scene 832/999: superCLEVR_new_020831
+2026-04-18 18:31:03,907  WARNING   Qwen2-VL batch: got 20/21 values — NaN-padding
+2026-04-18 18:31:03,910  INFO        Scene 833/999: superCLEVR_new_020832
+2026-04-18 18:31:05,575  WARNING   Qwen2-VL batch: got 13/15 values — NaN-padding
+2026-04-18 18:31:05,578  INFO        Scene 834/999: superCLEVR_new_020833
+2026-04-18 18:31:09,828  WARNING   Qwen2-VL batch: got 35/36 values — NaN-padding
+2026-04-18 18:31:09,831  INFO        Scene 835/999: superCLEVR_new_020834
+2026-04-18 18:31:12,200  WARNING   Qwen2-VL batch: got 19/21 values — NaN-padding
+2026-04-18 18:31:12,203  INFO        Scene 836/999: superCLEVR_new_020835
+2026-04-18 18:31:14,688  WARNING   Qwen2-VL batch: got 20/21 values — NaN-padding
+2026-04-18 18:31:14,691  INFO        Scene 837/999: superCLEVR_new_020836
+2026-04-18 18:31:17,058  WARNING   Qwen2-VL batch: got 19/21 values — NaN-padding
+2026-04-18 18:31:17,061  INFO        Scene 838/999: superCLEVR_new_020837
+2026-04-18 18:31:22,207  WARNING   Qwen2-VL batch: got 42/45 values — NaN-padding
+2026-04-18 18:31:22,211  INFO        Scene 839/999: superCLEVR_new_020838
+2026-04-18 18:31:23,533  INFO        Scene 840/999: superCLEVR_new_020839
+2026-04-18 18:31:24,446  INFO        Scene 841/999: superCLEVR_new_020840
+2026-04-18 18:31:25,746  INFO        Scene 842/999: superCLEVR_new_020841
+2026-04-18 18:31:31,401  INFO        Scene 843/999: superCLEVR_new_020842
+2026-04-18 18:31:33,172  WARNING   Qwen2-VL batch: got 14/15 values — NaN-padding
+2026-04-18 18:31:33,175  INFO        Scene 844/999: superCLEVR_new_020843
+2026-04-18 18:31:34,941  WARNING   Qwen2-VL batch: got 14/15 values — NaN-padding
+2026-04-18 18:31:34,944  INFO        Scene 845/999: superCLEVR_new_020844
+2026-04-18 18:31:35,806  INFO        Scene 846/999: superCLEVR_new_020845
+2026-04-18 18:31:36,290  INFO        Scene 847/999: superCLEVR_new_020846
+2026-04-18 18:31:48,258  WARNING   Qwen2-VL batch: no JSON array in: '[1.2, 3.4, 5.6, 2.3, 1.5, 4.7, 2.8, 3.4, 5.6, 1.5, 4.7, 2.8, 3.4, 5.6, 1.5, 4.7, 2.8, 3.4, 5.6, 1.5,'
+2026-04-18 18:31:48,261  INFO        Scene 848/999: superCLEVR_new_020847
+2026-04-18 18:31:50,875  INFO        Scene 849/999: superCLEVR_new_020848
+2026-04-18 18:32:02,804  WARNING   Qwen2-VL batch: no JSON array in: '[1.2, 3.4, 0.8, 1.5, 2.1, 0.5, 2.3, 3.6, 1.8, 2.5, 2.2, 3.1, 2.7, 1.9, 2.4, 3.3, 2.6, 1.7, 2.9, 3.5,'
+2026-04-18 18:32:02,808  INFO        Scene 850/999: superCLEVR_new_020849
+2026-04-18 18:32:05,243  WARNING   Qwen2-VL batch: got 19/21 values — NaN-padding
+2026-04-18 18:32:05,246  INFO        Scene 851/999: superCLEVR_new_020850
+2026-04-18 18:32:17,216  WARNING   Qwen2-VL batch: no JSON array in: '[1.2, 3.4, 0.8, 2.5, 1.5, 2.2, 1.8, 3.6, 1.1, 2.3, 2.7, 2.1, 3.9, 1.6, 2.9, 2.4, 3.2, 1.3, 2.6, 2.9,'
+2026-04-18 18:32:17,220  INFO        Scene 852/999: superCLEVR_new_020851
+2026-04-18 18:32:17,698  INFO        Scene 853/999: superCLEVR_new_020852
+2026-04-18 18:32:22,534  WARNING   Qwen2-VL batch: got 40/45 values — NaN-padding
+2026-04-18 18:32:22,538  INFO        Scene 854/999: superCLEVR_new_020853
+2026-04-18 18:32:24,311  WARNING   Qwen2-VL batch: got 14/15 values — NaN-padding
+2026-04-18 18:32:24,314  INFO        Scene 855/999: superCLEVR_new_020854
+2026-04-18 18:32:27,377  WARNING   Qwen2-VL batch: got 25/28 values — NaN-padding
+2026-04-18 18:32:27,380  INFO        Scene 856/999: superCLEVR_new_020855
+2026-04-18 18:32:28,925  WARNING   Qwen2-VL batch: got 12/15 values — NaN-padding
+2026-04-18 18:32:28,928  INFO        Scene 857/999: superCLEVR_new_020856
+2026-04-18 18:32:40,886  WARNING   Qwen2-VL batch: no JSON array in: '[2.5, 3.0, 1.5, 2.0, 1.5, 1.0, 2.0, 1.5, 3.0, 2.5, 1.5, 1.0, 2.0, 1.5, 2.0, 1.5, 1.0, 2.0, 1.5, 1.0,'
+2026-04-18 18:32:40,890  INFO        Scene 858/999: superCLEVR_new_020857
+2026-04-18 18:32:43,372  WARNING   Qwen2-VL batch: got 20/21 values — NaN-padding
+2026-04-18 18:32:43,375  INFO        Scene 859/999: superCLEVR_new_020858
+2026-04-18 18:32:45,020  WARNING   Qwen2-VL batch: got 13/15 values — NaN-padding
+2026-04-18 18:32:45,023  INFO        Scene 860/999: superCLEVR_new_020859
+2026-04-18 18:32:56,925  WARNING   Qwen2-VL batch: no JSON array in: '[1.2, 3.4, 0.8, 2.1, 4.5, 0.5, 3.6, 2.7, 1.5, 4.2, 0.7, 2.9, 1.8, 2.3, 3.1, 4.7, 0.9, 1.6, 2.5, 3.9,'
+2026-04-18 18:32:56,929  INFO        Scene 861/999: superCLEVR_new_020860
+2026-04-18 18:32:58,234  INFO        Scene 862/999: superCLEVR_new_020861
+2026-04-18 18:33:00,003  WARNING   Qwen2-VL batch: got 14/15 values — NaN-padding
+2026-04-18 18:33:00,006  INFO        Scene 863/999: superCLEVR_new_020862
+2026-04-18 18:33:02,244  WARNING   Qwen2-VL batch: got 18/21 values — NaN-padding
+2026-04-18 18:33:02,247  INFO        Scene 864/999: superCLEVR_new_020863
+2026-04-18 18:33:07,720  WARNING   Qwen2-VL batch: got 43/45 values — NaN-padding
+2026-04-18 18:33:07,724  INFO        Scene 865/999: superCLEVR_new_020864
+2026-04-18 18:33:09,254  INFO        Scene 866/999: superCLEVR_new_020865
+2026-04-18 18:33:12,425  WARNING   Qwen2-VL batch: got 26/28 values — NaN-padding
+2026-04-18 18:33:12,429  INFO        Scene 867/999: superCLEVR_new_020866
+2026-04-18 18:33:13,292  INFO        Scene 868/999: superCLEVR_new_020867
+2026-04-18 18:33:15,067  WARNING   Qwen2-VL batch: got 14/15 values — NaN-padding
+2026-04-18 18:33:15,070  INFO        Scene 869/999: superCLEVR_new_020868
+2026-04-18 18:33:18,282  WARNING   Qwen2-VL batch: got 26/28 values — NaN-padding
+2026-04-18 18:33:18,285  INFO        Scene 870/999: superCLEVR_new_020869
+2026-04-18 18:33:18,767  INFO        Scene 871/999: superCLEVR_new_020870
+2026-04-18 18:33:19,255  INFO        Scene 872/999: superCLEVR_new_020871
+2026-04-18 18:33:22,195  WARNING   Qwen2-VL batch: got 24/28 values — NaN-padding
+2026-04-18 18:33:22,198  INFO        Scene 873/999: superCLEVR_new_020872
+2026-04-18 18:33:24,070  INFO        Scene 874/999: superCLEVR_new_020873
+2026-04-18 18:33:24,899  INFO        Scene 875/999: superCLEVR_new_020874
+2026-04-18 18:33:26,197  INFO        Scene 876/999: superCLEVR_new_020875
+2026-04-18 18:33:27,956  WARNING   Qwen2-VL batch: got 14/15 values — NaN-padding
+2026-04-18 18:33:27,959  INFO        Scene 877/999: superCLEVR_new_020876
+2026-04-18 18:33:28,442  INFO        Scene 878/999: superCLEVR_new_020877
+2026-04-18 18:33:32,094  WARNING   Qwen2-VL batch: got 30/36 values — NaN-padding
+2026-04-18 18:33:32,098  INFO        Scene 879/999: superCLEVR_new_020878
+2026-04-18 18:33:33,998  INFO        Scene 880/999: superCLEVR_new_020879
+2026-04-18 18:33:45,957  WARNING   Qwen2-VL batch: no JSON array in: '[1.2, 3.4, 0.8, 2.1, 1.5, 4.2, 0.5, 2.6, 1.8, 3.1, 2.3, 4.5, 1.9, 2.7, 3.6, 1.4, 2.9, 4.8, 1.7, 3.2,'
+2026-04-18 18:33:45,961  INFO        Scene 881/999: superCLEVR_new_020880
+2026-04-18 18:33:57,916  WARNING   Qwen2-VL batch: no JSON array in: '[1.2, 1.5, 0.8, 1.0, 1.8, 1.5, 0.8, 2.0, 1.5, 1.2, 1.5, 1.0, 1.8, 1.5, 1.2, 1.5, 1.0, 1.8, 1.5, 1.2,'
+2026-04-18 18:33:57,920  INFO        Scene 882/999: superCLEVR_new_020881
+2026-04-18 18:33:58,747  INFO        Scene 883/999: superCLEVR_new_020882
+2026-04-18 18:34:00,410  WARNING   Qwen2-VL batch: got 13/15 values — NaN-padding
+2026-04-18 18:34:00,413  INFO        Scene 884/999: superCLEVR_new_020883
+2026-04-18 18:34:01,252  INFO        Scene 885/999: superCLEVR_new_020884
+2026-04-18 18:34:01,740  INFO        Scene 886/999: superCLEVR_new_020885
+2026-04-18 18:34:03,057  INFO        Scene 887/999: superCLEVR_new_020886
+2026-04-18 18:34:03,889  INFO        Scene 888/999: superCLEVR_new_020887
+2026-04-18 18:34:06,944  WARNING   Qwen2-VL batch: got 25/28 values — NaN-padding
+2026-04-18 18:34:06,947  INFO        Scene 889/999: superCLEVR_new_020888
+2026-04-18 18:34:18,897  WARNING   Qwen2-VL batch: no JSON array in: '[1.2, 1.5, 2.5, 2.8, 1.8, 1.5, 2.5, 2.8, 1.5, 2.5, 2.8, 1.8, 2.5, 2.8, 1.5, 2.5, 2.8, 1.8, 2.5, 2.8,'
+2026-04-18 18:34:18,900  INFO        Scene 890/999: superCLEVR_new_020889
+2026-04-18 18:34:19,720  INFO        Scene 891/999: superCLEVR_new_020890
+2026-04-18 18:34:22,061  WARNING   Qwen2-VL batch: got 19/21 values — NaN-padding
+2026-04-18 18:34:22,064  INFO        Scene 892/999: superCLEVR_new_020891
+2026-04-18 18:34:34,057  WARNING   Qwen2-VL batch: no JSON array in: '[1.2, 3.4, 0.8, 2.5, 1.5, 2.0, 1.0, 2.5, 1.5, 2.0, 1.0, 2.5, 1.5, 2.0, 1.0, 2.5, 1.5, 2.0, 1.0, 2.5,'
+2026-04-18 18:34:34,061  INFO        Scene 893/999: superCLEVR_new_020892
+2026-04-18 18:34:37,107  WARNING   Qwen2-VL batch: got 25/28 values — NaN-padding
+2026-04-18 18:34:37,110  INFO        Scene 894/999: superCLEVR_new_020893
+2026-04-18 18:34:37,977  INFO        Scene 895/999: superCLEVR_new_020894
+2026-04-18 18:34:38,464  INFO        Scene 896/999: superCLEVR_new_020895
+2026-04-18 18:34:41,658  WARNING   Qwen2-VL batch: got 26/28 values — NaN-padding
+2026-04-18 18:34:41,661  INFO        Scene 897/999: superCLEVR_new_020896
+2026-04-18 18:34:44,084  WARNING   Qwen2-VL batch: got 19/21 values — NaN-padding
+2026-04-18 18:34:44,087  INFO        Scene 898/999: superCLEVR_new_020897
+2026-04-18 18:34:46,542  WARNING   Qwen2-VL batch: got 20/21 values — NaN-padding
+2026-04-18 18:34:46,545  INFO        Scene 899/999: superCLEVR_new_020898
+2026-04-18 18:34:52,026  WARNING   Qwen2-VL batch: got 44/45 values — NaN-padding
+2026-04-18 18:34:52,030  INFO        Scene 900/999: superCLEVR_new_020899
+2026-04-18 18:34:52,510  INFO        Scene 901/999: superCLEVR_new_020900
+2026-04-18 18:34:53,351  INFO        Scene 902/999: superCLEVR_new_020901
+2026-04-18 18:34:57,215  INFO        Scene 903/999: superCLEVR_new_020902
+2026-04-18 18:34:59,703  WARNING   Qwen2-VL batch: got 20/21 values — NaN-padding
+2026-04-18 18:34:59,706  INFO        Scene 904/999: superCLEVR_new_020903
+2026-04-18 18:35:00,542  INFO        Scene 905/999: superCLEVR_new_020904
+2026-04-18 18:35:03,608  WARNING   Qwen2-VL batch: got 25/28 values — NaN-padding
+2026-04-18 18:35:03,611  INFO        Scene 906/999: superCLEVR_new_020905
+2026-04-18 18:35:04,931  INFO        Scene 907/999: superCLEVR_new_020906
+2026-04-18 18:35:10,845  INFO        Scene 908/999: superCLEVR_new_020907
+2026-04-18 18:35:14,789  WARNING   Qwen2-VL batch: got 27/28 values — NaN-padding
+2026-04-18 18:35:14,792  INFO        Scene 909/999: superCLEVR_new_020908
+2026-04-18 18:35:16,669  INFO        Scene 910/999: superCLEVR_new_020909
+2026-04-18 18:35:17,970  INFO        Scene 911/999: superCLEVR_new_020910
+2026-04-18 18:35:29,940  WARNING   Qwen2-VL batch: no JSON array in: '[1.2, 3.4, 0.8, 2.6, 1.5, 4.7, 0.8, 2.6, 2.6, 1.5, 4.7, 0.8, 2.6, 2.6, 1.5, 4.7, 0.8, 2.6, 2.6, 1.5,'
+2026-04-18 18:35:29,944  INFO        Scene 912/999: superCLEVR_new_020911
+2026-04-18 18:35:34,688  WARNING   Qwen2-VL batch: got 39/45 values — NaN-padding
+2026-04-18 18:35:34,691  INFO        Scene 913/999: superCLEVR_new_020912
+2026-04-18 18:35:37,277  INFO        Scene 914/999: superCLEVR_new_020913
+2026-04-18 18:35:38,585  INFO        Scene 915/999: superCLEVR_new_020914
+2026-04-18 18:35:39,884  INFO        Scene 916/999: superCLEVR_new_020915
+2026-04-18 18:35:51,882  WARNING   Qwen2-VL batch: no JSON array in: '[1.2, 1.5, 2.0, 1.8, 2.5, 1.0, 1.5, 1.2, 1.5, 2.0, 1.0, 1.5, 1.2, 1.5, 1.0, 1.5, 1.2, 1.5, 1.0, 1.5,'
+2026-04-18 18:35:51,885  INFO        Scene 917/999: superCLEVR_new_020916
+2026-04-18 18:35:53,653  WARNING   Qwen2-VL batch: got 14/15 values — NaN-padding
+2026-04-18 18:35:53,655  INFO        Scene 918/999: superCLEVR_new_020917
+2026-04-18 18:35:56,147  WARNING   Qwen2-VL batch: got 20/21 values — NaN-padding
+2026-04-18 18:35:56,150  INFO        Scene 919/999: superCLEVR_new_020918
+2026-04-18 18:35:59,193  WARNING   Qwen2-VL batch: got 25/28 values — NaN-padding
+2026-04-18 18:35:59,196  INFO        Scene 920/999: superCLEVR_new_020919
+2026-04-18 18:36:11,355  WARNING   Qwen2-VL batch: no JSON array in: '[1.2, 3.4, 0.8, 2.5, 1.5, 2.0, 1.0, 1.5, 3.0, 1.5, 2.0, 1.5, 2.5, 1.5, 2.0, 1.5, 2.5, 1.5, 2.0, 1.5,'
+2026-04-18 18:36:11,358  INFO        Scene 921/999: superCLEVR_new_020920
+2026-04-18 18:36:11,851  INFO        Scene 922/999: superCLEVR_new_020921
+2026-04-18 18:36:12,352  INFO        Scene 923/999: superCLEVR_new_020922
+2026-04-18 18:36:13,653  INFO        Scene 924/999: superCLEVR_new_020923
+2026-04-18 18:36:14,138  INFO        Scene 925/999: superCLEVR_new_020924
+2026-04-18 18:36:14,621  INFO        Scene 926/999: superCLEVR_new_020925
+2026-04-18 18:36:15,451  INFO        Scene 927/999: superCLEVR_new_020926
+2026-04-18 18:36:27,318  WARNING   Qwen2-VL batch: no JSON array in: '[1.2, 1.5, 1.8, 2.1, 1.5, 3.0, 1.8, 2.4, 1.5, 1.8, 2.1, 2.4, 1.8, 1.5, 1.8, 2.1, 2.4, 1.5, 1.8, 2.1,'
+2026-04-18 18:36:27,322  INFO        Scene 928/999: superCLEVR_new_020927
+2026-04-18 18:36:32,523  WARNING   Qwen2-VL batch: got 43/45 values — NaN-padding
+2026-04-18 18:36:32,527  INFO        Scene 929/999: superCLEVR_new_020928
+2026-04-18 18:36:44,537  WARNING   Qwen2-VL batch: no JSON array in: '[1.2, 1.5, 2.0, 2.5, 1.8, 1.0, 1.5, 1.2, 2.0, 1.5, 1.8, 1.0, 1.2, 1.5, 2.0, 2.5, 1.8, 1.0, 1.5, 1.2,'
+2026-04-18 18:36:44,541  INFO        Scene 930/999: superCLEVR_new_020929
+2026-04-18 18:36:48,615  INFO        Scene 931/999: superCLEVR_new_020930
+2026-04-18 18:36:51,073  WARNING   Qwen2-VL batch: got 20/21 values — NaN-padding
+2026-04-18 18:36:51,076  INFO        Scene 932/999: superCLEVR_new_020931
+2026-04-18 18:36:52,857  WARNING   Qwen2-VL batch: got 14/15 values — NaN-padding
+2026-04-18 18:36:52,860  INFO        Scene 933/999: superCLEVR_new_020932
+2026-04-18 18:37:04,763  WARNING   Qwen2-VL batch: no JSON array in: '[1.2, 3.4, 0.8, 2.5, 4.6, 1.5, 2.3, 3.6, 2.1, 1.8, 2.7, 3.9, 2.4, 3.2, 2.9, 4.1, 1.6, 2.2, 3.5, 2.8,'
+2026-04-18 18:37:04,767  INFO        Scene 934/999: superCLEVR_new_020933
+2026-04-18 18:37:05,249  INFO        Scene 935/999: superCLEVR_new_020934
+2026-04-18 18:37:06,906  WARNING   Qwen2-VL batch: got 13/15 values — NaN-padding
+2026-04-18 18:37:06,908  INFO        Scene 936/999: superCLEVR_new_020935
+2026-04-18 18:37:07,768  INFO        Scene 937/999: superCLEVR_new_020936
+2026-04-18 18:37:09,430  WARNING   Qwen2-VL batch: got 13/15 values — NaN-padding
+2026-04-18 18:37:09,433  INFO        Scene 938/999: superCLEVR_new_020937
+2026-04-18 18:37:15,768  INFO        Scene 939/999: superCLEVR_new_020938
+2026-04-18 18:37:17,306  WARNING   Qwen2-VL batch: got 12/15 values — NaN-padding
+2026-04-18 18:37:17,308  INFO        Scene 940/999: superCLEVR_new_020939
+2026-04-18 18:37:20,719  INFO        Scene 941/999: superCLEVR_new_020940
+2026-04-18 18:37:21,560  INFO        Scene 942/999: superCLEVR_new_020941
+2026-04-18 18:37:22,399  INFO        Scene 943/999: superCLEVR_new_020942
+2026-04-18 18:37:27,307  WARNING   Qwen2-VL batch: got 39/45 values — NaN-padding
+2026-04-18 18:37:27,311  INFO        Scene 944/999: superCLEVR_new_020943
+2026-04-18 18:37:28,622  INFO        Scene 945/999: superCLEVR_new_020944
+2026-04-18 18:37:40,594  WARNING   Qwen2-VL batch: no JSON array in: '[1.2, 2.4, 0.8, 2.0, 1.0, 0.5, 1.5, 1.0, 2.0, 1.5, 1.0, 1.5, 1.0, 2.0, 1.5, 1.0, 2.0, 1.5, 1.0, 2.0,'
+2026-04-18 18:37:40,597  INFO        Scene 946/999: superCLEVR_new_020945
+2026-04-18 18:37:52,530  WARNING   Qwen2-VL batch: no JSON array in: '[0.5, 0.5, 1.0, 0.5, 0.5, 1.0, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5,'
+2026-04-18 18:37:52,534  INFO        Scene 947/999: superCLEVR_new_020946
+2026-04-18 18:37:57,428  WARNING   Qwen2-VL batch: got 34/36 values — NaN-padding
+2026-04-18 18:37:57,431  INFO        Scene 948/999: superCLEVR_new_020947
+2026-04-18 18:37:58,743  INFO        Scene 949/999: superCLEVR_new_020948
+2026-04-18 18:37:59,651  INFO        Scene 950/999: superCLEVR_new_020949
+2026-04-18 18:38:00,139  INFO        Scene 951/999: superCLEVR_new_020950
+2026-04-18 18:38:04,959  INFO        Scene 952/999: superCLEVR_new_020951
+2026-04-18 18:38:07,670  INFO        Scene 953/999: superCLEVR_new_020952
+2026-04-18 18:38:08,158  INFO        Scene 954/999: superCLEVR_new_020953
+2026-04-18 18:38:11,364  WARNING   Qwen2-VL batch: got 26/28 values — NaN-padding
+2026-04-18 18:38:11,368  INFO        Scene 955/999: superCLEVR_new_020954
+2026-04-18 18:38:23,262  WARNING   Qwen2-VL batch: no JSON array in: '[1.2, 1.5, 1.8, 1.5, 2.4, 1.8, 1.5, 1.8, 1.5, 1.8, 1.5, 1.8, 1.5, 1.8, 1.5, 1.8, 1.5, 1.8, 1.5, 1.8,'
+2026-04-18 18:38:23,265  INFO        Scene 956/999: superCLEVR_new_020955
+2026-04-18 18:38:25,825  WARNING   Qwen2-VL batch: got 20/21 values — NaN-padding
+2026-04-18 18:38:25,828  INFO        Scene 957/999: superCLEVR_new_020956
+2026-04-18 18:38:26,665  INFO        Scene 958/999: superCLEVR_new_020957
+2026-04-18 18:38:29,732  WARNING   Qwen2-VL batch: got 25/28 values — NaN-padding
+2026-04-18 18:38:29,736  INFO        Scene 959/999: superCLEVR_new_020958
+2026-04-18 18:38:32,455  INFO        Scene 960/999: superCLEVR_new_020959
+2026-04-18 18:38:35,780  WARNING   Qwen2-VL batch: got 27/36 values — NaN-padding
+2026-04-18 18:38:35,784  INFO        Scene 961/999: superCLEVR_new_020960
+2026-04-18 18:38:36,617  INFO        Scene 962/999: superCLEVR_new_020961
+2026-04-18 18:38:37,453  INFO        Scene 963/999: superCLEVR_new_020962
+2026-04-18 18:38:49,441  WARNING   Qwen2-VL batch: no JSON array in: '[1.2, 3.4, 0.8, 2.5, 1.5, 2.0, 1.8, 2.2, 3.0, 2.5, 1.8, 2.2, 2.0, 1.5, 2.5, 2.2, 1.8, 2.0, 1.5, 2.2,'
+2026-04-18 18:38:49,445  INFO        Scene 964/999: superCLEVR_new_020963
+2026-04-18 18:38:50,287  INFO        Scene 965/999: superCLEVR_new_020964
+2026-04-18 18:38:50,770  INFO        Scene 966/999: superCLEVR_new_020965
+2026-04-18 18:38:53,248  WARNING   Qwen2-VL batch: got 20/21 values — NaN-padding
+2026-04-18 18:38:53,251  INFO        Scene 967/999: superCLEVR_new_020966
+2026-04-18 18:38:55,639  WARNING   Qwen2-VL batch: got 19/21 values — NaN-padding
+2026-04-18 18:38:55,642  INFO        Scene 968/999: superCLEVR_new_020967
+2026-04-18 18:39:07,487  WARNING   Qwen2-VL batch: no JSON array in: '[1.2, 0.8, 2.4, 2.0, 1.6, 0.8, 2.4, 1.6, 2.0, 1.6, 0.8, 2.4, 1.6, 2.0, 1.6, 0.8, 2.4, 1.6, 2.0, 1.6,'
+2026-04-18 18:39:07,491  INFO        Scene 969/999: superCLEVR_new_020968
+2026-04-18 18:39:08,318  INFO        Scene 970/999: superCLEVR_new_020969
+2026-04-18 18:39:10,793  WARNING   Qwen2-VL batch: got 20/21 values — NaN-padding
+2026-04-18 18:39:10,796  INFO        Scene 971/999: superCLEVR_new_020970
+2026-04-18 18:39:16,076  INFO        Scene 972/999: superCLEVR_new_020971
+2026-04-18 18:39:17,843  WARNING   Qwen2-VL batch: got 14/15 values — NaN-padding
+2026-04-18 18:39:17,846  INFO        Scene 973/999: superCLEVR_new_020972
+2026-04-18 18:39:21,498  INFO        Scene 974/999: superCLEVR_new_020973
+2026-04-18 18:39:21,980  INFO        Scene 975/999: superCLEVR_new_020974
+2026-04-18 18:39:33,951  WARNING   Qwen2-VL batch: no JSON array in: '[1.2, 1.5, 1.8, 1.1, 1.4, 1.3, 1.6, 1.9, 1.7, 1.5, 1.8, 1.6, 1.9, 1.7, 1.8, 1.6, 1.9, 1.7, 1.8, 1.6,'
+2026-04-18 18:39:33,954  INFO        Scene 976/999: superCLEVR_new_020975
+2026-04-18 18:39:35,271  INFO        Scene 977/999: superCLEVR_new_020976
+2026-04-18 18:39:36,939  WARNING   Qwen2-VL batch: got 13/15 values — NaN-padding
+2026-04-18 18:39:36,942  INFO        Scene 978/999: superCLEVR_new_020977
+2026-04-18 18:39:40,485  WARNING   Qwen2-VL batch: got 29/36 values — NaN-padding
+2026-04-18 18:39:40,488  INFO        Scene 979/999: superCLEVR_new_020978
+2026-04-18 18:39:43,668  WARNING   Qwen2-VL batch: got 26/28 values — NaN-padding
+2026-04-18 18:39:43,671  INFO        Scene 980/999: superCLEVR_new_020979
+2026-04-18 18:39:46,972  WARNING   Qwen2-VL batch: got 27/28 values — NaN-padding
+2026-04-18 18:39:46,975  INFO        Scene 981/999: superCLEVR_new_020980
+2026-04-18 18:39:47,810  INFO        Scene 982/999: superCLEVR_new_020981
+2026-04-18 18:39:50,875  WARNING   Qwen2-VL batch: got 25/28 values — NaN-padding
+2026-04-18 18:39:50,878  INFO        Scene 983/999: superCLEVR_new_020982
+2026-04-18 18:39:51,862  INFO        Scene 984/999: superCLEVR_new_020983
+2026-04-18 18:39:53,524  WARNING   Qwen2-VL batch: got 13/15 values — NaN-padding
+2026-04-18 18:39:53,527  INFO        Scene 985/999: superCLEVR_new_020984
+2026-04-18 18:39:56,005  WARNING   Qwen2-VL batch: got 20/21 values — NaN-padding
+2026-04-18 18:39:56,008  INFO        Scene 986/999: superCLEVR_new_020985
+2026-04-18 18:39:57,409  INFO        Scene 987/999: superCLEVR_new_020986
+2026-04-18 18:39:58,253  INFO        Scene 988/999: superCLEVR_new_020987
+2026-04-18 18:40:00,160  INFO        Scene 989/999: superCLEVR_new_020988
+2026-04-18 18:40:01,465  INFO        Scene 990/999: superCLEVR_new_020989
+2026-04-18 18:40:02,303  INFO        Scene 991/999: superCLEVR_new_020990
+2026-04-18 18:40:05,262  WARNING   Qwen2-VL batch: got 24/28 values — NaN-padding
+2026-04-18 18:40:05,266  INFO        Scene 992/999: superCLEVR_new_020991
+2026-04-18 18:40:08,604  WARNING   Qwen2-VL batch: got 27/28 values — NaN-padding
+2026-04-18 18:40:08,608  INFO        Scene 993/999: superCLEVR_new_020992
+2026-04-18 18:40:09,907  INFO        Scene 994/999: superCLEVR_new_020993
+2026-04-18 18:40:21,872  WARNING   Qwen2-VL batch: no JSON array in: '[1.5, 1.2, 2.0, 1.8, 1.0, 2.5, 1.5, 1.0, 1.2, 2.0, 1.8, 1.0, 1.5, 1.2, 1.0, 2.0, 1.8, 1.0, 1.5, 1.2,'
+2026-04-18 18:40:21,876  INFO        Scene 995/999: superCLEVR_new_020994
+2026-04-18 18:40:26,705  INFO        Scene 996/999: superCLEVR_new_020995
+2026-04-18 18:40:30,585  INFO        Scene 997/999: superCLEVR_new_020996
+2026-04-18 18:40:31,068  INFO        Scene 998/999: superCLEVR_new_020997
+2026-04-18 18:40:32,608  WARNING   Qwen2-VL batch: got 12/15 values — NaN-padding
+2026-04-18 18:40:32,610  INFO        Scene 999/999: superCLEVR_new_020998
+2026-04-18 18:40:36,377  WARNING   Qwen2-VL batch: got 31/36 values — NaN-padding
+2026-04-18 18:40:36,497  INFO      
+Results written to results_20k/eval_qwen_no_geom.json
+
+============================================================
+  Dataset : Spatial457
+  Model   : qwen2-vl-7b
+============================================================
+  mae                                     : 3.2050
+  mra                                     : 0.3197
+  circular_acc                            : nan
+  flip_acc                                : nan
+  triangle_violation_rate                 : 0.0530
+  mean_residual                           : 3.8962
+  residual_hallucination_pearson          : nan
+  residual_hallucination_auroc            : nan
+  trigger_precision                       : nan
+  trigger_recall                          : nan
+  trigger_f1                              : nan
+  baseline_mae                            : 6.1924
+  gnn_mae                                 : 3.2050
+

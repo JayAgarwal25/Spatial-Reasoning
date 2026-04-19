@@ -10,16 +10,16 @@
 
 set -euo pipefail
 
-REPO="/home/jay_agarwal_2022/Spatial-Reasoning"
-DATA="${REPO}/data/spatial457_20k/scenes"
-CKPT="${REPO}/checkpoints_20k"
-LOGS="${REPO}/logs_20k"
+ROOT="$(cd "$(dirname "$0")/.." && pwd)"
+DATA="${ROOT}/data/spatial457_20k/scenes"
+CKPT="${ROOT}/checkpoints"
+LOGS="${ROOT}/logs"
 
 EPOCHS="${EPOCHS:-100}"
 NOISE="${NOISE:-0.8}"    # log-normal sigma: covers factor-2 to factor-10 errors
 
 mkdir -p "$CKPT" "$LOGS"
-export PYTHONPATH="$REPO:${PYTHONPATH:-}"
+export PYTHONPATH="${ROOT}/src:${PYTHONPATH:-}"
 
 echo "======================================================"
 echo "  Training on Spatial457-20k  (${EPOCHS} epochs)"
@@ -31,33 +31,23 @@ COMMON="--dataset spatial457_20k --data_root $DATA \
         --epochs $EPOCHS --vlm_noise_sigma $NOISE \
         --checkpoint_dir $CKPT --batch_size 32 --lr 3e-4"
 
-# Full model (geom + epistemic)
-CUDA_VISIBLE_DEVICES=1 nohup conda run -n epignn --no-capture-output \
-    python "$REPO/train.py" $COMMON \
+CUDA_VISIBLE_DEVICES=0 nohup python "$ROOT/scripts/train.py" $COMMON --no_geom_constraint --no_epistemic \
+    > "$LOGS/train_plain.log" 2>&1 &
+echo "plain_gnn   → GPU 0  (PID $!)"
+
+CUDA_VISIBLE_DEVICES=1 nohup python "$ROOT/scripts/train.py" $COMMON \
     > "$LOGS/train_full.log" 2>&1 &
 echo "full        → GPU 1  (PID $!)"
 
-# No-geom constraint
-CUDA_VISIBLE_DEVICES=2 nohup conda run -n epignn --no-capture-output \
-    python "$REPO/train.py" $COMMON --no_geom_constraint \
+CUDA_VISIBLE_DEVICES=2 nohup python "$ROOT/scripts/train.py" $COMMON --no_geom_constraint \
     > "$LOGS/train_no_geom.log" 2>&1 &
 echo "no_geom     → GPU 2  (PID $!)"
 
-# No-epistemic uncertainty
-CUDA_VISIBLE_DEVICES=3 nohup conda run -n epignn --no-capture-output \
-    python "$REPO/train.py" $COMMON --no_epistemic \
+CUDA_VISIBLE_DEVICES=3 nohup python "$ROOT/scripts/train.py" $COMMON --no_epistemic \
     > "$LOGS/train_no_epi.log" 2>&1 &
 echo "no_epi      → GPU 3  (PID $!)"
-
-# Plain GNN (no geom, no epistemic)
-CUDA_VISIBLE_DEVICES=0 nohup conda run -n epignn --no-capture-output \
-    python "$REPO/train.py" $COMMON --no_geom_constraint --no_epistemic \
-    > "$LOGS/train_plain.log" 2>&1 &
-echo "plain_gnn   → GPU 0  (PID $!)"
 
 echo ""
 echo "All 4 training jobs launched."
 echo "Monitor: tail -f $LOGS/train_*.log"
-echo ""
-echo "After training, run eval with:"
-echo "  CKPT_DIR=$CKPT bash eval_20k.sh"
+echo "After training: CKPT_DIR=$CKPT bash scripts/eval_20k.sh"

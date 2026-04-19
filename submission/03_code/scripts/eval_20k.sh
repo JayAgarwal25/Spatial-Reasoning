@@ -10,15 +10,15 @@
 
 set -euo pipefail
 
-REPO="/home/jay_agarwal_2022/Spatial-Reasoning"
-CKPT_DIR="${CKPT_DIR:-${REPO}/checkpoints_20k}"
-RESULTS_DIR="${REPO}/results_20k"
-DATASET="${REPO}/data/spatial457"
+ROOT="$(cd "$(dirname "$0")/.." && pwd)"
+CKPT_DIR="${CKPT_DIR:-${ROOT}/checkpoints}"
+RESULTS_DIR="${ROOT}/results"
+DATASET="${ROOT}/data/spatial457"
 
-BASELINE="${BASELINE:-internvl2-8b}"
+BASELINE="${BASELINE:-qwen2-vl-7b}"
 
 mkdir -p "$RESULTS_DIR"
-export PYTHONPATH="$REPO:${PYTHONPATH:-}"
+export PYTHONPATH="${ROOT}/src:${PYTHONPATH:-}"
 
 echo "======================================================"
 echo "  Evaluating 20k checkpoints — baseline: $BASELINE"
@@ -26,46 +26,32 @@ echo "  Checkpoints: $CKPT_DIR"
 echo "  Results:     $RESULTS_DIR"
 echo "======================================================"
 
-# Full model on GPU 1
-CUDA_VISIBLE_DEVICES=1 nohup conda run -n epignn --no-capture-output \
-    python "$REPO/step4_evaluation/spatialqa_eval.py" \
-    --model    "$CKPT_DIR/best_full.pt" \
-    --dataset  "$DATASET" \
-    --baselines "$BASELINE" \
-    --output   "$RESULTS_DIR/eval_${BASELINE}_full.json" \
-    > "$RESULTS_DIR/eval_${BASELINE}_full.log" 2>&1 &
-echo "full     → GPU 1  (PID $!)"
+EVAL="$ROOT/src/step4_evaluation/spatialqa_eval.py"
 
-# no_geom on GPU 2
-CUDA_VISIBLE_DEVICES=2 nohup conda run -n epignn --no-capture-output \
-    python "$REPO/step4_evaluation/spatialqa_eval.py" \
-    --model    "$CKPT_DIR/best_no_geom.pt" \
-    --dataset  "$DATASET" \
-    --baselines "$BASELINE" \
-    --output   "$RESULTS_DIR/eval_${BASELINE}_no_geom.json" \
-    > "$RESULTS_DIR/eval_${BASELINE}_no_geom.log" 2>&1 &
-echo "no_geom  → GPU 2  (PID $!)"
-
-# no_epi on GPU 3
-CUDA_VISIBLE_DEVICES=3 nohup conda run -n epignn --no-capture-output \
-    python "$REPO/step4_evaluation/spatialqa_eval.py" \
-    --model    "$CKPT_DIR/best_no_epi.pt" \
-    --dataset  "$DATASET" \
-    --baselines "$BASELINE" \
-    --output   "$RESULTS_DIR/eval_${BASELINE}_no_epi.json" \
-    > "$RESULTS_DIR/eval_${BASELINE}_no_epi.log" 2>&1 &
-echo "no_epi   → GPU 3  (PID $!)"
-
-# plain on GPU 0
-CUDA_VISIBLE_DEVICES=0 nohup conda run -n epignn --no-capture-output \
-    python "$REPO/step4_evaluation/spatialqa_eval.py" \
-    --model    "$CKPT_DIR/best_no_geom_no_epi.pt" \
-    --dataset  "$DATASET" \
-    --baselines "$BASELINE" \
-    --output   "$RESULTS_DIR/eval_${BASELINE}_plain.json" \
+CUDA_VISIBLE_DEVICES=0 nohup python "$EVAL" \
+    --model "$CKPT_DIR/best_no_geom_no_epi.pt" --dataset "$DATASET" \
+    --baselines "$BASELINE" --output "$RESULTS_DIR/eval_${BASELINE}_plain.json" \
     > "$RESULTS_DIR/eval_${BASELINE}_plain.log" 2>&1 &
 echo "plain    → GPU 0  (PID $!)"
 
+CUDA_VISIBLE_DEVICES=1 nohup python "$EVAL" \
+    --model "$CKPT_DIR/best_full.pt" --dataset "$DATASET" \
+    --baselines "$BASELINE" --output "$RESULTS_DIR/eval_${BASELINE}_full.json" \
+    > "$RESULTS_DIR/eval_${BASELINE}_full.log" 2>&1 &
+echo "full     → GPU 1  (PID $!)"
+
+CUDA_VISIBLE_DEVICES=2 nohup python "$EVAL" \
+    --model "$CKPT_DIR/best_no_geom.pt" --dataset "$DATASET" \
+    --baselines "$BASELINE" --output "$RESULTS_DIR/eval_${BASELINE}_no_geom.json" \
+    > "$RESULTS_DIR/eval_${BASELINE}_no_geom.log" 2>&1 &
+echo "no_geom  → GPU 2  (PID $!)"
+
+CUDA_VISIBLE_DEVICES=3 nohup python "$EVAL" \
+    --model "$CKPT_DIR/best_no_epi.pt" --dataset "$DATASET" \
+    --baselines "$BASELINE" --output "$RESULTS_DIR/eval_${BASELINE}_no_epi.json" \
+    > "$RESULTS_DIR/eval_${BASELINE}_no_epi.log" 2>&1 &
+echo "no_epi   → GPU 3  (PID $!)"
+
 echo ""
 echo "Monitor: tail -f $RESULTS_DIR/eval_${BASELINE}_*.log"
-echo "Results: python print_results.py --results_dir $RESULTS_DIR"
+echo "Results: python scripts/print_results.py --results_dir $RESULTS_DIR"

@@ -1,23 +1,31 @@
 Contribution Statement — Quant-EpiGNN
 CS F425 Deep Learning, BITS Pilani
+Team 7
 
-[FILL: Convert this to PDF before submission]
+All members read Spatial457, PRISM-0, VILASR, and the Epistemic GNN paper as
+shared background. Step-specific papers were divided as noted below.
 
-Jay Aggarwal
-  - [FILL: e.g. Led overall system design and integration]
-  - [FILL: Implemented Step 2 (Epistemic GNN) and training pipeline]
-  - [FILL: Ran all training and evaluation experiments]
-  - [FILL: Wrote Methodology and Results sections of report]
+Jay Agarwal (2022B5A71305P)
+Read the Epistemic GNN paper as the basis for Step 2. Responsible for overall system
+integration and took ownership of the training pipeline. Implemented the QuantEpiGNN
+(Step 2) including the epistemic node states, geometric consistency residuals, and
+message passing. Ran all training and ablation experiments on Spatial457-20k. Wrote
+the methodology and results sections of the report, and prepared the live demo.
 
-Gorang Mehrishi
-  - [FILL]
+Gorang Mehrishi (2022B4A70807P)
+Read PRISM-0 as the basis for Step 1. Implemented the full scene graph extraction
+pipeline — object detection, depth estimation, geometric pair pruning, and relation
+extraction. Helped with dataset preparation and contributed to the related work
+section of the report.
 
-Mayukh Khaitan
-  - [FILL: e.g. Led Step 4 evaluation pipeline]
-  - [FILL]
+Mayukh Khetan (2022B5A71326P)
+Read the Spatial457 paper in depth and the GraphCoT-VLA paper for broader context.
+Implemented the evaluation pipeline (Step 4) including the dataset loader, metrics
+(MAE, MRA, triangle-inequality violation rate), and the Qwen2-VL-7B baseline
+integration. Wrote the evaluation and baselines sections of the report.
 
-Harsimar Singh Saluja
-  - [FILL]
-
-Note: contribution_statement.txt must be converted to PDF (contribution_statement.pdf)
-before final submission.
+Harsimar Singh Saluja (2022A7PS1187P)
+Read VILASR as the basis for the feedback loop design in Step 3. Implemented the
+residual-based trigger, image annotation actions, and the iterative visual grounding
+loop. Wrote tests for the Step 3 pipeline and contributed to the introduction and
+related work sections of the report.
