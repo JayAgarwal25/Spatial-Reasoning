@@ -1,21 +1,16 @@
 """
-train.py -- Training script for Step 2: Epistemic GNN
+train.py -- Training script for QuantEpiGNN
 
-Usage (mock data, for development):
-    python train.py
-
-Usage (Step 1 JSON outputs, once Gorang's pipeline has run):
-    python train.py --dataset step1 --data_root data/scene_graphs/
-
-The mock dataset generates synthetic scene graphs in the correct Step 1 output
-format.  Swap it out by implementing a real loader in get_dataset() — the rest
-of the training loop is dataset-agnostic.
+Usage:
+    cd 03_code/
+    export PYTHONPATH=$(pwd)/src
+    python scripts/train.py --dataset spatial457_20k --data_root data/spatial457_20k/scenes
 
 Key hyperparameters (see --help for full list):
     --hidden_dim       256     GNN hidden dimension
     --lambda_metric    1.0     weight of Huber loss relative to CE
     --lr               1e-3    Adam learning rate
-    --epochs           50
+    --epochs           100
     --sem_dim          384     must match SEM_DIM in scene_graph_to_pyg.py
     --num_pred_classes 14      must match NUM_PRED_CLASSES in scene_graph_to_pyg.py
 """

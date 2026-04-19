@@ -1,6 +1,6 @@
 {
   "image": "../06_demo/demo_inputs/sample_image.png",
-  "checkpoint": "/home/jay_agarwal_2022/Spatial-Reasoning/checkpoints_20k/best_no_geom_no_epi.pt",
+  "checkpoint": "checkpoints/best_no_geom_no_epi.pt",
   "epsilon": 0.3,
   "initial_num_nodes": 13,
   "initial_num_edges": 16,

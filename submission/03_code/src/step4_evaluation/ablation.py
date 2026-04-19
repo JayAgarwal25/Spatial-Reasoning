@@ -73,12 +73,12 @@ def _load_model(checkpoint_path: Optional[str], label: str):
 
     import torch, sys
     sys.path.insert(0, str(Path(__file__).parent.parent))
-    from step2_epistemic_gnn.epistemic_gnn import EpistemicGNN
+    from step2_epistemic_gnn.epistemic_gnn import QuantEpiGNN
 
     device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
     ckpt   = torch.load(checkpoint_path, map_location=device)
     cfg    = ckpt.get("config", {})
-    model  = EpistemicGNN(
+    model  = QuantEpiGNN(
         sem_dim=cfg.get("sem_dim", 384),
         hidden_dim=cfg.get("hidden_dim", 256),
         num_classes=cfg.get("num_classes", 10),

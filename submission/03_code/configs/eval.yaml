@@ -2,4 +2,4 @@ dataset: data/spatial457
 baseline: qwen2-vl-7b
 epsilon: 0.3                # residual threshold for Step 3 trigger
 max_feedback_iters: 2       # feedback loop iterations
-results_dir: results_20k/
+results_dir: results/
